@@ -1,0 +1,44 @@
+{
+  "name": "react-component-helper",
+  "version": "0.0.1",
+  "description": "Helper component for react components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run mock & npm run hotServer",
+    "hotServer": "webpack-dev-server --progress --colors --hot --content-base ./build --config ./webpack.dev.config.js",
+    "mock": "node server.js",
+    "build": "webpack -d --progress --colors --config ./webpack.dev.config.js",
+    "prod": "webpack --progress --colors --config ./webpack.prod.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mefive/react-component-helper.git"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "helper"
+  ],
+  "author": "mefive",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mefive/react-component-helper/issues"
+  },
+  "homepage": "https://github.com/mefive/react-component-helper#readme",
+  "dependencies": {
+    "react": "^0.14.6",
+    "classnames": "^2.2.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-node5": "^10.1.2",
+    "babel-preset-react": "^6.3.13",
+    "html-webpack-plugin": "^2.6.1",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
