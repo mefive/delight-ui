@@ -8,7 +8,7 @@ const ScrollableTest = React.createClass({
                 <div className="scroll-container">
                     <Scrollable
                         className="scroll-panel"
-                        panelHeight={200}
+                        panelSize={200}
                     >
                         <div 
                             className="scroll-content"

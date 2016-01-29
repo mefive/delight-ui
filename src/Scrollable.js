@@ -1,13 +1,25 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
 
+import {getOffset} from './util';
+
+function isVeritical(orientation) {
+    return orientation === 'vertical';
+}
+
 const Scrollable = React.createClass({
+    getDefaultProps() {
+        return {
+            orientation: 'vertical'
+        };
+    },
+
     getInitialState() {
         return {
             showBar: false,
-            panelHeight: 0,
-            thumbHeight: 0,
-            thumbTop: 0,
+            panelSize: 0,
+            thumbSize: 0,
+            thumbOffset: 0,
             ratio: 1
         };
     },
@@ -23,9 +35,13 @@ const Scrollable = React.createClass({
 
     onResize() {
         const {panel} = this.refs;
+        const size
+        = isVeritical(this.props.orientation)
+        ? panel.clientHeight
+        : panel.clientWidth;
 
         this.setState({
-            panelHeight: panel.clientHeight
+            panelSize: size
         });
     },
 
@@ -34,11 +50,11 @@ const Scrollable = React.createClass({
     },
 
     componentDidUpdate(prevProps, prevState) {
-        const {scrollHeight} = this.props;
-        const {panelHeight} = this.state;
+        const {scrollSize} = this.props;
+        const {panelSize} = this.state;
 
-        if (scrollHeight !== prevProps.scrollHeight
-            || panelHeight !== prevState.panelHeight
+        if (scrollSize !== prevProps.scrollSize
+            || panelSize !== prevState.panelSize
         ) {
             this.syncThumbSize();
         }
@@ -46,18 +62,26 @@ const Scrollable = React.createClass({
 
     syncThumbSize() {
         const {panel} = this.refs;
-        const {clientHeight, scrollHeight} = panel;
+        const {clientHeight, scrollHeight, clientWidth, scrollWidth} = panel;
+        const {orientation} = this.props;
 
-        const ratio = clientHeight / scrollHeight;
+        const ratio 
+        = isVeritical(orientation)
+        ? clientHeight / scrollHeight
+        : clientWidth / scrollWidth;
 
-        const thumbHeight = Math.round(clientHeight * ratio);
+        const size
+        = isVeritical(orientation)
+        ? clientHeight : clientWidth;
+
+        const thumbSize = Math.round(size * ratio);
 
         const state = {};
 
-        if (thumbHeight === thumbHeight
+        if (thumbSize === thumbSize
             && ratio !== 1
         ) {
-            state.thumbHeight = thumbHeight;
+            state.thumbSize = thumbSize;
             state.showBar = true;
         }
         else {
@@ -65,57 +89,83 @@ const Scrollable = React.createClass({
         }
 
         state.ratio = ratio;
-        state.panelHeight = clientHeight;
+        state.panelSize 
+        = isVeritical(orientation)
+        ? clientHeight : clientWidth
 
         this.setState(state);
     },
 
     onWheel(e) {
         const {panel} = this.refs;
-        const {scrollTop} = panel;
+        const {scrollTop, scrollLeft} = panel;
         const {ratio} = this.state;
-        const {deltaY} = e;
+        const {deltaY, deltaX} = e;
+        const {orientation} = this.props;
 
-        this.scrollPanel(scrollTop + deltaY);
+        const offset
+        = isVeritical(orientation)
+        ? scrollTop + deltaY
+        : scrollLeft + deltaX;
+
+        this.scrollPanel(offset);
+
+        const realOffset
+        = isVeritical(orientation)
+        ? panel.scrollTop
+        : panel.scrollLeft;
 
         this.setState({
-            thumbTop: (panel.scrollTop * ratio)
+            thumbOffset: (realOffset * ratio)
         });
     },
 
-    scrollPanel(top) {
+    scrollPanel(offset) {
         const {panel} = this.refs;
 
-        panel.scrollTop = top;
+        if (isVeritical(this.props.orientation)) {
+            panel.scrollTop = offset;
+        }
+        else {
+            panel.scrollLeft = offset;
+        }
     },
 
     startDragThumb(e) {
         const {track, thumb} = this.refs;
         const {ratio} = this.state;
+        const {orientation} = this.props;
 
-        const bodyScrollTop = document.body.scrollTop;
+        const trackOffsetWindow = getOffset(track);
+        const thumbOffsetWindow = getOffset(thumb);
 
-        const trackOffsetTop = track.getBoundingClientRect().top + bodyScrollTop;
-        const thumbOffsetTop = thumb.getBoundingClientRect().top + bodyScrollTop;
+        const max 
+        = isVeritical(orientation)
+        ? track.clientHeight - thumb.offsetHeight
+        : track.clientWidth - thumb.offsetWidth;
 
-        const maxTop = track.clientHeight - thumb.offsetHeight;
+        const {clientY, clientX} = e;
 
-        const {clientY} = e;
-
-        const mouseOffset = clientY - thumbOffsetTop;
+        const mouseOffset 
+        = isVeritical(orientation)
+        ? clientY - thumbOffsetWindow.top
+        : clientX - thumbOffsetWindow.left;
 
         document.onselectstart = () => false;
 
         const onMove = (e) => {
-            const {clientY} = e;
-            let top = clientY - trackOffsetTop - mouseOffset;
+            const {clientY, clientX} = e;
+            let offset 
+            = isVeritical(orientation)
+            ? clientY - trackOffsetWindow.top - mouseOffset
+            : clientX - trackOffsetWindow.left - mouseOffset;
 
-            top = Math.max(0, top);
-            top = Math.min(maxTop, top);
+            offset = Math.max(0, offset);
+            offset = Math.min(max, offset);
 
-            this.setState({thumbTop: top});
+            this.setState({thumbOffset: offset});
 
-            this.scrollPanel(top / ratio);
+            this.scrollPanel(offset / ratio);
         };
 
         const endMove = (e) => {
@@ -132,20 +182,27 @@ const Scrollable = React.createClass({
     },
 
     render() {
-        const {className, children} = this.props;
-        let {panelHeight} = this.props;
-        const {showBar, thumbHeight, thumbTop} = this.state;
+        const {className, children, orientation} = this.props;
+        let {panelSize} = this.props;
+        const {showBar, thumbSize, thumbOffset} = this.state;
 
-        if (panelHeight == null) {
-            panelHeight = '100%';
+        if (panelSize == null) {
+            panelSize = '100%';
         }
+
+        const panelStyle
+        = isVeritical(orientation)
+        ? { height: panelSize } : { width: panelSize };
+
+        const thumbStyle
+        = isVeritical(orientation)
+        ? { height: thumbSize, top: thumbOffset }
+        : { width: thumbSize, left: thumbOffset };
 
         return (
             <div 
                 className={className}
-                style={{
-                    height: panelHeight
-                }}
+                style={panelStyle}
                 ref="panel"
                 onWheel={this.onWheel}
             >
@@ -163,10 +220,7 @@ const Scrollable = React.createClass({
                     <i
                         className="scroll-thumb"
                         ref="thumb"
-                        style={{
-                            height: thumbHeight,
-                            top: thumbTop
-                        }}
+                        style={thumbStyle}
                         onMouseDown={this.startDragThumb}
                     ></i>
                 </div>
@@ -176,9 +230,10 @@ const Scrollable = React.createClass({
 });
 
 Scrollable.propTypes = {
-    scrollHeight: PropTypes.number,
-    panelHeight: PropTypes.number,
-    className: PropTypes.string
+    scrollSize: PropTypes.number,
+    panelSize: PropTypes.number,
+    className: PropTypes.string,
+    orientation: PropTypes.string // horizontal vertical
 };
 
 export default Scrollable;
