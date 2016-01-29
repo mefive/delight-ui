@@ -13,9 +13,10 @@ const TriggerTest = React.createClass({
             <div className="trigger-test">
                 <Trigger 
                     className="trigger"
-                    actions="click"
+                    actions="click,hover"
                     popup={popup}
                     activeClass="active"
+                    delay={50}
                 >
                     Trigger
                 </Trigger>

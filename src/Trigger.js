@@ -13,25 +13,57 @@ const Trigger = React.createClass({
     onClick() {
         const {visible} = this.state;
 
-        this.setState({
-            visible: !visible
-        });
+        if (visible) {
+            this.hide();
+        }
+        else {
+            this.show();
+        }
     },
 
     onMouseEnter() {
+        const {aboutToLeave} = this.state;
 
+        if (aboutToLeave) {
+            this.state.aboutToLeave = false;
+        }
+        else {
+            this.show();
+        }
     },
 
     onMouseLeave() {
+        const {delay} = this.props;
+        const {state} = this;
 
+        if (!delay) {
+            this.hide();
+        }
+        else {
+            setTimeout(
+                () => {
+                    if (state.aboutToLeave) {
+                        this.hide();
+                    }
+                },
+                delay
+            );
+
+            state.aboutToLeave = true;
+        }
     },
 
     show() {
-
+        this.setState({
+            visible: true
+        });
     },
 
     hide() {
-
+        this.setState({
+            visible: false,
+            aboutToLeave: false
+        });
     },
 
     render() {
@@ -52,7 +84,7 @@ const Trigger = React.createClass({
             triggerProps.onMouseEnter = this.onMouseEnter;
             triggerProps.onMouseLeave = this.onMouseLeave;
         }
-        
+
         if (visible) {
             popupProps
             = {
