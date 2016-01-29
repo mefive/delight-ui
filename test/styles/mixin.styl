@@ -1,0 +1,39 @@
+opacity($opacity) {
+    opacity: $opacity;
+    filter: unquote('alpha(opacity=' + $opacity * 100 + ')');
+}
+
+gradient-vertical($start-color, $end-color) {
+    background-color: $end-color;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($start-color), to($end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, $start-color, $end-color); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(top, $start-color, $end-color); // FF 3.6+
+    background-image: linear-gradient(to bottom, $start-color, $end-color); // Standard, IE10
+    background-repeat: repeat-x;
+}
+
+gradient-radial($start-color, $end-color) {
+    background-color: $start-color;
+    //background: #fafafa; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    //background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmYWZhZmEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZDlkOWQ5IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    //background: -moz-radial-gradient(center, ellipse cover, #fafafa 0%, #d9d9d9 100%); /* FF3.6+ */
+    //background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#fafafa), color-stop(100%,#d9d9d9)); /* Chrome,Safari4+ */
+    //background: -webkit-radial-gradient(center, ellipse cover, #fafafa 0%,#d9d9d9 100%); /* Chrome10+,Safari5.1+ */
+    //background: -o-radial-gradient(center, ellipse cover, #fafafa 0%,#d9d9d9 100%); /* Opera 12+ */
+    //background: -ms-radial-gradient(center, ellipse cover, #fafafa 0%,#d9d9d9 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center, $start-color 0%,$end-color 100%); /* W3C */
+    //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#d9d9d9',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+}
+
+text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+user-select($value) {
+    -moz-user-select: $value;
+    -webkit-user-select: $value;
+    -ms-user-select: $value;
+}

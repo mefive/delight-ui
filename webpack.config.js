@@ -1,12 +1,13 @@
 var webpack = require('webpack');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
     devtool: 'source-map',
 
     entry: [
-        'main.js',
+        './test/main.js',
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
     ],
@@ -31,13 +32,11 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react', 'node5'],
                 }
+            },
+            {
+                test: /\.styl$/,
+                loader: 'style-loader!css-loader!stylus-loader'
             }
-        ]
-    },
-
-    resolve: {
-        root: [
-            __dirname + '/src/',
         ]
     },
 

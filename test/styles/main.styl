@@ -1,0 +1,59 @@
+@import "mixin.styl";
+
+html,
+body {
+    background-color: #FFF;
+    height: 100%;
+    font-size: 13px;
+    overflow: hidden !important;
+
+    font-family: $font-family-text;
+    line-height: 1.1;
+    gradient-radial(#fafafa, #d9d9d9);
+}
+
+#main {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.scrollable-test {
+    border: 1px solid #000;
+    padding: 20px;
+
+    .scroll-container {
+        position: relative;
+        width: 300px;
+        margin: 0 auto;
+        border: 1px solid #999;
+    }
+
+    .scroll-panel {
+        overflow-y: hidden;
+    }
+
+    .scroll-content {
+        vertical-align: middle;
+        text-align: center;
+        line-height: 300px;
+    }
+
+    .scroll-track {
+        width: 6px;
+        position: absolute;
+        right: 1px;
+        top: 0;
+        bottom: 0;
+    }
+
+    .scroll-thumb {
+        width: 6px;
+        position: absolute;
+        background-color: #F46700;
+        &:hover {
+            background-color: #b3b3b3;
+        }
+        transition: background-color .3s;
+        border-radius: 3px;
+    }
+}
