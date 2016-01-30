@@ -1,9 +1,9 @@
 export function getOffset(element) {
     const top 
-    = element.getBoundingClientRect().top + document.body.scrollTop;
+    = Math.round(element.getBoundingClientRect().top + document.body.scrollTop);
 
     const left
-    = element.getBoundingClientRect().left + document.body.scrollLeft;
+    = Math.round(element.getBoundingClientRect().left + document.body.scrollLeft);
 
     return {
         top,

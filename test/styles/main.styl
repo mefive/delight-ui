@@ -1,3 +1,4 @@
+@import "reset.styl";
 @import "mixin.styl";
 
 primary-border() {
@@ -36,6 +37,7 @@ body {
             font-size: 26px;
             font-weight: 600;
             text-align: left !important;
+            margin: 20px 0;
         }
     }
 }
@@ -153,7 +155,6 @@ body {
         position: relative;
         
         & > div {
-            padding: 10px;
             primary-border();
             border-style: dotted;
             position: absolute;
@@ -161,9 +162,10 @@ body {
             vertical-align: middle;
             text-align: center;
 
-            width: 100px;
-            height: 100px;
-            line-height: 100px;
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
         }
+
     }
 }

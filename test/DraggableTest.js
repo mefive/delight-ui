@@ -21,8 +21,8 @@ const DraggableTest = React.createClass({
         const range = {
             left: offset.left,
             top: offset.top,
-            right: offset.left + playground.clientWidth,
-            bottom: offset.top + playground.clientHeight
+            width: playground.clientWidth,
+            height: playground.clientHeight
         };
 
         this.setState({ range });
@@ -30,6 +30,8 @@ const DraggableTest = React.createClass({
 
     render() {
         const {range} = this.state;
+
+        const {left, top, width, height} = range;
 
         return (
             <div className="draggable-test">
@@ -40,9 +42,25 @@ const DraggableTest = React.createClass({
                 >
                     <Draggable
                         className="free-style"
-                        {...range}
+                        range={range}
                     >
                         I'm a free style
+                    </Draggable>
+
+                    <Draggable
+                        className="vertical-style"
+                        range={{top, height}}
+                        left={200}
+                    >
+                        I can vertical
+                    </Draggable>
+
+                    <Draggable
+                        className="horizontal-style"
+                        range={{left, width}}
+                        top={140}
+                    >
+                        I can horizontal
                     </Draggable>
                 </div>
             </div>

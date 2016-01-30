@@ -12,17 +12,21 @@ const Draggable = React.createClass({
     },
 
     getInitialState() {
+        const {left, top} = this.props;
+
         return {
-            elementTop: 0,
-            elementLeft: 0
+            elementTop: top === null ? 0 : top,
+            elementLeft: left == null ? 0 : left
         };
     },
 
     startDragging(e) {
-        const {top, right, bottom, left} = this.props;
+        const {range} = this.props;
+        const {left, top, width, height} = range;
         const {element} = this.refs;
         const {clientY, clientX} = e;
         const elementOffset = getOffset(element);
+        const {offsetHeight, offsetWidth} = element;
 
         const mouseOffset = {
             top: clientY - elementOffset.top,
@@ -33,6 +37,7 @@ const Draggable = React.createClass({
 
         const onMove = (e) => {
             const {clientY, clientX} = e;
+
             let offset 
             = {
                 top: clientY - top - mouseOffset.top,
@@ -45,13 +50,13 @@ const Draggable = React.createClass({
             };
 
             offset = {
-                top: Math.min(top, offset.top),
-                left: Math.min(left, offset.left)
+                top: Math.min(height - offsetHeight, offset.top),
+                left: Math.min(width - offsetWidth, offset.left)
             };
 
             this.setState({
-                elementLeft: offset.left,
-                elementTop: offset.top
+                elementTop: offset.top,
+                elementLeft: offset.left
             });
         };
 
@@ -92,10 +97,9 @@ const Draggable = React.createClass({
 });
 
 Draggable.propTypes = {
-    top: PropTypes.number,
-    right: PropTypes.number,
-    bottom: PropTypes.number,
-    left: PropTypes.number
+    range: PropTypes.object,
+    left: PropTypes.number,
+    top: PropTypes.number
 };
 
 export default Draggable;
