@@ -4,6 +4,7 @@ import './styles/main.styl';
 
 import ScrollableTest from './ScrollableTest';
 import TriggerTest from './TriggerTest';
+import DraggableTest from './DraggableTest';
 
 const Demo = React.createClass({
     render() {
@@ -11,6 +12,7 @@ const Demo = React.createClass({
             <div className="container">
                 <ScrollableTest />
                 <TriggerTest />
+                <DraggableTest />
             </div>
         );
     }

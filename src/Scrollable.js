@@ -103,6 +103,8 @@ const Scrollable = React.createClass({
         const {deltaY, deltaX} = e;
         const {orientation} = this.props;
 
+        e.preventDefault();
+
         const offset
         = isVeritical(orientation)
         ? scrollTop + deltaY

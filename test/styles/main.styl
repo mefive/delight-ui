@@ -10,7 +10,6 @@ body {
     background-color: #FFF;
     height: 100%;
     font-size: 13px;
-    overflow: hidden !important;
 
     font-family: $font-family-text;
     line-height: 1.1;
@@ -20,6 +19,7 @@ body {
 #main {
     width: 960px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .container {
@@ -28,9 +28,11 @@ body {
             margin-top: 20px;
         }
         
-        border: 1px solid #000;
+        border: 1px solid transparent;
         border-radius: 2px;
         padding: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        background-color: rgba(255, 255, 255, 0.3)
     }
 }
 
@@ -134,5 +136,14 @@ body {
         &.active {
             display: block;
         }
+    }
+}
+
+.draggable-test {
+    .draggable-playground {
+        width: 300px;
+        height: 300px;
+        primary-border();
+        margin: 0 auto;
     }
 }
