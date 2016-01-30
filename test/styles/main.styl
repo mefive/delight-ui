@@ -145,9 +145,25 @@ body {
 
 .draggable-test {
     .draggable-playground {
-        width: 300px;
+        width: 80%;
         height: 300px;
         primary-border();
         margin: 0 auto;
+
+        position: relative;
+        
+        & > div {
+            padding: 10px;
+            primary-border();
+            border-style: dotted;
+            position: absolute;
+
+            vertical-align: middle;
+            text-align: center;
+
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+        }
     }
 }
