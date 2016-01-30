@@ -41,6 +41,15 @@ const TriggerTest = React.createClass({
                 >
                     Click Hover
                 </Trigger>
+
+                <Trigger 
+                    className="trigger"
+                    actions="hover"
+                    popup={popup}
+                    activeClass="active"
+                >
+                    Hover no delay
+                </Trigger>
             </div>
         )
     }

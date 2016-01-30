@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
 
+import Draggable from './Draggable';
 import {getOffset} from './util';
 
 function isVeritical(orientation) {
@@ -17,6 +18,7 @@ const Scrollable = React.createClass({
     getInitialState() {
         return {
             showBar: false,
+            panelOffset: 0,
             panelSize: 0,
             thumbSize: 0,
             thumbOffset: 0,
@@ -26,6 +28,8 @@ const Scrollable = React.createClass({
 
     componentDidMount() {
         this.syncThumbSize();
+
+        this.onResize();
 
         window.addEventListener(
             'resize',
@@ -41,7 +45,8 @@ const Scrollable = React.createClass({
         : panel.clientWidth;
 
         this.setState({
-            panelSize: size
+            panelSize: size,
+            panelOffset: getOffset(panel)
         });
     },
 
@@ -133,68 +138,28 @@ const Scrollable = React.createClass({
         }
     },
 
-    startDragThumb(e) {
-        const {track, thumb} = this.refs;
+    syncScroll(offsetObject) {
         const {ratio} = this.state;
-        const {orientation} = this.props;
+        let offset;
 
-        const trackOffsetWindow = getOffset(track);
-        const thumbOffsetWindow = getOffset(thumb);
-
-        const max 
-        = isVeritical(orientation)
-        ? track.clientHeight - thumb.offsetHeight
-        : track.clientWidth - thumb.offsetWidth;
-
-        const {clientY, clientX} = e;
-
-        const mouseOffset 
-        = isVeritical(orientation)
-        ? clientY - thumbOffsetWindow.top
-        : clientX - thumbOffsetWindow.left;
-
-        document.onselectstart = () => false;
-
-        const onMove = (e) => {
-            const {clientY, clientX} = e;
-            let offset 
-            = isVeritical(orientation)
-            ? clientY - trackOffsetWindow.top - mouseOffset
-            : clientX - trackOffsetWindow.left - mouseOffset;
-
-            offset = Math.max(0, offset);
-            offset = Math.min(max, offset);
-
-            this.setState({thumbOffset: offset});
-
-            this.scrollPanel(offset / ratio);
-        };
-
-        const endMove = (e) => {
-            document.removeEventListener('mousemove', onMove);
-            document.removeEventListener('mouseup', endMove);
-            document.onselectstart = null;
+        if (isVeritical(this.props.orientation)) {
+            offset = offsetObject.top / ratio;
+        }
+        else {
+            offset = offsetObject.left / ratio;
         }
 
-        document
-            .addEventListener('mousemove', onMove);
-
-        document
-            .addEventListener('mouseup', endMove);
+        this.scrollPanel(offset);
     },
 
     render() {
         const {className, children, orientation} = this.props;
         let {panelSize} = this.props;
-        const {showBar, thumbSize, thumbOffset} = this.state;
-
-        if (panelSize == null) {
-            panelSize = '100%';
-        }
+        const {showBar, thumbSize, thumbOffset, panelOffset} = this.state;
 
         const panelStyle
         = isVeritical(orientation)
-        ? { height: panelSize } : { width: panelSize };
+        ? { height: panelSize || '100%' } : { width: panelSize || '100%' };
 
         const thumbStyle
         = isVeritical(orientation)
@@ -219,12 +184,23 @@ const Scrollable = React.createClass({
                     }}
                     ref="track"
                 >
-                    <i
+
+                    <Draggable
                         className="scroll-thumb"
-                        ref="thumb"
+                        range={
+                            isVeritical(orientation)
+                            ? {
+                                top: panelOffset.top,
+                                height: panelSize
+                            }
+                            : {
+                                left: panelOffset.left,
+                                width: panelSize
+                            }
+                        }
                         style={thumbStyle}
-                        onMouseDown={this.startDragThumb}
-                    ></i>
+                        onDrag={this.syncScroll}
+                    ></Draggable>
                 </div>
             </div>
         )

@@ -2,21 +2,10 @@ import React, {PropTypes} from 'react';
 import {getOffset} from './util';
 
 const Draggable = React.createClass({
-    getDefaultProps() {
-        return {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-        };
-    },
-
     getInitialState() {
-        const {left, top} = this.props;
-
         return {
-            elementTop: top === null ? 0 : top,
-            elementLeft: left == null ? 0 : left
+            elementTop: NaN,
+            elementLeft: NaN
         };
     },
 
@@ -37,6 +26,7 @@ const Draggable = React.createClass({
 
         const onMove = (e) => {
             const {clientY, clientX} = e;
+            const {onDrag} = this.props;
 
             let offset 
             = {
@@ -58,6 +48,8 @@ const Draggable = React.createClass({
                 elementTop: offset.top,
                 elementLeft: offset.left
             });
+
+            onDrag && onDrag(offset);
         };
 
         const endMove = (e) => {
@@ -74,14 +66,18 @@ const Draggable = React.createClass({
     },
 
     render() {
-        const {className, children, style} = this.props;
+        const {className, children} = this.props;
+        const {style} = this.props;
         const {elementTop, elementLeft} = this.state;
+        const newStyle = {...style};
 
-        const newStyle = {
-            ...style,
-            left: elementLeft,
-            top: elementTop
-        };
+        if (!isNaN(elementLeft)) {
+            newStyle.left = elementLeft;
+        }
+
+        if (!isNaN(elementTop)) {
+            newStyle.top = elementTop;
+        }
 
         return (
             <div 
@@ -97,9 +93,7 @@ const Draggable = React.createClass({
 });
 
 Draggable.propTypes = {
-    range: PropTypes.object,
-    left: PropTypes.number,
-    top: PropTypes.number
+    range: PropTypes.object
 };
 
 export default Draggable;
