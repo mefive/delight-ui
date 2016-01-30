@@ -5,7 +5,7 @@ const TriggerTest = React.createClass({
     render() {
         const popup = (
             <div className="popup">
-                Zan !
+                Zan <br />! Zan zan zan 
             </div>
         );
 
@@ -13,12 +13,32 @@ const TriggerTest = React.createClass({
             <div className="trigger-test">
                 <Trigger 
                     className="trigger"
+                    actions="click"
+                    popup={popup}
+                    activeClass="active"
+                    delay={100}
+                >
+                    Click
+                </Trigger>
+
+                <Trigger 
+                    className="trigger"
+                    actions="hover"
+                    popup={popup}
+                    activeClass="active"
+                    delay={100}
+                >
+                    Hover
+                </Trigger>
+
+                <Trigger 
+                    className="trigger"
                     actions="click,hover"
                     popup={popup}
                     activeClass="active"
-                    delay={50}
+                    delay={100}
                 >
-                    Trigger
+                    Click Hover
                 </Trigger>
             </div>
         )

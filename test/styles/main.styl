@@ -96,7 +96,7 @@ body {
             height: 6px;
             right: 0;
             left: 0;
-            bottom: 3px;
+            bottom: 0px;
         }
 
         .scroll-thumb {
@@ -114,6 +114,10 @@ body {
         cursor: pointer;
 
         position: relative;
+        
+        & + .trigger {
+            margin-left: 10px;
+        }
     }
 
     .popup {
@@ -123,6 +127,8 @@ body {
         padding: 5px;
         z-index: 1;
         background-color: #FFFBED;
+        white-space: pre;
+        left: -10px;
 
         display: none;
         &.active {
