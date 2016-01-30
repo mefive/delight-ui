@@ -35,43 +35,75 @@ body {
 }
 
 .scrollable-test {
-
-
-    .scroll-container {
+    text-align: center;
+    
+    .scroll-vertical,
+    .scroll-horizontal {
         position: relative;
         width: 300px;
-        margin: 0 auto;
         primary-border();
+        display: inline-block;
+        vertical-align: middle;
     }
 
     .scroll-panel {
-        overflow-y: hidden;
-    }
-
-    .scroll-content {
-        vertical-align: middle;
-        text-align: center;
-        line-height: 300px;
-    }
-
-    .scroll-track {
-        width: 6px;
-        position: absolute;
-        right: 1px;
-        top: 0;
-        bottom: 0;
+        overflow: hidden;
     }
 
     .scroll-thumb {
-        width: 6px;
         position: absolute;
         background-color: #F46700;
+        transition: background-color .3s;
+        border-radius: 3px;
         &:hover {
             background-color: #b3b3b3;
         }
-        transition: background-color .3s;
-        border-radius: 3px;
     }
+
+    .scroll-track {
+        position: absolute;
+    }
+    
+    .scroll-vertical {
+        .scroll-content {
+            vertical-align: middle;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        .scroll-track {
+            width: 6px;
+            right: 3px;
+            top: 0;
+            bottom: 0;
+        }
+
+        .scroll-thumb {
+            width: 6px;
+        }
+    }
+
+    .scroll-horizontal {
+        margin-left: 20px;
+        height: 200px;
+
+        .scroll-content {
+            line-height: 200px;
+            vertical-align: middle;
+        }
+
+        .scroll-track {
+            height: 6px;
+            right: 0;
+            left: 0;
+            bottom: 3px;
+        }
+
+        .scroll-thumb {
+            height: 6px;
+        }
+    }
+
 }
 
 .trigger-test {
