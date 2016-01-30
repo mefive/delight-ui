@@ -11,6 +11,7 @@ const TriggerTest = React.createClass({
 
         return (
             <div className="trigger-test">
+                <h1>Trigger</h1>
                 <Trigger 
                     className="trigger"
                     actions="click"

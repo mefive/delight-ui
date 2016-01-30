@@ -5,6 +5,7 @@ const ScrollableTest = React.createClass({
     render() {
         return (
             <div className="scrollable-test">
+                <h1>Scrollable</h1>
                 <div className="scroll-vertical">
                     <Scrollable
                         className="scroll-panel"
