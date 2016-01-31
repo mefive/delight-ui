@@ -1,13 +1,74 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {PropTypes} from 'react';
+import ReactDOM, {
+    unstable_renderSubtreeIntoContainer as renderSubtreeIntoContainer,
+    findDOMNode
+} from 'react-dom';
+
 import classNames from 'classnames';
 
 const Trigger = React.createClass({
+    getDefaultProps() {
+        return {
+            popupMountInside: true  
+        };
+    },
+
     getInitialState() {
         return {
             aboutToLeave: false,
-            visible: false  
+            visible: false
         };
+    },
+
+    componentDidMount() {
+        this.componentDidUpdate();
+    },
+
+    componentDidUpdate(prevProps, prevState) {
+        let {popup, activeClass} = this.props;
+        const {visible} = this.state;
+
+        let popupProps = {};
+
+        if (this.popupRendered) {
+
+            if (visible) {
+                popupProps
+                = {
+                    className: (popup.props.className + ' ' + activeClass)
+                };
+            }
+
+            popup = React.cloneElement(popup, popupProps);
+
+            renderSubtreeIntoContainer(
+                this,
+                popup,
+                this.getPopupContainer()
+            );
+        } 
+    },
+
+    getPopupContainer() {
+        const {popupMountInside} = this.props;
+        let {popupContainer} = this;
+
+        if (popupContainer) {
+            return popupContainer;
+        }
+
+        popupContainer
+        = this.popupContainer 
+        = document.createElement('div');
+
+        if (popupMountInside) {
+            findDOMNode(this).appendChild(popupContainer);
+        }
+        else {
+            document.body.appendChild(popupContainer);
+        }
+
+        return popupContainer;
     },
 
     onClick() {
@@ -67,12 +128,10 @@ const Trigger = React.createClass({
     },
 
     render() {
-        const {children, className, actions, activeClass} = this.props;
-
-        let {popup} = this.props;
-        let popupProps = {};
-
+        const {children, className, actions, popupMountInside} = this.props;
         const {visible} = this.state;
+
+        this.popupRendered = this.popupRendered || visible;
 
         let triggerProps = {};
 
@@ -85,25 +144,15 @@ const Trigger = React.createClass({
             triggerProps.onMouseLeave = this.onMouseLeave;
         }
 
-        if (visible) {
-            popupProps
-            = {
-                className: (popup.props.className + ' ' + activeClass)
-            };
-        }
-
-        popup = React.cloneElement(popup, popupProps);
-
-        return (
-            <div 
-                className={className}
-                {...triggerProps}
-            >
-                {children}
-                {popup}
-            </div>
-        );
+        return React.cloneElement(children, triggerProps);
     }
 });
+
+Trigger.propTypes = {
+    className: PropTypes.string,
+    actions: PropTypes.string,
+    activeClass: PropTypes.string,
+    popupMountInside: PropTypes.bool
+};
 
 export default Trigger;

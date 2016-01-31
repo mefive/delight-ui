@@ -13,42 +13,46 @@ const TriggerTest = React.createClass({
             <div className="trigger-test">
                 <h1>Trigger</h1>
                 <Trigger 
-                    className="trigger"
                     actions="click"
                     popup={popup}
                     activeClass="active"
                     delay={100}
                 >
-                    Click
+                    <div className="trigger">
+                        Click
+                    </div>
                 </Trigger>
 
                 <Trigger 
-                    className="trigger"
                     actions="hover"
                     popup={popup}
                     activeClass="active"
                     delay={100}
                 >
-                    Hover
+                    <div className="trigger">
+                        Hover
+                    </div>
                 </Trigger>
 
                 <Trigger 
-                    className="trigger"
                     actions="click,hover"
                     popup={popup}
                     activeClass="active"
                     delay={100}
                 >
-                    Click Hover
+                    <div className="trigger">
+                        Click Hover
+                    </div>
                 </Trigger>
 
                 <Trigger 
-                    className="trigger"
                     actions="hover"
                     popup={popup}
                     activeClass="active"
                 >
-                    Hover no delay
+                    <div className="trigger">
+                        Hover no delay
+                    </div>
                 </Trigger>
             </div>
         )
