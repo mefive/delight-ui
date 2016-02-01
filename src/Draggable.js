@@ -4,9 +4,25 @@ import {getOffset} from './util';
 const Draggable = React.createClass({
     getInitialState() {
         return {
-            elementTop: NaN,
-            elementLeft: NaN
+            elementTop: 0,
+            elementLeft: 0
         };
+    },
+
+    componentWillReceiveProps(nextProps) {
+        const {style} = nextProps;
+
+        if (style) {
+            const {top, height, left, width} = style;
+            const {state} = this;
+
+            if (top != null) {
+                state.elementTop = top;
+            }
+            else {
+                state.elementLeft = left;
+            }
+        }
     },
 
     startDragging(e) {
@@ -70,7 +86,7 @@ const Draggable = React.createClass({
         const {style} = this.props;
         const {elementTop, elementLeft} = this.state;
         const newStyle = {...style};
-
+console.log('style', style)
         if (!isNaN(elementLeft)) {
             newStyle.left = elementLeft;
         }
@@ -78,7 +94,7 @@ const Draggable = React.createClass({
         if (!isNaN(elementTop)) {
             newStyle.top = elementTop;
         }
-
+console.log('newStyle', newStyle)
         return (
             <div 
                 className={className}
