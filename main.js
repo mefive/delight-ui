@@ -21029,7 +21029,7 @@
 	        var elementLeft = _state.elementLeft;
 	
 	        var newStyle = _extends({}, style);
-	        console.log('style', style);
+	
 	        if (!isNaN(elementLeft)) {
 	            newStyle.left = elementLeft;
 	        }
@@ -21037,7 +21037,7 @@
 	        if (!isNaN(elementTop)) {
 	            newStyle.top = elementTop;
 	        }
-	        console.log('newStyle', newStyle);
+	
 	        return _react2.default.createElement(
 	            'div',
 	            {
