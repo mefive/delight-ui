@@ -6,6 +6,8 @@ primary-border() {
     border-radius: 2px;
 }
 
+$primary-color = #F46700;
+
 html,
 body {
     background-color: #FFF;
@@ -13,6 +15,10 @@ body {
     font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
     line-height: 1.1;
     gradient-radial(#fafafa, #d9d9d9);
+}
+
+body {
+    position: relative;
 }
 
 #main {
@@ -60,7 +66,7 @@ body {
 
     .scroll-thumb {
         position: absolute;
-        background-color: #F46700;
+        background-color: $primary-color;
         transition: background-color .3s;
         border-radius: 3px;
         &:hover {
@@ -167,5 +173,39 @@ body {
             line-height: 120px;
         }
 
+    }
+}
+
+.tooltip-test {
+    .tooltip-trigger {
+        primary-border();
+        display: inline-block;
+        padding: 5px;
+        cursor: pointer;
+        border-color: $primary-color;
+
+        position: relative;
+        
+        & + .tooltip-trigger {
+            margin-left: 30px;
+        }
+    }
+}
+
+.tooltip-popup {
+    position: absolute;
+    color: #fff;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 3px;
+    display: none;
+    margin-top: -5px;
+
+    &.active{
+        display: block;
+    }
+
+    &.bottom {
+        margin-top: 5px;
     }
 }

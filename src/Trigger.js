@@ -4,8 +4,6 @@ import ReactDOM, {
     findDOMNode
 } from 'react-dom';
 
-import classNames from 'classnames';
-
 const Trigger = React.createClass({
     getDefaultProps() {
         return {
@@ -25,8 +23,13 @@ const Trigger = React.createClass({
     },
 
     componentDidUpdate(prevProps, prevState) {
-        let {popup, activeClass} = this.props;
+        let {popup, activeClass, getPopupContainer} = this.props;
+
         const {visible} = this.state;
+
+        if (!getPopupContainer) {
+            getPopupContainer = this.getPopupContainer;
+        }
 
         let popupProps = {};
 
@@ -44,13 +47,13 @@ const Trigger = React.createClass({
             renderSubtreeIntoContainer(
                 this,
                 popup,
-                this.getPopupContainer()
+                getPopupContainer()
             );
         } 
     },
 
     getPopupContainer() {
-        const {popupMountInside} = this.props;
+        const {popupMountInside, popupStyle} = this.props;
         let {popupContainer} = this;
 
         if (popupContainer) {
@@ -152,7 +155,9 @@ Trigger.propTypes = {
     className: PropTypes.string,
     actions: PropTypes.string,
     activeClass: PropTypes.string,
-    popupMountInside: PropTypes.bool
+    popup: PropTypes.node,
+    popupMountInside: PropTypes.bool,
+    getPopupContainer: PropTypes.func
 };
 
 export default Trigger;
