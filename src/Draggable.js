@@ -86,7 +86,7 @@ const Draggable = React.createClass({
         const {style} = this.props;
         const {elementTop, elementLeft} = this.state;
         const newStyle = {...style};
-console.log('style', style)
+
         if (!isNaN(elementLeft)) {
             newStyle.left = elementLeft;
         }
@@ -94,7 +94,7 @@ console.log('style', style)
         if (!isNaN(elementTop)) {
             newStyle.top = elementTop;
         }
-console.log('newStyle', newStyle)
+        
         return (
             <div 
                 className={className}
