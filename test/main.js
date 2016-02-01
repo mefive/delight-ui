@@ -6,6 +6,7 @@ import ScrollableTest from './ScrollableTest';
 import TriggerTest from './TriggerTest';
 import DraggableTest from './DraggableTest';
 import TooltipTest from './TooltipTest';
+import SliderTest from './SliderTest';
 
 const Demo = React.createClass({
     render() {
@@ -15,6 +16,7 @@ const Demo = React.createClass({
                 <TriggerTest />
                 <DraggableTest />
                 <TooltipTest />
+                <SliderTest />
             </div>
         );
     }
