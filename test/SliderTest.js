@@ -6,7 +6,7 @@ const SliderTest = React.createClass({
         return (
             <div className="slider-test">
                 <h1>Slider</h1>
-                <Slider />
+                <Slider value={80} />
             </div>
         );
     }

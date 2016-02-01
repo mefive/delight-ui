@@ -1,7 +1,15 @@
 import React, {PropTypes} from 'react';
-import {getOffset} from './util';
+import {findDOMNode} from 'react-dom';
+import {getOffset, minus} from './util';
 
 const Draggable = React.createClass({
+    getDefaultProps() {
+        return {
+            minShiftX: 0,
+            minShiftY: 0
+        };
+    },
+
     getInitialState() {
         return {
             elementTop: 0,
@@ -26,12 +34,15 @@ const Draggable = React.createClass({
     },
 
     startDragging(e) {
-        const {range} = this.props;
+        const {range, minShiftX, minShiftY} = this.props;
         const {left, top, width, height} = range;
-        const {element} = this.refs;
-        const {clientY, clientX} = e;
+        const element = findDOMNode(this);
+        let {clientY, clientX} = e;
         const elementOffset = getOffset(element);
         const {offsetHeight, offsetWidth} = element;
+
+        clientY = Math.round(clientY);
+        clientX = Math.round(clientX);
 
         const mouseOffset = {
             top: clientY - elementOffset.top,
@@ -51,8 +62,8 @@ const Draggable = React.createClass({
             };
 
             offset = {
-                top: Math.max(0, offset.top),
-                left: Math.max(0, offset.left)
+                top: Math.max(minShiftY, offset.top),
+                left: Math.max(minShiftX, offset.left)
             };
 
             offset = {
@@ -99,7 +110,6 @@ const Draggable = React.createClass({
             <div 
                 className={className}
                 onMouseDown={this.startDragging}
-                ref="element"
                 style={newStyle}
             >
                 {children}
@@ -109,7 +119,9 @@ const Draggable = React.createClass({
 });
 
 Draggable.propTypes = {
-    range: PropTypes.object
+    range: PropTypes.object,
+    minShiftX: PropTypes.number,
+    minShiftY: PropTypes.number
 };
 
 export default Draggable;
