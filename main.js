@@ -20935,9 +20935,26 @@
 	    displayName: 'Draggable',
 	    getInitialState: function getInitialState() {
 	        return {
-	            elementTop: NaN,
-	            elementLeft: NaN
+	            elementTop: 0,
+	            elementLeft: 0
 	        };
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	        var style = nextProps.style;
+	
+	        if (style) {
+	            var top = style.top;
+	            var height = style.height;
+	            var left = style.left;
+	            var width = style.width;
+	            var state = this.state;
+	
+	            if (top != null) {
+	                state.elementTop = top;
+	            } else {
+	                state.elementLeft = left;
+	            }
+	        }
 	    },
 	    startDragging: function startDragging(e) {
 	        var _this = this;
@@ -21012,7 +21029,7 @@
 	        var elementLeft = _state.elementLeft;
 	
 	        var newStyle = _extends({}, style);
-	
+	        console.log('style', style);
 	        if (!isNaN(elementLeft)) {
 	            newStyle.left = elementLeft;
 	        }
@@ -21020,7 +21037,7 @@
 	        if (!isNaN(elementTop)) {
 	            newStyle.top = elementTop;
 	        }
-	
+	        console.log('newStyle', newStyle);
 	        return _react2.default.createElement(
 	            'div',
 	            {
