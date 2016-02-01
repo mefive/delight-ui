@@ -23,7 +23,7 @@ const Trigger = React.createClass({
         this.componentDidUpdate();
     },
 
-    componentWillMount() {
+    componentWillUnmount() {
         const {popupMountInside, getPopupContainer} = this.props;
         const popupContainer = this.popupContainer;
 
