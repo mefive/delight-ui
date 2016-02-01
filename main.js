@@ -20228,7 +20228,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  height: 100%;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: rgba(255,255,255,0.3);\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  height: 100%;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: rgba(255,255,255,0.3);\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n.slider-test .slider {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n}\n.slider-test .slider-step {\n  height: 8px;\n  background-color: rgba(0,0,0,0.2);\n  border-radius: 3px;\n}\n.slider-test .slider-handle {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  margin-top: -4px;\n  background-color: #fff;\n  border-radius: 50%;\n}\n.slider-test .slider-track {\n  position: absolute;\n  height: 8px;\n  background-color: #f46700;\n  width: 50%;\n  border-radius: 3px;\n}\n", ""]);
 	
 	// exports
 
@@ -20927,12 +20927,20 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactDom = __webpack_require__(/*! react-dom */ 159);
+	
 	var _util = __webpack_require__(/*! ./util */ 168);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Draggable = _react2.default.createClass({
 	    displayName: 'Draggable',
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            minShiftX: 0,
+	            minShiftY: 0
+	        };
+	    },
 	    getInitialState: function getInitialState() {
 	        return {
 	            elementTop: 0,
@@ -20959,18 +20967,25 @@
 	    startDragging: function startDragging(e) {
 	        var _this = this;
 	
-	        var range = this.props.range;
+	        var _props = this.props;
+	        var range = _props.range;
+	        var minShiftX = _props.minShiftX;
+	        var minShiftY = _props.minShiftY;
 	        var left = range.left;
 	        var top = range.top;
 	        var width = range.width;
 	        var height = range.height;
-	        var element = this.refs.element;
+	
+	        var element = (0, _reactDom.findDOMNode)(this);
 	        var clientY = e.clientY;
 	        var clientX = e.clientX;
 	
 	        var elementOffset = (0, _util.getOffset)(element);
 	        var offsetHeight = element.offsetHeight;
 	        var offsetWidth = element.offsetWidth;
+	
+	        clientY = Math.round(clientY);
+	        clientX = Math.round(clientX);
 	
 	        var mouseOffset = {
 	            top: clientY - elementOffset.top,
@@ -20992,8 +21007,8 @@
 	            };
 	
 	            offset = {
-	                top: Math.max(0, offset.top),
-	                left: Math.max(0, offset.left)
+	                top: Math.max(minShiftY, offset.top),
+	                left: Math.max(minShiftX, offset.left)
 	            };
 	
 	            offset = {
@@ -21020,9 +21035,9 @@
 	        document.addEventListener('mouseup', endMove);
 	    },
 	    render: function render() {
-	        var _props = this.props;
-	        var className = _props.className;
-	        var children = _props.children;
+	        var _props2 = this.props;
+	        var className = _props2.className;
+	        var children = _props2.children;
 	        var style = this.props.style;
 	        var _state = this.state;
 	        var elementTop = _state.elementTop;
@@ -21043,7 +21058,6 @@
 	            {
 	                className: className,
 	                onMouseDown: this.startDragging,
-	                ref: 'element',
 	                style: newStyle
 	            },
 	            children
@@ -21052,7 +21066,9 @@
 	});
 	
 	Draggable.propTypes = {
-	    range: _react.PropTypes.object
+	    range: _react.PropTypes.object,
+	    minShiftX: _react.PropTypes.number,
+	    minShiftY: _react.PropTypes.number
 	};
 	
 	exports.default = Draggable;
@@ -21075,6 +21091,10 @@
 	});
 	exports.getOffset = getOffset;
 	exports.addClass = addClass;
+	exports.plus = plus;
+	exports.minus = minus;
+	exports.multiply = multiply;
+	exports.divide = divide;
 	function getOffset(element) {
 	    var top = Math.round(element.getBoundingClientRect().top + document.body.scrollTop);
 	
@@ -21088,6 +21108,68 @@
 	
 	function addClass(element, className) {
 	    if (element.classList) element.classList.add(className);else element.className += ' ' + className;
+	};
+	
+	function decimalLength(str) {
+	    var parts = ('' + str).split('.');
+	
+	    return parts.length === 2 ? parts[1].length : 0;
+	}
+	
+	function float2Int(float, length) {
+	    var parts = ('' + float).split('.');
+	    var result;
+	
+	    if (length >= 0) {} else {
+	        length = 0;
+	    }
+	
+	    if (parts.length === 1) {
+	        result = float + new Array(length + 1).join('0');
+	    } else {
+	        length = Math.max(0, length - parts[1].length);
+	        result = parts.join('') + new Array(length + 1).join('0');
+	    }
+	
+	    return +result;
+	}
+	
+	function plus(a, b) {
+	    var length = Math.max(decimalLength(a), decimalLength(b));
+	
+	    a = float2Int(a, length);
+	    b = float2Int(b, length);
+	
+	    return (a + b) / Math.pow(10, length);
+	};
+	
+	function minus(a, b) {
+	    var length = Math.max(decimalLength(a), decimalLength(b));
+	
+	    a = float2Int(a, length);
+	    b = float2Int(b, length);
+	
+	    return (a - b) / Math.pow(10, length);
+	};
+	
+	function multiply(a, b) {
+	    var length = Math.max(decimalLength(a), decimalLength(b));
+	
+	    a = float2Int(a, length);
+	    b = float2Int(b, length);
+	
+	    var factor = Math.pow(10, length);
+	
+	    return a * b / (factor * factor);
+	};
+	
+	function divide(a, b) {
+	    var length = Math.max(decimalLength(a), decimalLength(b));
+	
+	    a = float2Int(a, length);
+	    b = float2Int(b, length);
+	
+	    return a / b;
 	};
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "util.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -21824,7 +21906,7 @@
 	                null,
 	                'Slider'
 	            ),
-	            _react2.default.createElement(_Slider2.default, null)
+	            _react2.default.createElement(_Slider2.default, { value: 80 })
 	        );
 	    }
 	});
@@ -21852,18 +21934,144 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactDom = __webpack_require__(/*! react-dom */ 159);
+	
+	var _Draggable = __webpack_require__(/*! ./Draggable */ 167);
+	
+	var _Draggable2 = _interopRequireDefault(_Draggable);
+	
+	var _util = __webpack_require__(/*! ./util */ 168);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Slider = _react2.default.createClass({
 	    displayName: 'Slider',
+	    getInitialState: function getInitialState() {
+	        return {
+	            offset: {
+	                left: 0,
+	                top: 0
+	            },
+	            range: {
+	                left: 0,
+	                width: 0
+	            },
+	            shift: {
+	                min: 0,
+	                max: 0
+	            },
+	            unit: 0
+	        };
+	    },
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            value: 0,
+	            max: 100,
+	            className: 'slider',
+	            trackClassName: 'slider-track',
+	            handleClassName: 'slider-handle',
+	            stepClassName: 'slider-step'
+	        };
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	        var value = nextProps.value;
+	
+	        this.state.offset = this.getOffset(value);
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var _props = this.props;
+	        var max = _props.max;
+	        var value = _props.value;
+	        var step = this.refs.step;
+	        var state = this.state;
+	
+	        var handle = (0, _reactDom.findDOMNode)(this.refs.handle);
+	
+	        var halfHandleDimension = {
+	            width: (0, _util.divide)(handle.offsetWidth, 2),
+	            height: (0, _util.divide)(handle.offsetHeight, 2)
+	        };
+	
+	        var shift = {
+	            min: -halfHandleDimension.width,
+	            max: halfHandleDimension.width
+	        };
+	
+	        var left = (0, _util.getOffset)(step).left;
+	        var width = (0, _util.plus)(step.clientWidth, shift.max);
+	
+	        state.unit = (0, _util.divide)(step.clientWidth, max);
+	        state.range = { left: left, width: width };
+	        state.shift = shift;
+	
+	        this.setState({
+	            offset: this.getOffset(value)
+	        });
+	    },
+	    getOffset: function getOffset(value) {
+	        var _state = this.state;
+	        var unit = _state.unit;
+	        var shift = _state.shift;
+	
+	        return {
+	            left: value * unit + shift.min
+	        };
+	    },
+	    onDrag: function onDrag(offset) {
+	        this.setState({ offset: offset });
+	
+	        var _state2 = this.state;
+	        var unit = _state2.unit;
+	        var shift = _state2.shift;
+	
+	        console.log('value', (0, _util.divide)((0, _util.minus)(offset.left, shift.min), unit));
+	    },
 	    render: function render() {
+	        var _props2 = this.props;
+	        var className = _props2.className;
+	        var trackClassName = _props2.trackClassName;
+	        var handleClassName = _props2.handleClassName;
+	        var stepClassName = _props2.stepClassName;
+	        var _state3 = this.state;
+	        var offset = _state3.offset;
+	        var range = _state3.range;
+	        var shift = _state3.shift;
+	
 	        return _react2.default.createElement(
 	            'div',
-	            null,
-	            '123'
+	            { className: className },
+	            _react2.default.createElement('div', {
+	                className: trackClassName,
+	                style: {
+	                    width: (0, _util.minus)(offset.left, shift.min)
+	                }
+	            }),
+	            _react2.default.createElement(_Draggable2.default, {
+	                className: handleClassName,
+	                style: {
+	                    left: offset.left
+	                },
+	                range: range,
+	                onDrag: this.onDrag,
+	                ref: 'handle',
+	                minShiftX: shift.min
+	            }),
+	            _react2.default.createElement('div', {
+	                className: stepClassName,
+	                ref: 'step'
+	            })
 	        );
 	    }
 	});
+	
+	Slider.propTypes = {
+	    value: _react.PropTypes.number,
+	    max: _react.PropTypes.number,
+	    className: _react.PropTypes.string,
+	    trackClassName: _react.PropTypes.string,
+	    handleClassName: _react.PropTypes.string,
+	    stepClassName: _react.PropTypes.string
+	};
 	
 	exports.default = Slider;
 	
