@@ -121,7 +121,7 @@ const Scrollable = React.createClass({
         = isVeritical(orientation)
         ? panel.scrollTop
         : panel.scrollLeft;
-
+        
         this.setState({
             thumbOffset: (realOffset * ratio)
         });
