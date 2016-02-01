@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import ReactDOM, {
     unstable_renderSubtreeIntoContainer as renderSubtreeIntoContainer,
+    unmountComponentAtNode,
     findDOMNode
 } from 'react-dom';
 
@@ -20,6 +21,22 @@ const Trigger = React.createClass({
 
     componentDidMount() {
         this.componentDidUpdate();
+    },
+
+    componentWillMount() {
+        const {popupMountInside, getPopupContainer} = this.props;
+        const popupContainer = this.popupContainer;
+
+
+        if (!popupMountInside) {
+            unmountComponentAtNode(popupContainer);
+            if (!getPopupContainer) {
+                document.body.removeChild(popupContainer);
+            }
+            else {
+                // [TODO] unmount hanlder
+            }
+        }
     },
 
     componentDidUpdate(prevProps, prevState) {
