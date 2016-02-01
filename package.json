@@ -8,7 +8,7 @@
     "start": "npm run hotServer",
     "hotServer": "webpack-dev-server --progress --colors --hot --content-base ./build --config ./webpack.config.js",
     "mock": "node server.js",
-    "build": "webpack -d --progress --colors --config ./webpack.config.js"
+    "build": "webpack -d --progress --colors --config ./webpack.dev.config.js"
   },
   "repository": {
     "type": "git",
