@@ -8,7 +8,8 @@ import ReactDOM, {
 const Trigger = React.createClass({
     getDefaultProps() {
         return {
-            popupMountInside: true  
+            popupMountInside: true,
+            activeClass: 'active'
         };
     },
 
@@ -19,6 +20,12 @@ const Trigger = React.createClass({
         };
     },
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.visible != null) {
+            this.state.visible = nextProps.visible;  
+        }
+    },
+
     componentDidMount() {
         this.componentDidUpdate();
     },
@@ -26,7 +33,6 @@ const Trigger = React.createClass({
     componentWillUnmount() {
         const {popupMountInside, getPopupContainer} = this.props;
         const popupContainer = this.popupContainer;
-
 
         if (!popupMountInside) {
             unmountComponentAtNode(popupContainer);
@@ -51,7 +57,6 @@ const Trigger = React.createClass({
         let popupProps = {};
 
         if (this.popupRendered) {
-
             if (visible) {
                 popupProps
                 = {
@@ -148,7 +153,7 @@ const Trigger = React.createClass({
     },
 
     render() {
-        const {children, className, actions, popupMountInside} = this.props;
+        const {children, actions, popupMountInside} = this.props;
         const {visible} = this.state;
 
         this.popupRendered = this.popupRendered || visible;
@@ -169,12 +174,12 @@ const Trigger = React.createClass({
 });
 
 Trigger.propTypes = {
-    className: PropTypes.string,
     actions: PropTypes.string,
     activeClass: PropTypes.string,
     popup: PropTypes.node,
     popupMountInside: PropTypes.bool,
-    getPopupContainer: PropTypes.func
+    getPopupContainer: PropTypes.func,
+    visible: PropTypes.bool
 };
 
 export default Trigger;
