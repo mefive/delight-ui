@@ -20228,7 +20228,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  height: 100%;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: rgba(255,255,255,0.3);\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n.slider-test .slider {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n}\n.slider-test .slider-step {\n  height: 8px;\n  background-color: rgba(0,0,0,0.2);\n  border-radius: 3px;\n}\n.slider-test .slider-handle {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  margin-top: -4px;\n  background-color: #fff;\n  border-radius: 50%;\n}\n.slider-test .slider-track {\n  position: absolute;\n  height: 8px;\n  background-color: #f46700;\n  width: 50%;\n  border-radius: 3px;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  height: 100%;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.col7,\n.col3,\n.col5 {\n  display: inline-block;\n  vertical-align: top;\n}\n.col5 {\n  width: 50%;\n}\n.col7 {\n  width: 70%;\n}\n.col3 {\n  width: 30%;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: rgba(255,255,255,0.3);\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n.slider-test .slider-step {\n  background-color: rgba(0,0,0,0.2);\n  border-radius: 3px;\n}\n.slider-test .slider-handle {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background-color: #fff;\n  border-radius: 50%;\n}\n.slider-test .slider-handle .tooltip-trigger {\n  width: 100%;\n  height: 100%;\n}\n.slider-test .slider-track {\n  position: absolute;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .slider {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.slider-test .slider .slider-step {\n  height: 8px;\n}\n.slider-test .slider .slider-handle {\n  margin-top: -4px;\n}\n.slider-test .slider .slider-track {\n  height: 8px;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .col5 {\n  text-align: center;\n  height: 100px;\n  line-height: 100px;\n}\n.slider-test .slider.vertical {\n  vertical-align: middle;\n  width: 8px;\n  height: 100px;\n}\n.slider-test .slider.vertical .slider-step {\n  height: 100%;\n}\n.slider-test .slider.vertical .slider-handle {\n  margin-left: -4px;\n}\n.slider-test .slider.vertical .slider-track {\n  bottom: 0;\n  width: 8px;\n}\n", ""]);
 	
 	// exports
 
@@ -20821,18 +20821,21 @@
 	                    },
 	                    ref: 'track'
 	                },
-	                _react2.default.createElement(_Draggable2.default, {
-	                    className: 'scroll-thumb',
-	                    range: isVeritical(orientation) ? {
-	                        top: panelOffset.top,
-	                        height: panelSize
-	                    } : {
-	                        left: panelOffset.left,
-	                        width: panelSize
+	                _react2.default.createElement(
+	                    _Draggable2.default,
+	                    {
+	                        range: isVeritical(orientation) ? {
+	                            top: panelOffset.top,
+	                            height: panelSize
+	                        } : {
+	                            left: panelOffset.left,
+	                            width: panelSize
+	                        },
+	                        style: thumbStyle,
+	                        onDrag: this.syncScroll
 	                    },
-	                    style: thumbStyle,
-	                    onDrag: this.syncScroll
-	                })
+	                    _react2.default.createElement('div', { className: 'scroll-thumb' })
+	                )
 	            )
 	        );
 	    }
@@ -21053,15 +21056,12 @@
 	            newStyle.top = elementTop;
 	        }
 	
-	        return _react2.default.createElement(
-	            'div',
-	            {
-	                className: className,
-	                onMouseDown: this.startDragging,
-	                style: newStyle
-	            },
-	            children
-	        );
+	        var newProps = {
+	            onMouseDown: this.startDragging,
+	            style: newStyle
+	        };
+	
+	        return _react2.default.cloneElement(children, newProps);
 	    }
 	});
 	
@@ -21546,28 +21546,37 @@
 	                _react2.default.createElement(
 	                    _Draggable2.default,
 	                    {
-	                        className: 'free-style',
 	                        range: range
 	                    },
-	                    'I\'m a free style'
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'free-style' },
+	                        'I\'m a free style'
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    _Draggable2.default,
 	                    {
-	                        className: 'vertical-style',
 	                        range: { top: top, height: height },
 	                        style: { left: 200 }
 	                    },
-	                    'I can vertical'
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'vertical-style' },
+	                        'I can vertical'
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    _Draggable2.default,
 	                    {
-	                        className: 'horizontal-style',
 	                        range: { left: left, width: width },
 	                        style: { top: 140 }
 	                    },
-	                    'I can horizontal'
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'horizontal-style' },
+	                        'I can horizontal'
+	                    )
 	                )
 	            )
 	        );
@@ -21716,10 +21725,13 @@
 	        };
 	    },
 	    componentDidMount: function componentDidMount() {
-	        var _props = this.props;
-	        var triggerOffset = _props.triggerOffset;
-	        var triggerDimension = _props.triggerDimension;
-	        var placement = _props.placement;
+	        var style = this.getStyle(this.props);
+	        this.setState({ style: style });
+	    },
+	    getStyle: function getStyle(props) {
+	        var triggerOffset = props.triggerOffset;
+	        var triggerDimension = props.triggerDimension;
+	        var placement = props.placement;
 	
 	        var element = (0, _reactDom.findDOMNode)(this);
 	
@@ -21766,12 +21778,19 @@
 	                break;
 	        }
 	
-	        this.setState({ style: style });
+	        return style;
+	    },
+	    componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
+	        if (prevState.style === this.state.style) {
+	            var style = this.getStyle(this.props);
+	
+	            this.setState({ style: style });
+	        }
 	    },
 	    render: function render() {
-	        var _props2 = this.props;
-	        var className = _props2.className;
-	        var children = _props2.children;
+	        var _props = this.props;
+	        var className = _props.className;
+	        var children = _props.children;
 	        var style = this.state.style;
 	
 	        return _react2.default.createElement(
@@ -21796,7 +21815,8 @@
 	            className: 'tooltip',
 	            activeClass: 'active',
 	            popupClassName: 'tooltip-popup',
-	            placement: 'top'
+	            placement: 'top',
+	            delay: 0
 	        };
 	    },
 	    getInitialState: function getInitialState() {
@@ -21812,23 +21832,37 @@
 	        };
 	    },
 	    componentDidMount: function componentDidMount() {
+	        this.sync();
+	    },
+	    getOffset: function getOffset() {
 	        var element = (0, _reactDom.findDOMNode)(this);
-	        var offset = (0, _util.getOffset)(element);
-	        var dimension = {
+	        return (0, _util.getOffset)(element);
+	    },
+	    getDimension: function getDimension() {
+	        var element = (0, _reactDom.findDOMNode)(this);
+	        return {
 	            width: element.offsetWidth,
 	            height: element.offsetHeight
 	        };
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	        this.sync();
+	    },
+	    sync: function sync() {
+	        var offset = this.getOffset();
+	        var dimension = this.getDimension();
 	
 	        this.setState({ offset: offset, dimension: dimension });
 	    },
 	    render: function render() {
-	        var _props3 = this.props;
-	        var className = _props3.className;
-	        var activeClass = _props3.activeClass;
-	        var children = _props3.children;
-	        var popupClassName = _props3.popupClassName;
-	        var title = _props3.title;
-	        var placement = _props3.placement;
+	        var _props2 = this.props;
+	        var className = _props2.className;
+	        var activeClass = _props2.activeClass;
+	        var children = _props2.children;
+	        var popupClassName = _props2.popupClassName;
+	        var title = _props2.title;
+	        var placement = _props2.placement;
+	        var delay = _props2.delay;
 	        var _state = this.state;
 	        var offset = _state.offset;
 	        var dimension = _state.dimension;
@@ -21851,6 +21885,7 @@
 	                activeClass: activeClass,
 	                popup: popup,
 	                popupMountInside: false,
+	                delay: delay,
 	                actions: 'hover'
 	            },
 	            children
@@ -21863,7 +21898,8 @@
 	    activeClass: _react.PropTypes.string,
 	    placement: _react.PropTypes.string, // top bottom topLeft topRight bottomLeft bottomRight
 	    title: _react.PropTypes.string,
-	    popupClassName: _react.PropTypes.string
+	    popupClassName: _react.PropTypes.string,
+	    delay: _react.PropTypes.number
 	};
 	
 	exports.default = Tooltip;
@@ -21906,7 +21942,20 @@
 	                null,
 	                'Slider'
 	            ),
-	            _react2.default.createElement(_Slider2.default, { value: 80 })
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'col5' },
+	                _react2.default.createElement(_Slider2.default, { value: 50 })
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'col5' },
+	                _react2.default.createElement(_Slider2.default, {
+	                    value: 50,
+	                    orientation: 'vertical',
+	                    className: 'slider vertical'
+	                })
+	            )
 	        );
 	    }
 	});
@@ -21940,9 +21989,17 @@
 	
 	var _Draggable2 = _interopRequireDefault(_Draggable);
 	
+	var _Tooltip = __webpack_require__(/*! ./Tooltip */ 173);
+	
+	var _Tooltip2 = _interopRequireDefault(_Tooltip);
+	
 	var _util = __webpack_require__(/*! ./util */ 168);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function isVeritical(orientation) {
+	    return orientation === 'vertical';
+	}
 	
 	var Slider = _react2.default.createClass({
 	    displayName: 'Slider',
@@ -21954,7 +22011,9 @@
 	            },
 	            range: {
 	                left: 0,
-	                width: 0
+	                width: 0,
+	                top: 0,
+	                height: 0
 	            },
 	            shift: {
 	                min: 0,
@@ -21970,7 +22029,9 @@
 	            className: 'slider',
 	            trackClassName: 'slider-track',
 	            handleClassName: 'slider-handle',
-	            stepClassName: 'slider-step'
+	            stepClassName: 'slider-step',
+	            onChange: function onChange() {},
+	            orientation: 'horizontal' // horizontal vertical
 	        };
 	    },
 	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
@@ -21982,10 +22043,11 @@
 	        var _props = this.props;
 	        var max = _props.max;
 	        var value = _props.value;
-	        var step = this.refs.step;
+	        var orientation = _props.orientation;
+	        var _refs = this.refs;
+	        var step = _refs.step;
+	        var handle = _refs.handle;
 	        var state = this.state;
-	
-	        var handle = (0, _reactDom.findDOMNode)(this.refs.handle);
 	
 	        var halfHandleDimension = {
 	            width: (0, _util.divide)(handle.offsetWidth, 2),
@@ -21993,15 +22055,26 @@
 	        };
 	
 	        var shift = {
-	            min: -halfHandleDimension.width,
-	            max: halfHandleDimension.width
+	            min: isVeritical(orientation) ? -halfHandleDimension.height : -halfHandleDimension.width,
+	            max: isVeritical(orientation) ? halfHandleDimension.height : halfHandleDimension.width
 	        };
 	
-	        var left = (0, _util.getOffset)(step).left;
-	        var width = (0, _util.plus)(step.clientWidth, shift.max);
+	        if (isVeritical(orientation)) {
+	            var top = (0, _util.getOffset)(step).top;
+	            var height = (0, _util.plus)(step.clientHeight, shift.max);
+	            state.range = { top: top, height: height };
+	        } else {
+	            var left = (0, _util.getOffset)(step).left;
+	            var width = (0, _util.plus)(step.clientWidth, shift.max);
+	            state.range = { left: left, width: width };
+	        }
 	
-	        state.unit = (0, _util.divide)(step.clientWidth, max);
-	        state.range = { left: left, width: width };
+	        if (isVeritical(orientation)) {
+	            state.unit = (0, _util.divide)(step.clientHeight, max);
+	        } else {
+	            state.unit = (0, _util.divide)(step.clientWidth, max);
+	        }
+	
 	        state.shift = shift;
 	
 	        this.setState({
@@ -22009,53 +22082,95 @@
 	        });
 	    },
 	    getOffset: function getOffset(value) {
+	        var _props2 = this.props;
+	        var orientation = _props2.orientation;
+	        var max = _props2.max;
 	        var _state = this.state;
 	        var unit = _state.unit;
 	        var shift = _state.shift;
+	        var range = _state.range;
+	        console.log(value * unit + shift.min);
+	        var offset = isVeritical(orientation) ? (0, _util.plus)((0, _util.multiply)((0, _util.minus)(max, value), unit), shift.min) : value * unit + shift.min;
+	
+	        if (isVeritical(orientation)) {
+	            return {
+	                top: offset
+	            };
+	        }
 	
 	        return {
-	            left: value * unit + shift.min
+	            left: offset
 	        };
 	    },
-	    onDrag: function onDrag(offset) {
-	        this.setState({ offset: offset });
-	
+	    getValue: function getValue(offset) {
+	        var _props3 = this.props;
+	        var orientation = _props3.orientation;
+	        var max = _props3.max;
 	        var _state2 = this.state;
 	        var unit = _state2.unit;
 	        var shift = _state2.shift;
 	
-	        console.log('value', (0, _util.divide)((0, _util.minus)(offset.left, shift.min), unit));
+	        var value = isVeritical(orientation) ? Math.round((0, _util.minus)(max, (0, _util.divide)((0, _util.minus)(offset.top, shift.min), unit))) : Math.round((0, _util.divide)((0, _util.minus)(offset.left, shift.min), unit));
+	
+	        return value;
+	    },
+	    onDrag: function onDrag(offset) {
+	        var _props4 = this.props;
+	        var onChange = _props4.onChange;
+	        var orientation = _props4.orientation;
+	        var max = _props4.max;
+	
+	        this.setState({ offset: offset });
+	
+	        var value = this.getValue(offset);
+	
+	        onChange(value);
 	    },
 	    render: function render() {
-	        var _props2 = this.props;
-	        var className = _props2.className;
-	        var trackClassName = _props2.trackClassName;
-	        var handleClassName = _props2.handleClassName;
-	        var stepClassName = _props2.stepClassName;
+	        var _props5 = this.props;
+	        var className = _props5.className;
+	        var trackClassName = _props5.trackClassName;
+	        var handleClassName = _props5.handleClassName;
+	        var stepClassName = _props5.stepClassName;
+	        var orientation = _props5.orientation;
 	        var _state3 = this.state;
 	        var offset = _state3.offset;
 	        var range = _state3.range;
 	        var shift = _state3.shift;
+	
+	        var trackStyle = isVeritical(orientation) ? { height: (0, _util.plus)((0, _util.minus)(range.height, offset.top), shift.min) } : { width: (0, _util.minus)(offset.left, shift.min) };
+	
+	        var handleStyle = isVeritical(orientation) ? { top: offset.top } : { left: offset.left };
 	
 	        return _react2.default.createElement(
 	            'div',
 	            { className: className },
 	            _react2.default.createElement('div', {
 	                className: trackClassName,
-	                style: {
-	                    width: (0, _util.minus)(offset.left, shift.min)
-	                }
+	                style: trackStyle
 	            }),
-	            _react2.default.createElement(_Draggable2.default, {
-	                className: handleClassName,
-	                style: {
-	                    left: offset.left
+	            _react2.default.createElement(
+	                _Draggable2.default,
+	                {
+	                    style: handleStyle,
+	                    range: range,
+	                    onDrag: this.onDrag,
+	                    minShiftX: shift.min,
+	                    minShiftY: shift.min
 	                },
-	                range: range,
-	                onDrag: this.onDrag,
-	                ref: 'handle',
-	                minShiftX: shift.min
-	            }),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: handleClassName, ref: 'handle' },
+	                    _react2.default.createElement(
+	                        _Tooltip2.default,
+	                        {
+	                            title: this.getValue(offset) + '',
+	                            delay: 500
+	                        },
+	                        _react2.default.createElement('div', { className: 'tooltip-trigger' })
+	                    )
+	                )
+	            ),
 	            _react2.default.createElement('div', {
 	                className: stepClassName,
 	                ref: 'step'
@@ -22070,7 +22185,9 @@
 	    className: _react.PropTypes.string,
 	    trackClassName: _react.PropTypes.string,
 	    handleClassName: _react.PropTypes.string,
-	    stepClassName: _react.PropTypes.string
+	    stepClassName: _react.PropTypes.string,
+	    onChange: _react.PropTypes.func,
+	    orientation: _react.PropTypes.string // horizontal vertical
 	};
 	
 	exports.default = Slider;
