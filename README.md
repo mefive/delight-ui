@@ -1,6 +1,6 @@
 # delight-ui
 
-A branch of lightwight ui component for React.
+A branch of lightweight ui component for React.
 
 Aim to save time when facing the similar scenario.
 
