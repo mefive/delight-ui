@@ -15,7 +15,13 @@ const Popup = React.createClass({
     },
 
     componentDidMount() {
-        const {triggerOffset, triggerDimension, placement} = this.props;
+        const style = this.getStyle(this.props);
+console.log('componentDidMount')
+        this.setState({style});
+    },
+
+    getStyle(props) {
+        const {triggerOffset, triggerDimension, placement} = props;
 
         const element = findDOMNode(this);
 
@@ -62,7 +68,13 @@ const Popup = React.createClass({
                 break;
         }
 
-        this.setState({style});
+        return style;
+    },
+
+    componentWillUpdate(nextProps, nextState) {
+console.log('componentWillUpdate')
+
+        this.state.style = this.getStyle(nextProps);
     },
 
     render() {
@@ -108,14 +120,28 @@ const Tooltip =  React.createClass({
     },
 
     componentDidMount() {
+        const offset = this.getOffset();
+        const dimension = this.getDimension();
+
+        this.setState({offset, dimension});
+    },
+
+    getOffset() {
         const element = findDOMNode(this)
-        const offset = getOffset(element);
-        const dimension = {
+        return getOffset(element);
+    },
+
+    getDimension() {
+        const element = findDOMNode(this)
+        return {
             width: element.offsetWidth,
             height: element.offsetHeight
         };
+    },
 
-        this.setState({offset, dimension});
+    componentWillUpdate() {
+        this.state.offset = this.getOffset();
+        this.state.dimension = this.getDimension();
     },
 
     render() {

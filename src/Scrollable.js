@@ -186,7 +186,6 @@ const Scrollable = React.createClass({
                 >
 
                     <Draggable
-                        className="scroll-thumb"
                         range={
                             isVeritical(orientation)
                             ? {
@@ -200,7 +199,10 @@ const Scrollable = React.createClass({
                         }
                         style={thumbStyle}
                         onDrag={this.syncScroll}
-                    ></Draggable>
+                    >
+                        <div className="scroll-thumb">
+                        </div>
+                    </Draggable>
                 </div>
             </div>
         )

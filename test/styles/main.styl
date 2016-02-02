@@ -27,6 +27,25 @@ body {
     padding: 20px;
 }
 
+.col7,
+.col3,
+.col5 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.col5 {
+    width: 50%
+}
+
+.col7 {
+    width: 70%;
+}
+
+.col3 {
+    width: 30%;
+}
+
 .container {
     & > div {
         & + div {
@@ -211,14 +230,8 @@ body {
 }
 
 .slider-test {
-    .slider {
-        width: 100%;
-        margin: 0 auto;
-        position: relative;
-    }
 
     .slider-step {
-        height: 8px;
         background-color: rgba(0, 0, 0, 0.2);
         border-radius: 3px;
     }
@@ -227,16 +240,65 @@ body {
         position: absolute;
         width: 16px;
         height: 16px;
-        margin-top: -4px;
         background-color: #fff;
         border-radius: 50%;
+        
+        .tooltip-trigger {
+            width: 100%;
+            height: 100%;
+        }
     }
-
+    
     .slider-track {
         position: absolute;
-        height: 8px;
         background-color: $primary-color;
-        width: 50%;
         border-radius: 3px;
+    }
+
+    .slider {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+
+        .slider-step {
+            height: 8px;
+        }
+
+        .slider-handle {
+            margin-top: -4px;
+        }
+
+        .slider-track {
+            height: 8px;
+            background-color: $primary-color;
+            border-radius: 3px;
+        }
+    }
+
+    .col5 {
+        text-align: center;
+        height: 200px;
+        line-height: 200px;
+    }
+
+    .slider.vertical {
+        vertical-align: top;
+        width: 8px;
+        height: 100%;
+
+        .slider-step {
+            height: 100%;
+        }
+
+        .slider-handle {
+            margin-left: -4px;
+        }
+        
+        .slider-track {
+            bottom: 0;
+            width: 8px;
+        }
     }
 }

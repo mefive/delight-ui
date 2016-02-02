@@ -41,26 +41,29 @@ const DraggableTest = React.createClass({
                     ref="playground"
                 >
                     <Draggable
-                        className="free-style"
                         range={range}
                     >
-                        I'm a free style
+                        <div className="free-style">
+                            I'm a free style
+                        </div>
                     </Draggable>
 
                     <Draggable
-                        className="vertical-style"
                         range={{top, height}}
                         style={{ left: 200 }}
                     >
-                        I can vertical
+                        <div className="vertical-style">
+                            I can vertical
+                        </div>
                     </Draggable>
 
                     <Draggable
-                        className="horizontal-style"
                         range={{left, width}}
                         style={{ top: 140 }}
                     >
-                        I can horizontal
+                        <div className="horizontal-style">
+                            I can horizontal
+                        </div>
                     </Draggable>
                 </div>
             </div>
