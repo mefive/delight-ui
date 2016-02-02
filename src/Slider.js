@@ -92,7 +92,7 @@ const Slider = React.createClass({
 
     getOffset(value) {
         const {orientation, max} = this.props;
-        const {unit, shift, range} = this.state;console.log(value * unit + shift.min)
+        const {unit, shift, range} = this.state;
         const offset 
         = isVeritical(orientation)
         ? plus(multiply(minus(max, value), unit), shift.min)

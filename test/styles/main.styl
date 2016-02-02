@@ -67,6 +67,13 @@ body {
     }
 }
 
+hide-display() {
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+
 .scrollable-test {
     text-align: center;
     
@@ -299,6 +306,46 @@ body {
         .slider-track {
             bottom: 0;
             width: 8px;
+        }
+    }
+}
+
+.select-test {
+    .select{
+        primary-border();
+        display: inline-block;
+        padding: 5px;
+        cursor: pointer;
+
+        position: relative;
+        transition: box-shadow .2s;
+        width: 120px;
+        text-align: center;
+
+        &:active {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5)
+        }
+    }
+}
+
+.select-popup {
+    primary-border();
+    position: absolute;
+    text-align: left;
+    line-height: 2;
+    background-color: #fff;
+
+    hide-display();
+
+    .select-item {
+        padding-left: 10px;
+        transition: background-color .2s;
+        &:hover {
+            background-color: lighten($primary-color, 95%);
+        }
+        &.active {
+            background-color: lighten($primary-color, 50%);
+            color: #fff;
         }
     }
 }
