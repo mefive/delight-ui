@@ -4,7 +4,7 @@ A branch of lightwight ui component for React.
 
 
 
-See the [usage](http://mefive.github.io/react-component-helper/).
+See the [usage](http://mefive.github.io/delight-ui/).
 
 IE9+
 
