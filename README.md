@@ -2,7 +2,7 @@
 
 A branch of lightwight ui component for React.
 
-
+Aim to save time when facing the similar scenario.
 
 See the [usage](http://mefive.github.io/delight-ui/).
 
