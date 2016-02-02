@@ -57,7 +57,7 @@
   \**********************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -91,6 +91,10 @@
 	
 	var _SliderTest2 = _interopRequireDefault(_SliderTest);
 	
+	var _SelectTest = __webpack_require__(/*! ./SelectTest */ 176);
+	
+	var _SelectTest2 = _interopRequireDefault(_SelectTest);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Demo = _react2.default.createClass({
@@ -103,14 +107,15 @@
 	            _react2.default.createElement(_TriggerTest2.default, null),
 	            _react2.default.createElement(_DraggableTest2.default, null),
 	            _react2.default.createElement(_TooltipTest2.default, null),
-	            _react2.default.createElement(_SliderTest2.default, null)
+	            _react2.default.createElement(_SliderTest2.default, null),
+	            _react2.default.createElement(_SelectTest2.default, null)
 	        );
 	    }
 	});
 	
 	_reactDom2.default.render(_react2.default.createElement(Demo, null), document.getElementById('main'));
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "main.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "main.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 2 */
@@ -20228,7 +20233,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  height: 100%;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.col7,\n.col3,\n.col5 {\n  display: inline-block;\n  vertical-align: top;\n}\n.col5 {\n  width: 50%;\n}\n.col7 {\n  width: 70%;\n}\n.col3 {\n  width: 30%;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: rgba(255,255,255,0.3);\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n.slider-test .slider-step {\n  background-color: rgba(0,0,0,0.2);\n  border-radius: 3px;\n}\n.slider-test .slider-handle {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background-color: #fff;\n  border-radius: 50%;\n}\n.slider-test .slider-handle .tooltip-trigger {\n  width: 100%;\n  height: 100%;\n}\n.slider-test .slider-track {\n  position: absolute;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .slider {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.slider-test .slider .slider-step {\n  height: 8px;\n}\n.slider-test .slider .slider-handle {\n  margin-top: -4px;\n}\n.slider-test .slider .slider-track {\n  height: 8px;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .col5 {\n  text-align: center;\n  height: 100px;\n  line-height: 100px;\n}\n.slider-test .slider.vertical {\n  vertical-align: middle;\n  width: 8px;\n  height: 100px;\n}\n.slider-test .slider.vertical .slider-step {\n  height: 100%;\n}\n.slider-test .slider.vertical .slider-handle {\n  margin-left: -4px;\n}\n.slider-test .slider.vertical .slider-track {\n  bottom: 0;\n  width: 8px;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  height: 100%;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.col7,\n.col3,\n.col5 {\n  display: inline-block;\n  vertical-align: top;\n}\n.col5 {\n  width: 50%;\n}\n.col7 {\n  width: 70%;\n}\n.col3 {\n  width: 30%;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: rgba(255,255,255,0.3);\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n.slider-test .slider-step {\n  background-color: rgba(0,0,0,0.2);\n  border-radius: 3px;\n}\n.slider-test .slider-handle {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background-color: #fff;\n  border-radius: 50%;\n}\n.slider-test .slider-handle .tooltip-trigger {\n  width: 100%;\n  height: 100%;\n}\n.slider-test .slider-track {\n  position: absolute;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .slider {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.slider-test .slider .slider-step {\n  height: 8px;\n}\n.slider-test .slider .slider-handle {\n  margin-top: -4px;\n}\n.slider-test .slider .slider-track {\n  height: 8px;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .col5 {\n  text-align: center;\n  height: 100px;\n  line-height: 100px;\n}\n.slider-test .slider.vertical {\n  vertical-align: middle;\n  width: 8px;\n  height: 100px;\n}\n.slider-test .slider.vertical .slider-step {\n  height: 100%;\n}\n.slider-test .slider.vertical .slider-handle {\n  margin-left: -4px;\n}\n.slider-test .slider.vertical .slider-track {\n  bottom: 0;\n  width: 8px;\n}\n.select-test .select {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n  transition: box-shadow 0.2s;\n  width: 120px;\n  text-align: center;\n}\n.select-test .select:active {\n  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);\n}\n.select-popup {\n  border: 1px solid #999;\n  border-radius: 2px;\n  position: absolute;\n  text-align: left;\n  line-height: 2;\n  background-color: #fff;\n  display: none;\n}\n.select-popup.active {\n  display: block;\n}\n.select-popup .select-item {\n  padding-left: 10px;\n  transition: background-color 0.2s;\n}\n.select-popup .select-item:hover {\n  background-color: #fff7f2;\n}\n.select-popup .select-item.active {\n  background-color: #ffb27a;\n  color: #fff;\n}\n", ""]);
 	
 	// exports
 
@@ -20556,7 +20561,7 @@
   \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -20634,7 +20639,7 @@
 	
 	exports.default = ScrollableTest;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ScrollableTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ScrollableTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 165 */
@@ -20643,7 +20648,7 @@
   \***************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -20850,7 +20855,7 @@
 	
 	exports.default = Scrollable;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Scrollable.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Scrollable.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 166 */
@@ -20916,7 +20921,7 @@
   \**************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -21073,7 +21078,7 @@
 	
 	exports.default = Draggable;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Draggable.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Draggable.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 168 */
@@ -21082,7 +21087,7 @@
   \*********************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -21172,7 +21177,7 @@
 	    return a / b;
 	};
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "util.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "util.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 169 */
@@ -21181,7 +21186,7 @@
   \*****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -21279,7 +21284,7 @@
 	
 	exports.default = TriggerTest;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TriggerTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TriggerTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 170 */
@@ -21288,7 +21293,7 @@
   \************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -21310,7 +21315,8 @@
 	    displayName: 'Trigger',
 	    getDefaultProps: function getDefaultProps() {
 	        return {
-	            popupMountInside: true
+	            popupMountInside: true,
+	            activeClass: 'active'
 	        };
 	    },
 	    getInitialState: function getInitialState() {
@@ -21318,6 +21324,11 @@
 	            aboutToLeave: false,
 	            visible: false
 	        };
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	        if (nextProps.visible != null) {
+	            this.state.visible = nextProps.visible;
+	        }
 	    },
 	    componentDidMount: function componentDidMount() {
 	        this.componentDidUpdate();
@@ -21352,7 +21363,6 @@
 	        var popupProps = {};
 	
 	        if (this.popupRendered) {
-	
 	            if (visible) {
 	                popupProps = {
 	                    className: popup.props.className + ' ' + activeClass
@@ -21434,7 +21444,6 @@
 	    render: function render() {
 	        var _props4 = this.props;
 	        var children = _props4.children;
-	        var className = _props4.className;
 	        var actions = _props4.actions;
 	        var popupMountInside = _props4.popupMountInside;
 	        var visible = this.state.visible;
@@ -21457,17 +21466,17 @@
 	});
 	
 	Trigger.propTypes = {
-	    className: _react.PropTypes.string,
 	    actions: _react.PropTypes.string,
 	    activeClass: _react.PropTypes.string,
 	    popup: _react.PropTypes.node,
 	    popupMountInside: _react.PropTypes.bool,
-	    getPopupContainer: _react.PropTypes.func
+	    getPopupContainer: _react.PropTypes.func,
+	    visible: _react.PropTypes.bool
 	};
 	
 	exports.default = Trigger;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Trigger.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Trigger.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 171 */
@@ -21476,7 +21485,7 @@
   \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -21585,7 +21594,7 @@
 	
 	exports.default = DraggableTest;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "DraggableTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "DraggableTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 172 */
@@ -21594,7 +21603,7 @@
   \*****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -21683,7 +21692,7 @@
 	
 	exports.default = TooltipTest;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TooltipTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TooltipTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 173 */
@@ -21692,7 +21701,7 @@
   \************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -21904,7 +21913,7 @@
 	
 	exports.default = Tooltip;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Tooltip.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Tooltip.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 174 */
@@ -21913,7 +21922,7 @@
   \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -21962,7 +21971,7 @@
 	
 	exports.default = SliderTest;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SliderTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SliderTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 175 */
@@ -21971,7 +21980,7 @@
   \***********************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -22089,7 +22098,7 @@
 	        var unit = _state.unit;
 	        var shift = _state.shift;
 	        var range = _state.range;
-	        console.log(value * unit + shift.min);
+	
 	        var offset = isVeritical(orientation) ? (0, _util.plus)((0, _util.multiply)((0, _util.minus)(max, value), unit), shift.min) : value * unit + shift.min;
 	
 	        if (isVeritical(orientation)) {
@@ -22192,7 +22201,265 @@
 	
 	exports.default = Slider;
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/react-component-helper/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Slider.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Slider.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 176 */
+/*!****************************!*\
+  !*** ./test/SelectTest.js ***!
+  \****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Select = __webpack_require__(/*! ../src/Select */ 177);
+	
+	var _Select2 = _interopRequireDefault(_Select);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var data = [{ value: '1', title: '一' }, { value: '2', title: '二' }, { value: '3', title: '三' }, { value: '4', title: '四' }, { value: '5', title: '五' }, { value: '6', title: '六' }, { value: '7', title: '七' }];
+	
+	var SelectTest = _react2.default.createClass({
+	    displayName: 'SelectTest',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            { className: 'select-test' },
+	            _react2.default.createElement(
+	                'h1',
+	                null,
+	                'Select'
+	            ),
+	            _react2.default.createElement(_Select2.default, {
+	                data: data,
+	                className: 'select',
+	                defaultTitle: 'Click to select'
+	            })
+	        );
+	    }
+	});
+	
+	exports.default = SelectTest;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SelectTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 177 */
+/*!***********************!*\
+  !*** ./src/Select.js ***!
+  \***********************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 159);
+	
+	var _Trigger = __webpack_require__(/*! ./Trigger */ 170);
+	
+	var _Trigger2 = _interopRequireDefault(_Trigger);
+	
+	var _util = __webpack_require__(/*! ./util */ 168);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Popup = _react2.default.createClass({
+	    displayName: 'Popup',
+	    getInitialState: function getInitialState() {
+	        return {
+	            width: 0,
+	            left: 0,
+	            to: 0
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var _props = this.props;
+	        var triggerOffset = _props.triggerOffset;
+	        var triggerDimension = _props.triggerDimension;
+	
+	        var element = (0, _reactDom.findDOMNode)(this);
+	
+	        this.setState({
+	            top: triggerOffset.top - element.offsetHeight,
+	            left: triggerOffset.left,
+	            width: triggerDimension.width
+	        });
+	    },
+	    render: function render() {
+	        var _props2 = this.props;
+	        var data = _props2.data;
+	        var value = _props2.value;
+	        var className = _props2.className;
+	        var itemClassName = _props2.itemClassName;
+	        var activeClass = _props2.activeClass;
+	        var _onClick = _props2.onClick;
+	        var _state = this.state;
+	        var width = _state.width;
+	        var top = _state.top;
+	        var left = _state.left;
+	
+	        return _react2.default.createElement(
+	            'div',
+	            {
+	                className: className,
+	                style: {
+	                    width: width,
+	                    left: left,
+	                    top: top
+	                }
+	            },
+	            function () {
+	                var list = data.map(function (item) {
+	                    var className = itemClassName;
+	
+	                    if (item.value === value) {
+	                        className = className + ' ' + activeClass;
+	                    }
+	
+	                    return _react2.default.createElement(
+	                        'div',
+	                        {
+	                            className: className,
+	                            key: item.value,
+	                            onClick: function onClick(e) {
+	                                return _onClick(e, item.value);
+	                            }
+	                        },
+	                        item.title
+	                    );
+	                });
+	
+	                return list;
+	            }()
+	        );
+	    }
+	});
+	
+	var Select = _react2.default.createClass({
+	    displayName: 'Select',
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            data: [],
+	            value: '2',
+	            popupClassName: 'select-popup',
+	            itemClassName: 'select-item',
+	            activeClass: 'active'
+	        };
+	    },
+	    getInitialState: function getInitialState() {
+	        return {
+	            popupWidth: 0,
+	            popupTop: 0,
+	            popupLeft: 0,
+	            popupBottom: 0,
+	            select: {}
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var element = (0, _reactDom.findDOMNode)(this);
+	        var offset = (0, _util.getOffset)(element);
+	        var dimension = {
+	            height: element.offsetHeight,
+	            width: element.offsetWidth
+	        };
+	
+	        this.setState({
+	            offset: offset,
+	            dimension: dimension
+	        });
+	    },
+	    onClick: function onClick(e, value) {
+	        var data = this.props.data;
+	
+	        this.setState({
+	            select: data.find(function (item) {
+	                return item.value === value;
+	            }),
+	            visible: false
+	        });
+	    },
+	    getPopup: function getPopup() {
+	        var _props3 = this.props;
+	        var popupClassName = _props3.popupClassName;
+	        var itemClassName = _props3.itemClassName;
+	        var data = _props3.data;
+	        var value = _props3.value;
+	        var activeClass = _props3.activeClass;
+	        var _state2 = this.state;
+	        var offset = _state2.offset;
+	        var dimension = _state2.dimension;
+	
+	        return _react2.default.createElement(Popup, {
+	            className: popupClassName,
+	            activeClass: activeClass,
+	            itemClassName: itemClassName,
+	            data: data,
+	            value: value,
+	            triggerOffset: offset,
+	            triggerDimension: dimension,
+	            onClick: this.onClick
+	        });
+	    },
+	    render: function render() {
+	        var _props4 = this.props;
+	        var children = _props4.children;
+	        var className = _props4.className;
+	        var defaultTitle = _props4.defaultTitle;
+	        var _state3 = this.state;
+	        var select = _state3.select;
+	        var visible = _state3.visible;
+	
+	        return _react2.default.createElement(
+	            _Trigger2.default,
+	            {
+	                popup: this.getPopup(),
+	                popupMountInside: false,
+	                actions: 'click',
+	                visible: visible
+	            },
+	            _react2.default.createElement(
+	                'div',
+	                { className: className },
+	                select.title || defaultTitle
+	            )
+	        );
+	    }
+	});
+	
+	Select.propTypes = {
+	    className: _react.PropTypes.string,
+	    defaultTitle: _react.PropTypes.string,
+	    data: _react.PropTypes.array,
+	    value: _react.PropTypes.string,
+	    popup: _react.PropTypes.node,
+	    popupClassName: _react.PropTypes.string,
+	    itemClassName: _react.PropTypes.string,
+	    activeClass: _react.PropTypes.string
+	};
+	
+	exports.default = Select;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Select.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }
 /******/ ]);
