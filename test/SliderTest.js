@@ -7,11 +7,11 @@ const SliderTest = React.createClass({
             <div className="slider-test">
                 <h1>Slider</h1>
                 <div className="col5">
-                    <Slider value={20} />
+                    <Slider value={50} />
                 </div>
                 <div className="col5">
                     <Slider
-                        value={10}
+                        value={50}
                         orientation="vertical"
                         className="slider vertical"
                     />
