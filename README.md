@@ -1,10 +1,14 @@
-# react-component-helper
+# delight-ui
 
-Helper component for react components.
+A branch of lightwight ui component for React.
+
+
 
 See the [usage](http://mefive.github.io/react-component-helper/).
 
 IE9+
+
+
 
 Components dev plan
 
@@ -16,8 +20,6 @@ Components dev plan
 6. Select
 7. AutoComplete
 8. Modal
-
-
 
 
 
