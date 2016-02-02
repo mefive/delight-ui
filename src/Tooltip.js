@@ -15,7 +15,12 @@ const Popup = React.createClass({
     },
 
     componentDidMount() {
-        const {triggerOffset, triggerDimension, placement} = this.props;
+        const style = this.getStyle(this.props);
+        this.setState({style});
+    },
+
+    getStyle(props) {
+        const {triggerOffset, triggerDimension, placement} = props;
 
         const element = findDOMNode(this);
 
@@ -62,7 +67,15 @@ const Popup = React.createClass({
                 break;
         }
 
-        this.setState({style});
+        return style;
+    },
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.style === this.state.style) {
+            const style = this.getStyle(this.props);
+
+            this.setState({ style });
+        }
     },
 
     render() {
@@ -90,7 +103,8 @@ const Tooltip =  React.createClass({
             className: 'tooltip',
             activeClass: 'active',
             popupClassName: 'tooltip-popup',
-            placement: 'top'
+            placement: 'top',
+            delay: 0
         };
     },
 
@@ -108,18 +122,35 @@ const Tooltip =  React.createClass({
     },
 
     componentDidMount() {
+        this.sync();
+    },
+
+    getOffset() {
         const element = findDOMNode(this)
-        const offset = getOffset(element);
-        const dimension = {
+        return getOffset(element);
+    },
+
+    getDimension() {
+        const element = findDOMNode(this)
+        return {
             width: element.offsetWidth,
             height: element.offsetHeight
         };
+    },
+
+    componentWillReceiveProps(nextProps) {
+        this.sync();
+    },
+
+    sync() {
+        const offset = this.getOffset();
+        const dimension = this.getDimension();
 
         this.setState({offset, dimension});
     },
 
     render() {
-        const {className, activeClass, children, popupClassName, title, placement} = this.props;
+        const {className, activeClass, children, popupClassName, title, placement, delay} = this.props;
         const {offset, dimension} = this.state;
 
         const popup = (
@@ -139,6 +170,7 @@ const Tooltip =  React.createClass({
                 activeClass={activeClass}
                 popup={popup}
                 popupMountInside={false}
+                delay={delay}
                 actions="hover"
             >
                 {children}
@@ -152,7 +184,8 @@ Tooltip.propTypes = {
     activeClass: PropTypes.string,
     placement: PropTypes.string, // top bottom topLeft topRight bottomLeft bottomRight
     title: PropTypes.string,
-    popupClassName: PropTypes.string
+    popupClassName: PropTypes.string,
+    delay: PropTypes.number
 };
 
 export default Tooltip;

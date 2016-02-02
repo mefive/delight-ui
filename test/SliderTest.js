@@ -6,7 +6,16 @@ const SliderTest = React.createClass({
         return (
             <div className="slider-test">
                 <h1>Slider</h1>
-                <Slider value={80} />
+                <div className="col5">
+                    <Slider value={50} />
+                </div>
+                <div className="col5">
+                    <Slider
+                        value={50}
+                        orientation="vertical"
+                        className="slider vertical"
+                    />
+                </div>
             </div>
         );
     }

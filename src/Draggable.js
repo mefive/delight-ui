@@ -105,16 +105,13 @@ const Draggable = React.createClass({
         if (!isNaN(elementTop)) {
             newStyle.top = elementTop;
         }
+
+        const newProps = {
+            onMouseDown: this.startDragging,
+            style: newStyle
+        };
         
-        return (
-            <div 
-                className={className}
-                onMouseDown={this.startDragging}
-                style={newStyle}
-            >
-                {children}
-            </div>
-        );
+        return React.cloneElement(children, newProps);
     }
 });
 
