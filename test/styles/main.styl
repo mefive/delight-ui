@@ -311,6 +311,14 @@ hide-display() {
 }
 
 .select-test {
+    .select-container {
+        & + .select-container {
+            margin-top: 15px;
+        }
+    }
+    label {
+        margin-right: 10px;
+    }
     .select{
         primary-border();
         display: inline-block;
@@ -328,6 +336,10 @@ hide-display() {
             box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5)
         }
     }
+    
+    .select.person {
+        width: 200px;
+    }
 }
 
 .select-popup {
@@ -342,6 +354,7 @@ hide-display() {
     .select-item {
         padding-left: 10px;
         transition: background-color .2s;
+        vertical-align: top;
         &:hover {
             background-color: lighten($primary-color, 95%);
         }
@@ -349,5 +362,20 @@ hide-display() {
             background-color: lighten($primary-color, 50%);
             color: #fff;
         }
+    }
+}
+
+.select-popup.person {
+    img {
+        float: left;
+        width: 30px;
+        height: 30px;
+        line-height: 0;
+        margin-right: 5px;
+        margin-top: -2px;
+    }
+    .select-item {
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 }
