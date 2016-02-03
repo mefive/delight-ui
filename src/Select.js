@@ -120,9 +120,10 @@ const Select = React.createClass({
 
     onClick(e, value) {
         const {data, onChange} = this.props;
+        const select = data.find(item => item.value === value);
 
         this.setState({ 
-            select: data.find(item => item.value === value),
+            select,
             visible: false
         });
 
