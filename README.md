@@ -34,7 +34,7 @@ Components dev plan
 8. Modal
 
 9. Table
-   *  Column can be dragged to adjust width, be clicked to be ordered.
+   *  Column can be dragged to adjust width, be clicked to sort.
 
 
 
