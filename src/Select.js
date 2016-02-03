@@ -14,14 +14,32 @@ const Popup = React.createClass({
     },
 
     componentDidMount() {
+        const style = this.getStyle();
+        this.setState({...style});
+    },
+
+    getStyle() {
         const {triggerOffset, triggerDimension} = this.props;
         const element = findDOMNode(this);
 
-        this.setState({
-            top: triggerOffset.top - element.offsetHeight,
+        const showOnTop
+        = window.innerHeight + window.scrollY - (triggerOffset.top + triggerDimension.height) 
+        < element.offsetHeight;
+
+        return {
+            top: showOnTop
+            ? triggerOffset.top - element.offsetHeight
+            : triggerOffset.top + triggerDimension.height,
             left: triggerOffset.left,
             width: triggerDimension.width
-        });
+        }
+    },
+
+    componentDidUpdate(prevProps, prevState) {
+        if (!prevProps.visible && this.props.visible) {
+            const style = this.getStyle();
+            this.setState({...style});
+        }
     },
 
     render() {
@@ -71,7 +89,8 @@ const Select = React.createClass({
             value: '2',
             popupClassName: 'select-popup',
             itemClassName: 'select-item',
-            activeClass: 'active'
+            activeClass: 'active',
+            onChange: () => {}
         };
     },
 
@@ -100,12 +119,15 @@ const Select = React.createClass({
     },
 
     onClick(e, value) {
-        const {data} = this.props;
+        const {data, onChange} = this.props;
+        const select = data.find(item => item.value === value);
 
         this.setState({ 
-            select: data.find(item => item.value === value),
+            select,
             visible: false
         });
+
+        onChange(select);
     },
 
     getPopup() {
@@ -154,7 +176,8 @@ Select.propTypes = {
     popup: PropTypes.node,
     popupClassName: PropTypes.string,
     itemClassName: PropTypes.string,
-    activeClass: PropTypes.string
+    activeClass: PropTypes.string,
+    onChange: PropTypes.func
 };
 
 export default Select;
