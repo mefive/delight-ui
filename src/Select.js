@@ -2,58 +2,29 @@ import React, {PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 
 import Trigger from './Trigger';
+import selectPopupMixin from './selectPopupMixin';
 import {getOffset} from './util';
 
 const Popup = React.createClass({
-    getInitialState() {
-        return {
-            width: 0,
-            left: 0,
-            to: 0           
-        };
-    },
-
-    componentDidMount() {
-        const style = this.getStyle();
-        this.setState({...style});
-    },
-
-    getStyle() {
-        const {triggerOffset, triggerDimension} = this.props;
-        const element = findDOMNode(this);
-
-        const showOnTop
-        = window.innerHeight + window.scrollY - (triggerOffset.top + triggerDimension.height) 
-        < element.offsetHeight;
-
-        return {
-            top: showOnTop
-            ? triggerOffset.top - element.offsetHeight
-            : triggerOffset.top + triggerDimension.height,
-            left: triggerOffset.left,
-            width: triggerDimension.width
-        }
-    },
-
-    componentDidUpdate(prevProps, prevState) {
-        if (!prevProps.visible && this.props.visible) {
-            const style = this.getStyle();
-            this.setState({...style});
-        }
-    },
+    mixins: [selectPopupMixin],
 
     render() {
         const {data, value, className, itemClassName, activeClass, onClick} = this.props;
         const {width, top, left} = this.state;
 
+        const style = {
+            left: left,
+            top: top
+        };
+
+        if (width) {
+            style.width = width;
+        }
+
         return (
             <div 
                 className={className}
-                style={{
-                    width: width,
-                    left: left,
-                    top: top
-                }}
+                style={style}
             >
             {(() => {
                 const list 
@@ -86,11 +57,12 @@ const Select = React.createClass({
     getDefaultProps() {
         return {
             data: [],
-            value: '2',
+            value: null,
             popupClassName: 'select-popup',
             itemClassName: 'select-item',
             activeClass: 'active',
-            onChange: () => {}
+            onChange: () => {},
+            popup: null
         };
     },
 
@@ -100,7 +72,7 @@ const Select = React.createClass({
             popupTop: 0,
             popupLeft: 0,
             popupBottom: 0,
-            select: {}
+            select: null
         };
     },
 
@@ -132,22 +104,29 @@ const Select = React.createClass({
     },
 
     getPopup() {
-        const {popupClassName, itemClassName, data, value, activeClass} = this.props;
-        const {offset, dimension} = this.state;
+        const {popupClassName, itemClassName, data, value, activeClass, popup} = this.props;
+        const {offset, dimension, select} = this.state;
 
-        return (
-            <Popup
-                className={popupClassName}
-                activeClass={activeClass}
-                itemClassName={itemClassName}
-                data={data}
-                value={value}
-                triggerOffset={offset}
-                triggerDimension={dimension}
-                onClick={this.onClick}
-            >
-            </Popup>
-        );
+        const popupProps = {
+            className: popupClassName,
+            activeClass: activeClass,
+            itemClassName: itemClassName,
+            data: data,
+            value: select ? select.value : value,
+            triggerOffset: offset,
+            triggerDimension: dimension,
+            onClick: this.onClick
+        };
+
+        if (popup) {
+            return React.createElement(popup, popupProps);
+        }
+        else {
+            return (
+                <Popup {...popupProps}>
+                </Popup>
+            );
+        }
     },
 
     onShow() {
@@ -179,7 +158,7 @@ const Select = React.createClass({
                 onHide={this.onHide}
             >
                 <div className={className}>
-                    {select.title || defaultTitle}
+                    {select ? select.title : defaultTitle}
                 </div>
             </Trigger>
         );
@@ -191,7 +170,7 @@ Select.propTypes = {
     defaultTitle: PropTypes.string,
     data: PropTypes.array,
     value: PropTypes.string,
-    popup: PropTypes.node,
+    popup: PropTypes.func,
     popupClassName: PropTypes.string,
     itemClassName: PropTypes.string,
     activeClass: PropTypes.string,
