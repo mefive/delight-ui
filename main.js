@@ -20233,7 +20233,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  height: 100%;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.col7,\n.col3,\n.col5 {\n  display: inline-block;\n  vertical-align: top;\n}\n.col5 {\n  width: 50%;\n}\n.col7 {\n  width: 70%;\n}\n.col3 {\n  width: 30%;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: rgba(255,255,255,0.3);\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n.slider-test .slider-step {\n  background-color: rgba(0,0,0,0.2);\n  border-radius: 3px;\n}\n.slider-test .slider-handle {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background-color: #fff;\n  border-radius: 50%;\n}\n.slider-test .slider-handle .tooltip-trigger {\n  width: 100%;\n  height: 100%;\n}\n.slider-test .slider-track {\n  position: absolute;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .slider {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.slider-test .slider .slider-step {\n  height: 8px;\n}\n.slider-test .slider .slider-handle {\n  margin-top: -4px;\n}\n.slider-test .slider .slider-track {\n  height: 8px;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .col5 {\n  text-align: center;\n  height: 100px;\n  line-height: 100px;\n}\n.slider-test .slider.vertical {\n  vertical-align: middle;\n  width: 8px;\n  height: 100px;\n}\n.slider-test .slider.vertical .slider-step {\n  height: 100%;\n}\n.slider-test .slider.vertical .slider-handle {\n  margin-left: -4px;\n}\n.slider-test .slider.vertical .slider-track {\n  bottom: 0;\n  width: 8px;\n}\n.select-test .select {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n  transition: box-shadow 0.2s;\n  width: 120px;\n  text-align: center;\n}\n.select-test .select:active {\n  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);\n}\n.select-popup {\n  border: 1px solid #999;\n  border-radius: 2px;\n  position: absolute;\n  text-align: left;\n  line-height: 2;\n  background-color: #fff;\n  display: none;\n}\n.select-popup.active {\n  display: block;\n}\n.select-popup .select-item {\n  padding-left: 10px;\n  transition: background-color 0.2s;\n}\n.select-popup .select-item:hover {\n  background-color: #fff7f2;\n}\n.select-popup .select-item.active {\n  background-color: #ffb27a;\n  color: #fff;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.col7,\n.col3,\n.col5 {\n  display: inline-block;\n  vertical-align: top;\n}\n.col5 {\n  width: 50%;\n}\n.col7 {\n  width: 70%;\n}\n.col3 {\n  width: 30%;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: rgba(255,255,255,0.3);\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n.slider-test .slider-step {\n  background-color: rgba(0,0,0,0.2);\n  border-radius: 3px;\n}\n.slider-test .slider-handle {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background-color: #fff;\n  border-radius: 50%;\n}\n.slider-test .slider-handle .tooltip-trigger {\n  width: 100%;\n  height: 100%;\n}\n.slider-test .slider-track {\n  position: absolute;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .slider {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.slider-test .slider .slider-step {\n  height: 8px;\n}\n.slider-test .slider .slider-handle {\n  margin-top: -4px;\n}\n.slider-test .slider .slider-track {\n  height: 8px;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .col5 {\n  text-align: center;\n  height: 100px;\n  line-height: 100px;\n}\n.slider-test .slider.vertical {\n  vertical-align: middle;\n  width: 8px;\n  height: 100px;\n}\n.slider-test .slider.vertical .slider-step {\n  height: 100%;\n}\n.slider-test .slider.vertical .slider-handle {\n  margin-left: -4px;\n}\n.slider-test .slider.vertical .slider-track {\n  bottom: 0;\n  width: 8px;\n}\n.select-test .select {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n  transition: box-shadow 0.2s;\n  width: 120px;\n  text-align: center;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  -ms-user-select: none;\n}\n.select-test .select:active {\n  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);\n}\n.select-popup {\n  border: 1px solid #999;\n  border-radius: 2px;\n  position: absolute;\n  text-align: left;\n  line-height: 2;\n  background-color: #fff;\n  display: none;\n}\n.select-popup.active {\n  display: block;\n}\n.select-popup .select-item {\n  padding-left: 10px;\n  transition: background-color 0.2s;\n}\n.select-popup .select-item:hover {\n  background-color: #fff7f2;\n}\n.select-popup .select-item.active {\n  background-color: #ffb27a;\n  color: #fff;\n}\n", ""]);
 	
 	// exports
 
@@ -21365,7 +21365,8 @@
 	        if (this.popupRendered) {
 	            if (visible) {
 	                popupProps = {
-	                    className: popup.props.className + ' ' + activeClass
+	                    className: popup.props.className + ' ' + activeClass,
+	                    visible: visible
 	                };
 	            }
 	
@@ -22265,6 +22266,8 @@
 	
 	'use strict';
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -22293,17 +22296,29 @@
 	        };
 	    },
 	    componentDidMount: function componentDidMount() {
+	        var style = this.getStyle();
+	        this.setState(_extends({}, style));
+	    },
+	    getStyle: function getStyle() {
 	        var _props = this.props;
 	        var triggerOffset = _props.triggerOffset;
 	        var triggerDimension = _props.triggerDimension;
 	
 	        var element = (0, _reactDom.findDOMNode)(this);
 	
-	        this.setState({
-	            top: triggerOffset.top - element.offsetHeight,
+	        var showOnTop = window.innerHeight + window.scrollY - (triggerOffset.top + triggerDimension.height) < element.offsetHeight;
+	
+	        return {
+	            top: showOnTop ? triggerOffset.top - element.offsetHeight : triggerOffset.top + triggerDimension.height,
 	            left: triggerOffset.left,
 	            width: triggerDimension.width
-	        });
+	        };
+	    },
+	    componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
+	        if (!prevProps.visible && this.props.visible) {
+	            var style = this.getStyle();
+	            this.setState(_extends({}, style));
+	        }
 	    },
 	    render: function render() {
 	        var _props2 = this.props;
@@ -22363,7 +22378,8 @@
 	            value: '2',
 	            popupClassName: 'select-popup',
 	            itemClassName: 'select-item',
-	            activeClass: 'active'
+	            activeClass: 'active',
+	            onChange: function onChange() {}
 	        };
 	    },
 	    getInitialState: function getInitialState() {
@@ -22389,22 +22405,28 @@
 	        });
 	    },
 	    onClick: function onClick(e, value) {
-	        var data = this.props.data;
+	        var _props3 = this.props;
+	        var data = _props3.data;
+	        var onChange = _props3.onChange;
+	
+	        var select = data.find(function (item) {
+	            return item.value === value;
+	        });
 	
 	        this.setState({
-	            select: data.find(function (item) {
-	                return item.value === value;
-	            }),
+	            select: select,
 	            visible: false
 	        });
+	
+	        onChange(select);
 	    },
 	    getPopup: function getPopup() {
-	        var _props3 = this.props;
-	        var popupClassName = _props3.popupClassName;
-	        var itemClassName = _props3.itemClassName;
-	        var data = _props3.data;
-	        var value = _props3.value;
-	        var activeClass = _props3.activeClass;
+	        var _props4 = this.props;
+	        var popupClassName = _props4.popupClassName;
+	        var itemClassName = _props4.itemClassName;
+	        var data = _props4.data;
+	        var value = _props4.value;
+	        var activeClass = _props4.activeClass;
 	        var _state2 = this.state;
 	        var offset = _state2.offset;
 	        var dimension = _state2.dimension;
@@ -22421,10 +22443,10 @@
 	        });
 	    },
 	    render: function render() {
-	        var _props4 = this.props;
-	        var children = _props4.children;
-	        var className = _props4.className;
-	        var defaultTitle = _props4.defaultTitle;
+	        var _props5 = this.props;
+	        var children = _props5.children;
+	        var className = _props5.className;
+	        var defaultTitle = _props5.defaultTitle;
 	        var _state3 = this.state;
 	        var select = _state3.select;
 	        var visible = _state3.visible;
@@ -22454,7 +22476,8 @@
 	    popup: _react.PropTypes.node,
 	    popupClassName: _react.PropTypes.string,
 	    itemClassName: _react.PropTypes.string,
-	    activeClass: _react.PropTypes.string
+	    activeClass: _react.PropTypes.string,
+	    onChange: _react.PropTypes.func
 	};
 	
 	exports.default = Select;
