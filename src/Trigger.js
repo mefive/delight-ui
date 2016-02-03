@@ -9,7 +9,9 @@ const Trigger = React.createClass({
     getDefaultProps() {
         return {
             popupMountInside: true,
-            activeClass: 'active'
+            activeClass: 'active',
+            onShow: () => {},
+            onHide: () => {}
         };
     },
 
@@ -144,6 +146,7 @@ const Trigger = React.createClass({
         this.setState({
             visible: true
         });
+        this.props.onShow();
     },
 
     hide() {
@@ -151,6 +154,7 @@ const Trigger = React.createClass({
             visible: false,
             aboutToLeave: false
         });
+        this.props.onHide();
     },
 
     render() {
@@ -180,7 +184,9 @@ Trigger.propTypes = {
     popup: PropTypes.node,
     popupMountInside: PropTypes.bool,
     getPopupContainer: PropTypes.func,
-    visible: PropTypes.bool
+    visible: PropTypes.bool,
+    onShow: PropTypes.func,
+    onHide: PropTypes.func
 };
 
 export default Trigger;

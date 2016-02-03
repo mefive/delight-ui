@@ -127,6 +127,7 @@ const Select = React.createClass({
             visible: false
         });
 
+        this.onHide();
         onChange(select);
     },
 
@@ -149,6 +150,21 @@ const Select = React.createClass({
         );
     },
 
+    onShow() {
+        document.addEventListener('click', this.hide);
+    },
+
+    hide() {
+        this.setState({
+            visible: false
+        });
+        this.onHide();
+    },
+
+    onHide() {
+        document.removeEventListener('click', this.hide);
+    },
+
     render() {
         const {children, className, defaultTitle} = this.props;
         const {select, visible} = this.state;
@@ -159,6 +175,8 @@ const Select = React.createClass({
                 popupMountInside={false}
                 actions="click"
                 visible={visible}
+                onShow={this.onShow}
+                onHide={this.onHide}
             >
                 <div className={className}>
                     {select.title || defaultTitle}
