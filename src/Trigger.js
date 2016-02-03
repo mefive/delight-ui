@@ -60,7 +60,8 @@ const Trigger = React.createClass({
             if (visible) {
                 popupProps
                 = {
-                    className: (popup.props.className + ' ' + activeClass)
+                    className: (popup.props.className + ' ' + activeClass),
+                    visible
                 };
             }
 
