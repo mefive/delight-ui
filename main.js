@@ -21316,7 +21316,9 @@
 	    getDefaultProps: function getDefaultProps() {
 	        return {
 	            popupMountInside: true,
-	            activeClass: 'active'
+	            activeClass: 'active',
+	            onShow: function onShow() {},
+	            onHide: function onHide() {}
 	        };
 	    },
 	    getInitialState: function getInitialState() {
@@ -21435,12 +21437,14 @@
 	        this.setState({
 	            visible: true
 	        });
+	        this.props.onShow();
 	    },
 	    hide: function hide() {
 	        this.setState({
 	            visible: false,
 	            aboutToLeave: false
 	        });
+	        this.props.onHide();
 	    },
 	    render: function render() {
 	        var _props4 = this.props;
@@ -21472,7 +21476,9 @@
 	    popup: _react.PropTypes.node,
 	    popupMountInside: _react.PropTypes.bool,
 	    getPopupContainer: _react.PropTypes.func,
-	    visible: _react.PropTypes.bool
+	    visible: _react.PropTypes.bool,
+	    onShow: _react.PropTypes.func,
+	    onHide: _react.PropTypes.func
 	};
 	
 	exports.default = Trigger;
@@ -22418,6 +22424,7 @@
 	            visible: false
 	        });
 	
+	        this.onHide();
 	        onChange(select);
 	    },
 	    getPopup: function getPopup() {
@@ -22442,6 +22449,18 @@
 	            onClick: this.onClick
 	        });
 	    },
+	    onShow: function onShow() {
+	        document.addEventListener('click', this.hide);
+	    },
+	    hide: function hide() {
+	        this.setState({
+	            visible: false
+	        });
+	        this.onHide();
+	    },
+	    onHide: function onHide() {
+	        document.removeEventListener('click', this.hide);
+	    },
 	    render: function render() {
 	        var _props5 = this.props;
 	        var children = _props5.children;
@@ -22457,7 +22476,9 @@
 	                popup: this.getPopup(),
 	                popupMountInside: false,
 	                actions: 'click',
-	                visible: visible
+	                visible: visible,
+	                onShow: this.onShow,
+	                onHide: this.onHide
 	            },
 	            _react2.default.createElement(
 	                'div',
