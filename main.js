@@ -107,6 +107,12 @@
 	        return _react2.default.createElement(
 	            'div',
 	            { className: 'container' },
+	            _react2.default.createElement(_ScrollableTest2.default, null),
+	            _react2.default.createElement(_TriggerTest2.default, null),
+	            _react2.default.createElement(_DraggableTest2.default, null),
+	            _react2.default.createElement(_TooltipTest2.default, null),
+	            _react2.default.createElement(_SliderTest2.default, null),
+	            _react2.default.createElement(_SelectTest2.default, null),
 	            _react2.default.createElement(_AutoCompleteTest2.default, null)
 	        );
 	    }
