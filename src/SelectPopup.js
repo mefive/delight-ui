@@ -35,7 +35,7 @@ const SelectPopup = React.createClass({
                         <div 
                             className={className}
                             key={item.value}
-                            onClick={e => onClick(e, item.value)}
+                            onClick={e => { onClick(e, item.value); }}
                         >
                             {item.title}
                         </div>

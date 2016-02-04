@@ -1,7 +1,9 @@
 import React from 'react';
 import AutoComplete from '../src/AutoComplete';
 
-const data = [
+import selectPopupMixin from '../src/selectPopupMixin';
+
+const dataSource = [
     { value: '1', title: '一' },
     { value: '2', title: '二' },
     { value: '3', title: '三' },
@@ -11,6 +13,115 @@ const data = [
     { value: '7', title: '七' },
 ];
 
+const PersonSelectData = [
+    { value: '1', title: '秃尾巴老刘', avatar: 'http://tp2.sinaimg.cn/1556196533/180/40011054673/1' },
+    { value: '2', title: 'Trek崔克中国', avatar: 'http://tp4.sinaimg.cn/1740322751/50/5748394898/1' },
+    { value: '3', title: '胖叔叔的游戏生涯', avatar: 'http://tp2.sinaimg.cn/5837196929/50/5748853870/1' }
+];
+
+const PersonAutoCompletePopup = React.createClass({
+    mixins: [selectPopupMixin],
+
+    render() {
+        const {data, value, className, itemClassName, activeClass, onClick} = this.props;
+        const {width, top, left} = this.state;
+
+        const style = {
+            left: left,
+            top: top
+        };
+
+        if (width) {
+            style.width = width;
+        }
+
+        return (
+            <div 
+                className={className}
+                style={style}
+            >
+            {(() => {
+                const list 
+                = data.map(item => {
+                    let className = itemClassName;
+
+                    if (item.value === value) {
+                        className = `${className} ${activeClass}`;
+                    }
+
+                    return (
+                        <div 
+                            className={className}
+                            key={item.value}
+                            onClick={e => onClick(e, item.value)}
+                        >
+                            <img className="avatar" src={item.avatar} />
+                            {item.title}
+                        </div>
+                    );
+                });
+
+                return list;        
+            })()}
+            </div>
+        );
+    }
+});
+
+const Default = React.createClass({
+    getInitialState() {
+        return {
+            data: []  
+        };
+    },
+
+    fetchData(value) {
+        const data = dataSource.filter(item => value.indexOf(item.value) !== -1);
+
+        this.setState({ data });
+    },
+
+    render() {
+        const {data} = this.state;
+
+        return(
+            <AutoComplete
+                getData={this.fetchData}
+                data={data}
+            >
+            </AutoComplete>
+        );
+    }
+});
+
+const Custom = React.createClass({
+    getInitialState() {
+        return {
+            data: []  
+        };
+    },
+
+    fetchData(value) {
+        const data = PersonSelectData.filter(item => value.indexOf(item.value) !== -1);
+
+        this.setState({ data });
+    },
+
+    render() {
+        const {data} = this.state;
+
+        return(
+            <AutoComplete
+                popupClassName="select-popup person"
+                getData={this.fetchData}
+                data={data}
+                popup={PersonAutoCompletePopup}
+            >
+            </AutoComplete>
+        );
+    }
+});
+
 const AutoCompleteTest = React.createClass({
     render() {
         return(
@@ -18,12 +129,11 @@ const AutoCompleteTest = React.createClass({
                 <h1>AutoComplete</h1>
                 <div className="auto-complete-container">
                     <label>Default</label>
-                    <AutoComplete
-                        getData={(value = '') => {
-                            return data.filter(item => value.indexOf(item.value) !== -1);
-                        }}
-                    >
-                    </AutoComplete>
+                    <Default />
+                </div>
+                <div className="auto-complete-container">
+                    <label>Custom</label>
+                    <Custom />
                 </div>
             </div>
         );

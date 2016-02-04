@@ -14,18 +14,31 @@ const AutoComplete = React.createClass({
             activeClass: 'active',
             onChange: () => {},
             getData: () => {},
+            data: [],
             popup: null
         };
     },
 
     getInitialState() {
         return {
-            data: [],
             select: null,
             offset: null,
             dimension: null,
-            visible: false
+            visible: false,
+            inputValue: ''
         };
+    },
+
+    componentWillReceiveProps(nextProps) {
+        const {data} = nextProps;
+        const {state} = this;
+
+        const visible = data && data.length > 0;
+
+        if (visible && !state.visible) {
+            state.visible = visible;
+            this.onShow();
+        }
     },
 
     componentDidMount() {
@@ -43,8 +56,8 @@ const AutoComplete = React.createClass({
     },
 
     getPopup() {
-        const {popupClassName, itemClassName, value, activeClass, popup} = this.props;
-        const {offset, dimension, select, data} = this.state;
+        const {popupClassName, itemClassName, value, activeClass, popup, data} = this.props;
+        const {offset, dimension, select} = this.state;
 
         const popupProps = {
             className: popupClassName,
@@ -68,18 +81,20 @@ const AutoComplete = React.createClass({
         }
     },
 
-    onFocus() {
-        this.updateData();
-    },
+    onClick(e, value) {
+        const {data} = this.props;
+        const {input} = this.refs;
 
-    onBlur() {
-       this.hide();
-    },
+        const select = data.find(item => item.value === value);
 
-    hide() {
         this.setState({
-            visible: false
-        }); 
+            inputValue: select.title
+        });
+    },
+
+    onFocus(e) {
+        e.preventDefault();
+        this.updateData();
     },
 
     onInput() {
@@ -90,38 +105,52 @@ const AutoComplete = React.createClass({
         const {getData} = this.props;
         const {input} = this.refs;
 
-        let data = getData(input.value);
-        let visible = false;
+        this.state.inputValue = input.value;
+        getData(input.value);
+    },
 
-        if (data && data.length !== 0) {
-            visible = true;
-        }
-        else {
-            data = [];
-        }
+    onShow() {
+        document.addEventListener('click', this.hide);
+    },
 
-        this.setState({
-            visible,
-            data
-        });
+    hide(e) {
+        const {input} = this.refs;
+
+        if (!input.contains(e.target)) {
+            this.setState({
+                visible: false
+            });
+            this.onHide();
+        }
+    },
+
+    onHide() {
+        document.removeEventListener('click', this.hide);
+    },
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.hide);
     },
 
     render() {
-        const {visible} = this.state;
+        const {data} = this.props
+        let {visible, inputValue} = this.state;
 
         return (
             <Trigger
                 popup={this.getPopup()}
                 popupMountInside={false}
                 visible={visible}
+                onShow={this.onShow}
+                onHide={this.onHide}
             >
                 <input 
                     type="text" 
                     className="auto-complete" 
                     onFocus={this.onFocus}
-                    onBlur={this.onBlur}
                     onInput={this.onInput}
                     ref="input"
+                    value={inputValue}
                 />
             </Trigger>
         );
