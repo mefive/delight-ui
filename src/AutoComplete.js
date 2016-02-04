@@ -14,18 +14,24 @@ const AutoComplete = React.createClass({
             activeClass: 'active',
             onChange: () => {},
             getData: () => {},
+            data: [],
             popup: null
         };
     },
 
     getInitialState() {
         return {
-            data: [],
             select: null,
             offset: null,
             dimension: null,
             visible: false
         };
+    },
+
+    componentWillReceiveProps(nextProps) {
+        const {data} = nextProps;
+
+        this.state.visible = data && data.length > 0;
     },
 
     componentDidMount() {
@@ -43,8 +49,8 @@ const AutoComplete = React.createClass({
     },
 
     getPopup() {
-        const {popupClassName, itemClassName, value, activeClass, popup} = this.props;
-        const {offset, dimension, select, data} = this.state;
+        const {popupClassName, itemClassName, value, activeClass, popup, data} = this.props;
+        const {offset, dimension, select} = this.state;
 
         const popupProps = {
             className: popupClassName,
@@ -90,24 +96,12 @@ const AutoComplete = React.createClass({
         const {getData} = this.props;
         const {input} = this.refs;
 
-        let data = getData(input.value);
-        let visible = false;
-
-        if (data && data.length !== 0) {
-            visible = true;
-        }
-        else {
-            data = [];
-        }
-
-        this.setState({
-            visible,
-            data
-        });
+        getData(input.value);
     },
 
     render() {
-        const {visible} = this.state;
+        const {data} = this.props
+        let {visible} = this.state;
 
         return (
             <Trigger

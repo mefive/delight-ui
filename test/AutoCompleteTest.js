@@ -1,7 +1,7 @@
 import React from 'react';
 import AutoComplete from '../src/AutoComplete';
 
-const data = [
+const dataSource = [
     { value: '1', title: '一' },
     { value: '2', title: '二' },
     { value: '3', title: '三' },
@@ -12,16 +12,29 @@ const data = [
 ];
 
 const AutoCompleteTest = React.createClass({
+    getInitialState() {
+        return {
+            data: []  
+        };
+    },
+
+    fetchData(value) {
+        const data = dataSource.filter(item => value.indexOf(item.value) !== -1);
+        
+        this.setState({ data });
+    },
+
     render() {
+        const {data} = this.state;
+
         return(
             <div className="auto-complete-test">
                 <h1>AutoComplete</h1>
                 <div className="auto-complete-container">
                     <label>Default</label>
                     <AutoComplete
-                        getData={(value = '') => {
-                            return data.filter(item => value.indexOf(item.value) !== -1);
-                        }}
+                        getData={this.fetchData}
+                        data={data}
                     >
                     </AutoComplete>
                 </div>
