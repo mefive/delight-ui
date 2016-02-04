@@ -107,12 +107,6 @@
 	        return _react2.default.createElement(
 	            'div',
 	            { className: 'container' },
-	            _react2.default.createElement(_ScrollableTest2.default, null),
-	            _react2.default.createElement(_TriggerTest2.default, null),
-	            _react2.default.createElement(_DraggableTest2.default, null),
-	            _react2.default.createElement(_TooltipTest2.default, null),
-	            _react2.default.createElement(_SliderTest2.default, null),
-	            _react2.default.createElement(_SelectTest2.default, null),
 	            _react2.default.createElement(_AutoCompleteTest2.default, null)
 	        );
 	    }
@@ -22495,6 +22489,9 @@
 	    onHide: function onHide() {
 	        document.removeEventListener('click', this.hide);
 	    },
+	    componentWillUnmount: function componentWillUnmount() {
+	        document.removeEventListener('click', this.hide);
+	    },
 	    render: function render() {
 	        var _props3 = this.props;
 	        var children = _props3.children;
@@ -22611,7 +22608,7 @@
 	                            className: className,
 	                            key: item.value,
 	                            onClick: function onClick(e) {
-	                                return _onClick(e, item.value);
+	                                _onClick(e, item.value);
 	                            }
 	                        },
 	                        item.title
@@ -22709,9 +22706,126 @@
 	
 	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
 	
+	var _selectPopupMixin = __webpack_require__(/*! ../src/selectPopupMixin */ 179);
+	
+	var _selectPopupMixin2 = _interopRequireDefault(_selectPopupMixin);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var data = [{ value: '1', title: '一' }, { value: '2', title: '二' }, { value: '3', title: '三' }, { value: '4', title: '四' }, { value: '5', title: '五' }, { value: '6', title: '六' }, { value: '7', title: '七' }];
+	var dataSource = [{ value: '1', title: '一' }, { value: '2', title: '二' }, { value: '3', title: '三' }, { value: '4', title: '四' }, { value: '5', title: '五' }, { value: '6', title: '六' }, { value: '7', title: '七' }];
+	
+	var PersonSelectData = [{ value: '1', title: '秃尾巴老刘', avatar: 'http://tp2.sinaimg.cn/1556196533/180/40011054673/1' }, { value: '2', title: 'Trek崔克中国', avatar: 'http://tp4.sinaimg.cn/1740322751/50/5748394898/1' }, { value: '3', title: '胖叔叔的游戏生涯', avatar: 'http://tp2.sinaimg.cn/5837196929/50/5748853870/1' }];
+	
+	var PersonAutoCompletePopup = _react2.default.createClass({
+	    displayName: 'PersonAutoCompletePopup',
+	
+	    mixins: [_selectPopupMixin2.default],
+	
+	    render: function render() {
+	        var _props = this.props;
+	        var data = _props.data;
+	        var value = _props.value;
+	        var className = _props.className;
+	        var itemClassName = _props.itemClassName;
+	        var activeClass = _props.activeClass;
+	        var _onClick = _props.onClick;
+	        var _state = this.state;
+	        var width = _state.width;
+	        var top = _state.top;
+	        var left = _state.left;
+	
+	        var style = {
+	            left: left,
+	            top: top
+	        };
+	
+	        if (width) {
+	            style.width = width;
+	        }
+	
+	        return _react2.default.createElement(
+	            'div',
+	            {
+	                className: className,
+	                style: style
+	            },
+	            function () {
+	                var list = data.map(function (item) {
+	                    var className = itemClassName;
+	
+	                    if (item.value === value) {
+	                        className = className + ' ' + activeClass;
+	                    }
+	
+	                    return _react2.default.createElement(
+	                        'div',
+	                        {
+	                            className: className,
+	                            key: item.value,
+	                            onClick: function onClick(e) {
+	                                return _onClick(e, item.value);
+	                            }
+	                        },
+	                        _react2.default.createElement('img', { className: 'avatar', src: item.avatar }),
+	                        item.title
+	                    );
+	                });
+	
+	                return list;
+	            }()
+	        );
+	    }
+	});
+	
+	var Default = _react2.default.createClass({
+	    displayName: 'Default',
+	    getInitialState: function getInitialState() {
+	        return {
+	            data: []
+	        };
+	    },
+	    fetchData: function fetchData(value) {
+	        var data = dataSource.filter(function (item) {
+	            return value.indexOf(item.value) !== -1;
+	        });
+	
+	        this.setState({ data: data });
+	    },
+	    render: function render() {
+	        var data = this.state.data;
+	
+	        return _react2.default.createElement(_AutoComplete2.default, {
+	            getData: this.fetchData,
+	            data: data
+	        });
+	    }
+	});
+	
+	var Custom = _react2.default.createClass({
+	    displayName: 'Custom',
+	    getInitialState: function getInitialState() {
+	        return {
+	            data: []
+	        };
+	    },
+	    fetchData: function fetchData(value) {
+	        var data = PersonSelectData.filter(function (item) {
+	            return value.indexOf(item.value) !== -1;
+	        });
+	
+	        this.setState({ data: data });
+	    },
+	    render: function render() {
+	        var data = this.state.data;
+	
+	        return _react2.default.createElement(_AutoComplete2.default, {
+	            popupClassName: 'select-popup person',
+	            getData: this.fetchData,
+	            data: data,
+	            popup: PersonAutoCompletePopup
+	        });
+	    }
+	});
 	
 	var AutoCompleteTest = _react2.default.createClass({
 	    displayName: 'AutoCompleteTest',
@@ -22732,15 +22846,17 @@
 	                    null,
 	                    'Default'
 	                ),
-	                _react2.default.createElement(_AutoComplete2.default, {
-	                    getData: function getData() {
-	                        var value = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
-	
-	                        return data.filter(function (item) {
-	                            return value.indexOf(item.value) !== -1;
-	                        });
-	                    }
-	                })
+	                _react2.default.createElement(Default, null)
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'auto-complete-container' },
+	                _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Custom'
+	                ),
+	                _react2.default.createElement(Custom, null)
 	            )
 	        );
 	    }
@@ -22793,17 +22909,29 @@
 	            activeClass: 'active',
 	            onChange: function onChange() {},
 	            getData: function getData() {},
+	            data: [],
 	            popup: null
 	        };
 	    },
 	    getInitialState: function getInitialState() {
 	        return {
-	            data: [],
 	            select: null,
 	            offset: null,
 	            dimension: null,
-	            visible: false
+	            visible: false,
+	            inputValue: ''
 	        };
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	        var data = nextProps.data;
+	        var state = this.state;
+	
+	        var visible = data && data.length > 0;
+	
+	        if (visible && !state.visible) {
+	            state.visible = visible;
+	            this.onShow();
+	        }
 	    },
 	    componentDidMount: function componentDidMount() {
 	        var element = (0, _reactDom.findDOMNode)(this);
@@ -22825,11 +22953,11 @@
 	        var value = _props.value;
 	        var activeClass = _props.activeClass;
 	        var popup = _props.popup;
+	        var data = _props.data;
 	        var _state = this.state;
 	        var offset = _state.offset;
 	        var dimension = _state.dimension;
 	        var select = _state.select;
-	        var data = _state.data;
 	
 	        var popupProps = {
 	            className: popupClassName,
@@ -22848,16 +22976,21 @@
 	            return _react2.default.createElement(_SelectPopup2.default, popupProps);
 	        }
 	    },
-	    onFocus: function onFocus() {
-	        this.updateData();
-	    },
-	    onBlur: function onBlur() {
-	        this.hide();
-	    },
-	    hide: function hide() {
-	        this.setState({
-	            visible: false
+	    onClick: function onClick(e, value) {
+	        var data = this.props.data;
+	        var input = this.refs.input;
+	
+	        var select = data.find(function (item) {
+	            return item.value === value;
 	        });
+	
+	        this.setState({
+	            inputValue: select.title
+	        });
+	    },
+	    onFocus: function onFocus(e) {
+	        e.preventDefault();
+	        this.updateData();
 	    },
 	    onInput: function onInput() {
 	        this.updateData();
@@ -22866,37 +22999,50 @@
 	        var getData = this.props.getData;
 	        var input = this.refs.input;
 	
-	        var data = getData(input.value);
-	        var visible = false;
+	        this.state.inputValue = input.value;
+	        getData(input.value);
+	    },
+	    onShow: function onShow() {
+	        document.addEventListener('click', this.hide);
+	    },
+	    hide: function hide(e) {
+	        var input = this.refs.input;
 	
-	        if (data && data.length !== 0) {
-	            visible = true;
-	        } else {
-	            data = [];
+	        if (!input.contains(e.target)) {
+	            this.setState({
+	                visible: false
+	            });
+	            this.onHide();
 	        }
-	
-	        this.setState({
-	            visible: visible,
-	            data: data
-	        });
+	    },
+	    onHide: function onHide() {
+	        document.removeEventListener('click', this.hide);
+	    },
+	    componentWillUnmount: function componentWillUnmount() {
+	        document.removeEventListener('click', this.hide);
 	    },
 	    render: function render() {
-	        var visible = this.state.visible;
+	        var data = this.props.data;
+	        var _state2 = this.state;
+	        var visible = _state2.visible;
+	        var inputValue = _state2.inputValue;
 	
 	        return _react2.default.createElement(
 	            _Trigger2.default,
 	            {
 	                popup: this.getPopup(),
 	                popupMountInside: false,
-	                visible: visible
+	                visible: visible,
+	                onShow: this.onShow,
+	                onHide: this.onHide
 	            },
 	            _react2.default.createElement('input', {
 	                type: 'text',
 	                className: 'auto-complete',
 	                onFocus: this.onFocus,
-	                onBlur: this.onBlur,
 	                onInput: this.onInput,
-	                ref: 'input'
+	                ref: 'input',
+	                value: inputValue
 	            })
 	        );
 	    }
