@@ -2,7 +2,7 @@
 @import "mixin.styl";
 
 primary-border() {
-    border: 1px solid #999;
+    border: 1px solid #D5D5D5;
     border-radius: 2px;
 }
 
@@ -148,6 +148,13 @@ hide-display() {
 
 }
 
+btn() {
+    gradient-vertical(#FBFBFB, #EEEEEE);
+    &:hover {
+        gradient-vertical(#EDEDED, #DDDDDD)
+    }
+}
+
 .trigger-test {
     .trigger {
         primary-border();
@@ -156,6 +163,7 @@ hide-display() {
         cursor: pointer;
 
         position: relative;
+        btn();
         
         & + .trigger {
             margin-left: 10px;
@@ -199,6 +207,12 @@ hide-display() {
             width: 120px;
             height: 120px;
             line-height: 120px;
+            
+            transition: border-color .2s;
+            
+            &.dragging {
+                border-color: $primary-color;
+            }
         }
 
     }
@@ -333,9 +347,10 @@ hide-display() {
         text-align: center;
         
         user-select(none);
+        btn();
 
         &:active {
-            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5)
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
         }
     }
     

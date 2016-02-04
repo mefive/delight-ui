@@ -6,14 +6,16 @@ const Draggable = React.createClass({
     getDefaultProps() {
         return {
             minShiftX: 0,
-            minShiftY: 0
+            minShiftY: 0,
+            draggingClass: 'dragging'
         };
     },
 
     getInitialState() {
         return {
             elementTop: 0,
-            elementLeft: 0
+            elementLeft: 0,
+            isDragging: false
         };
     },
 
@@ -73,7 +75,8 @@ const Draggable = React.createClass({
 
             this.setState({
                 elementTop: offset.top,
-                elementLeft: offset.left
+                elementLeft: offset.left,
+                isDragging: true
             });
 
             onDrag && onDrag(offset);
@@ -83,6 +86,10 @@ const Draggable = React.createClass({
             document.removeEventListener('mousemove', onMove);
             document.removeEventListener('mouseup', endMove);
             document.onselectstart = null;
+
+            this.setState({
+                isDragging: false
+            });
         }
 
         document
@@ -93,10 +100,11 @@ const Draggable = React.createClass({
     },
 
     render() {
-        const {className, children} = this.props;
+        const {className, children, draggingClass} = this.props;
         const {style} = this.props;
-        const {elementTop, elementLeft} = this.state;
+        const {elementTop, elementLeft, isDragging} = this.state;
         const newStyle = {...style};
+        let childrenClassName = children.props.className;
 
         if (!isNaN(elementLeft)) {
             newStyle.left = elementLeft;
@@ -106,9 +114,14 @@ const Draggable = React.createClass({
             newStyle.top = elementTop;
         }
 
+        if (isDragging) {
+            childrenClassName = `${childrenClassName} ${draggingClass}`
+        }
+
         const newProps = {
             onMouseDown: this.startDragging,
-            style: newStyle
+            style: newStyle,
+            className: childrenClassName
         };
         
         return React.cloneElement(children, newProps);
