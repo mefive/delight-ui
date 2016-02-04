@@ -5,6 +5,10 @@ import {getOffset} from './util';
 import Trigger from './Trigger';
 import SelectPopup from './SelectPopup';
 
+const ARROW_UP = 38;
+const ARROW_DOWN = 40;
+const ENTER = 13;
+
 const AutoComplete = React.createClass({
     getDefaultProps() {
         return {
@@ -37,6 +41,7 @@ const AutoComplete = React.createClass({
 
         if (visible && !state.visible) {
             state.visible = visible;
+            state.select = null;
             this.onShow();
         }
     },
@@ -87,6 +92,10 @@ const AutoComplete = React.createClass({
 
         const select = data.find(item => item.value === value);
 
+        this.changeValue(select);
+    },
+
+    changeValue(select) {
         this.setState({
             inputValue: select.title
         });
@@ -116,7 +125,7 @@ const AutoComplete = React.createClass({
     hide(e) {
         const {input} = this.refs;
 
-        if (!input.contains(e.target)) {
+        if (!e || !input.contains(e.target)) {
             this.setState({
                 visible: false
             });
@@ -130,6 +139,41 @@ const AutoComplete = React.createClass({
 
     componentWillUnmount() {
         document.removeEventListener('click', this.hide);
+    },
+
+    onKeyDown(e) {
+        const {which} = e;
+        const {data} = this.props;
+        let {select} = this.state;
+
+        let index = data.indexOf(select);
+
+        if ([ARROW_UP, ARROW_DOWN, ENTER].indexOf(which) !== -1) {
+            e.preventDefault();
+        }
+
+        switch (which) {
+            case ARROW_DOWN:
+                if (index === data.length - 1) {
+                    index = -1;
+                }
+                select = data[index + 1];
+                break;
+
+            case ARROW_UP:
+                if (index === 0) {
+                    index = data.length;
+                }
+                select = data[index - 1];
+                break;
+
+            case ENTER:
+                this.changeValue(select);
+                this.hide();
+                return;
+        }
+
+        this.setState({ select });
     },
 
     render() {
@@ -151,6 +195,7 @@ const AutoComplete = React.createClass({
                     onInput={this.onInput}
                     ref="input"
                     value={inputValue}
+                    onKeyDown={this.onKeyDown}
                 />
             </Trigger>
         );
