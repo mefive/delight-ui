@@ -8,6 +8,7 @@ import DraggableTest from './DraggableTest';
 import TooltipTest from './TooltipTest';
 import SliderTest from './SliderTest';
 import SelectTest from './SelectTest';
+import AutoCompleteTest from './AutoCompleteTest';
 
 const Demo = React.createClass({
     render() {
@@ -19,6 +20,7 @@ const Demo = React.createClass({
                 <TooltipTest />
                 <SliderTest />
                 <SelectTest />
+                <AutoCompleteTest />
             </div>
         );
     }

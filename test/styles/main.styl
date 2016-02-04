@@ -7,12 +7,13 @@ primary-border() {
 }
 
 $primary-color = #F46700;
+$font-family = "Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
 
 html,
 body {
     background-color: #FFF;
     font-size: 13px;
-    font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+    font-family: $font-family;
     line-height: 1.1;
     gradient-radial(#fafafa, #d9d9d9);
 }
@@ -56,7 +57,8 @@ body {
         border-radius: 2px;
         padding: 20px;
         box-shadow: 0 0 5px rgba(0, 0, 0, .2);
-        background-color: rgba(255, 255, 255, 0.3)
+        //background-color: rgba(255, 255, 255, 0.3)
+        background-color: #fff;
 
         & > h1 {
             font-size: 26px;
@@ -377,5 +379,29 @@ hide-display() {
     .select-item {
         padding-top: 5px;
         padding-bottom: 5px;
+    }
+}
+
+input[type="text"] {
+    margin: 0;
+    background-color: transparent;
+    outline: none;
+    primary-border();
+    padding: 5px;
+    font-size: 13px;
+    font-family: $font-family;
+    &:focus {
+        border-color: $primary-color;
+    }
+}
+
+.auto-complete-test {
+    .auto-complete-container {
+        & + .auto-complete-container {
+            margin-top: 15px;
+        }
+    }
+    label {
+        margin-right: 10px;
     }
 }
