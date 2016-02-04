@@ -34,6 +34,14 @@ module.exports = {
             {
                 test: /\.styl$/,
                 loader: 'style-loader!css-loader!stylus-loader'
+            },
+            {
+                test: /\.(woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+                loader: 'file-loader',
+                query: {
+                    name: '[path][name].[ext]',
+                    context: 'test/styles/'
+                }
             }
         ]
     },

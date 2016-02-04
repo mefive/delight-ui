@@ -167,7 +167,7 @@ const Trigger = React.createClass({
     },
 
     render() {
-        const {children, actions, popupMountInside} = this.props;
+        const {children, actions, popupMountInside, activeClass} = this.props;
         const {visible} = this.state;
 
         this.popupRendered = this.popupRendered || visible;
@@ -186,6 +186,11 @@ const Trigger = React.createClass({
         if (actions.indexOf('focus') !== -1) {
             triggerProps.onFocus = this.onFocus;
             triggerProps.onBlur = this.onBlur;
+        }
+
+        if (visible) {
+            triggerProps.className
+            = `${children.props.className} ${activeClass}`;
         }
 
         return React.cloneElement(children, triggerProps);

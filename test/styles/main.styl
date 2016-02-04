@@ -1,5 +1,6 @@
 @import "reset.styl";
 @import "mixin.styl";
+@import "icon.styl";
 
 primary-border() {
     border: 1px solid #D5D5D5;
@@ -340,19 +341,33 @@ btn() {
     .select{
         primary-border();
         display: inline-block;
-        padding: 5px;
+        padding: 5px 15px 5px 5px;
+        width: 150px;
         cursor: pointer;
 
         position: relative;
         transition: box-shadow .2s;
-        width: 120px;
-        text-align: center;
         
         user-select(none);
         btn();
 
         &:active {
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+        }
+        
+        .icon {
+            display: inline-block;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            transition: transform .2s;
+            color: #999;
+        }
+
+        &.active {
+            .icon {
+                transform: rotate(0.5turn);
+            }
         }
     }
     
