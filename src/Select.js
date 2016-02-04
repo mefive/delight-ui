@@ -94,6 +94,10 @@ const Select = React.createClass({
         document.removeEventListener('click', this.hide);
     },
 
+    componentWillUnmount() {
+        document.removeEventListener('click', this.hide);
+    },
+
     render() {
         const {children, className, defaultTitle} = this.props;
         const {select, visible} = this.state;

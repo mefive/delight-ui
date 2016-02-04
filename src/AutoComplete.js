@@ -31,8 +31,14 @@ const AutoComplete = React.createClass({
 
     componentWillReceiveProps(nextProps) {
         const {data} = nextProps;
+        const {state} = this;
 
-        this.state.visible = data && data.length > 0;
+        const visible = data && data.length > 0;
+
+        if (visible && !state.visible) {
+            state.visible = visible;
+            this.onShow();
+        }
     },
 
     componentDidMount() {
@@ -80,30 +86,15 @@ const AutoComplete = React.createClass({
         const {input} = this.refs;
 
         const select = data.find(item => item.value === value);
-        
+
         this.setState({
             inputValue: select.title
         });
     },
 
-    onFocus() {
+    onFocus(e) {
+        e.preventDefault();
         this.updateData();
-    },
-
-    onBlur(e) {
-        // need to wait to see if the click event triggered
-        setTimeout(
-            () => {
-                this.hide();
-            }, 
-            100
-        );
-    },
-
-    hide() {
-        this.setState({
-            visible: false
-        }); 
     },
 
     onInput() {
@@ -118,6 +109,29 @@ const AutoComplete = React.createClass({
         getData(input.value);
     },
 
+    onShow() {
+        document.addEventListener('click', this.hide);
+    },
+
+    hide(e) {
+        const {input} = this.refs;
+
+        if (!input.contains(e.target)) {
+            this.setState({
+                visible: false
+            });
+            this.onHide();
+        }
+    },
+
+    onHide() {
+        document.removeEventListener('click', this.hide);
+    },
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.hide);
+    },
+
     render() {
         const {data} = this.props
         let {visible, inputValue} = this.state;
@@ -127,12 +141,13 @@ const AutoComplete = React.createClass({
                 popup={this.getPopup()}
                 popupMountInside={false}
                 visible={visible}
+                onShow={this.onShow}
+                onHide={this.onHide}
             >
                 <input 
                     type="text" 
                     className="auto-complete" 
                     onFocus={this.onFocus}
-                    onBlur={this.onBlur}
                     onInput={this.onInput}
                     ref="input"
                     value={inputValue}
