@@ -14,12 +14,12 @@ const Demo = React.createClass({
     render() {
         return (
             <div className="container">
-{/*                <ScrollableTest />
+                <ScrollableTest />
                 <TriggerTest />
                 <DraggableTest />
                 <TooltipTest />
                 <SliderTest />
-                <SelectTest />*/}
+                <SelectTest />
                 <AutoCompleteTest />
             </div>
         );
