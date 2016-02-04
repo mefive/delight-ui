@@ -22905,6 +22905,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var ARROW_UP = 38;
+	var ARROW_DOWN = 40;
+	var ENTER = 13;
+	
 	var AutoComplete = _react2.default.createClass({
 	    displayName: 'AutoComplete',
 	    getDefaultProps: function getDefaultProps() {
@@ -22936,6 +22940,7 @@
 	
 	        if (visible && !state.visible) {
 	            state.visible = visible;
+	            state.select = null;
 	            this.onShow();
 	        }
 	    },
@@ -22990,6 +22995,9 @@
 	            return item.value === value;
 	        });
 	
+	        this.changeValue(select);
+	    },
+	    changeValue: function changeValue(select) {
 	        this.setState({
 	            inputValue: select.title
 	        });
@@ -23014,7 +23022,7 @@
 	    hide: function hide(e) {
 	        var input = this.refs.input;
 	
-	        if (!input.contains(e.target)) {
+	        if (!e || !input.contains(e.target)) {
 	            this.setState({
 	                visible: false
 	            });
@@ -23026,6 +23034,40 @@
 	    },
 	    componentWillUnmount: function componentWillUnmount() {
 	        document.removeEventListener('click', this.hide);
+	    },
+	    onKeyDown: function onKeyDown(e) {
+	        var which = e.which;
+	        var data = this.props.data;
+	        var select = this.state.select;
+	
+	        var index = data.indexOf(select);
+	
+	        if ([ARROW_UP, ARROW_DOWN, ENTER].indexOf(which) !== -1) {
+	            e.preventDefault();
+	        }
+	
+	        switch (which) {
+	            case ARROW_DOWN:
+	                if (index === data.length - 1) {
+	                    index = -1;
+	                }
+	                select = data[index + 1];
+	                break;
+	
+	            case ARROW_UP:
+	                if (index === 0) {
+	                    index = data.length;
+	                }
+	                select = data[index - 1];
+	                break;
+	
+	            case ENTER:
+	                this.changeValue(select);
+	                this.hide();
+	                return;
+	        }
+	
+	        this.setState({ select: select });
 	    },
 	    render: function render() {
 	        var data = this.props.data;
@@ -23048,7 +23090,8 @@
 	                onFocus: this.onFocus,
 	                onInput: this.onInput,
 	                ref: 'input',
-	                value: inputValue
+	                value: inputValue,
+	                onKeyDown: this.onKeyDown
 	            })
 	        );
 	    }
