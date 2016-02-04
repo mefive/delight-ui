@@ -99,7 +99,8 @@ const Select = React.createClass({
     },
 
     render() {
-        const {children, className, defaultTitle} = this.props;
+        const {children, defaultTitle, activeClass} = this.props;
+        let {className} = this.props;
         const {select, visible} = this.state;
 
         return (
@@ -110,9 +111,11 @@ const Select = React.createClass({
                 visible={visible}
                 onShow={this.onShow}
                 onHide={this.onHide}
+                activeClass={activeClass}
             >
                 <div className={className}>
                     {select ? select.title : defaultTitle}
+                    <i className="icon icon-circle-down"></i>
                 </div>
             </Trigger>
         );
