@@ -39,10 +39,13 @@ const AutoComplete = React.createClass({
 
         const visible = data && data.length > 0;
 
-        if (visible && !state.visible) {
+        if (visible !== state.visible) {
             state.visible = visible;
-            state.select = null;
-            this.onShow();
+
+            if (visible) {
+                state.select = null;
+                this.onShow();
+            }
         }
     },
 
