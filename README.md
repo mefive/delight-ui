@@ -29,7 +29,7 @@ Components dev plan
 6. Select (done)
    * Slide up or down automatically, depend on the poistion of the element.
 
-7. AutoComplete
+7. AutoComplete (done)
 
 8. Modal
 
