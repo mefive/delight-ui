@@ -95,6 +95,10 @@
 	
 	var _SelectTest2 = _interopRequireDefault(_SelectTest);
 	
+	var _AutoCompleteTest = __webpack_require__(/*! ./AutoCompleteTest */ 180);
+	
+	var _AutoCompleteTest2 = _interopRequireDefault(_AutoCompleteTest);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Demo = _react2.default.createClass({
@@ -108,7 +112,8 @@
 	            _react2.default.createElement(_DraggableTest2.default, null),
 	            _react2.default.createElement(_TooltipTest2.default, null),
 	            _react2.default.createElement(_SliderTest2.default, null),
-	            _react2.default.createElement(_SelectTest2.default, null)
+	            _react2.default.createElement(_SelectTest2.default, null),
+	            _react2.default.createElement(_AutoCompleteTest2.default, null)
 	        );
 	    }
 	});
@@ -20233,7 +20238,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.col7,\n.col3,\n.col5 {\n  display: inline-block;\n  vertical-align: top;\n}\n.col5 {\n  width: 50%;\n}\n.col7 {\n  width: 70%;\n}\n.col3 {\n  width: 30%;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: rgba(255,255,255,0.3);\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n.slider-test .slider-step {\n  background-color: rgba(0,0,0,0.2);\n  border-radius: 3px;\n}\n.slider-test .slider-handle {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background-color: #fff;\n  border-radius: 50%;\n}\n.slider-test .slider-handle .tooltip-trigger {\n  width: 100%;\n  height: 100%;\n}\n.slider-test .slider-track {\n  position: absolute;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .slider {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.slider-test .slider .slider-step {\n  height: 8px;\n}\n.slider-test .slider .slider-handle {\n  margin-top: -4px;\n}\n.slider-test .slider .slider-track {\n  height: 8px;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .col5 {\n  text-align: center;\n  height: 100px;\n  line-height: 100px;\n}\n.slider-test .slider.vertical {\n  vertical-align: middle;\n  width: 8px;\n  height: 100px;\n}\n.slider-test .slider.vertical .slider-step {\n  height: 100%;\n}\n.slider-test .slider.vertical .slider-handle {\n  margin-left: -4px;\n}\n.slider-test .slider.vertical .slider-track {\n  bottom: 0;\n  width: 8px;\n}\n.select-test .select-container + .select-container {\n  margin-top: 15px;\n}\n.select-test label {\n  margin-right: 10px;\n}\n.select-test .select {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n  transition: box-shadow 0.2s;\n  width: 120px;\n  text-align: center;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  -ms-user-select: none;\n}\n.select-test .select:active {\n  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);\n}\n.select-test .select.person {\n  width: 200px;\n}\n.select-popup {\n  border: 1px solid #999;\n  border-radius: 2px;\n  position: absolute;\n  text-align: left;\n  line-height: 2;\n  background-color: #fff;\n  display: none;\n}\n.select-popup.active {\n  display: block;\n}\n.select-popup .select-item {\n  padding-left: 10px;\n  transition: background-color 0.2s;\n  vertical-align: top;\n}\n.select-popup .select-item:hover {\n  background-color: #fff7f2;\n}\n.select-popup .select-item.active {\n  background-color: #ffb27a;\n  color: #fff;\n}\n.select-popup.person img {\n  float: left;\n  width: 30px;\n  height: 30px;\n  line-height: 0;\n  margin-right: 5px;\n  margin-top: -2px;\n}\n.select-popup.person .select-item {\n  padding-top: 5px;\n  padding-bottom: 5px;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ni,\na,\nul,\nol,\nli,\ndiv,\nspan,\nform,\ninput,\nlabel,\ntable,\nimg,\ntextarea {\n  box-sizing: border-box;\n}\nobject {\n  outline: none;\n}\na {\n  color: #297bea;\n}\ntextarea {\n  resize: none;\n}\nhtml,\nbody {\n  background-color: #fff;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n  line-height: 1.1;\n  background-color: #fafafa;\n/* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: radial-gradient(ellipse at center, #fafafa 0%, #d9d9d9 100%); /* W3C */\n}\nbody {\n  position: relative;\n}\n#main {\n  width: 960px;\n  margin: 0 auto;\n  padding: 20px;\n}\n.col7,\n.col3,\n.col5 {\n  display: inline-block;\n  vertical-align: top;\n}\n.col5 {\n  width: 50%;\n}\n.col7 {\n  width: 70%;\n}\n.col3 {\n  width: 30%;\n}\n.container > div {\n  border: 1px solid transparent;\n  border-radius: 2px;\n  padding: 20px;\n  box-shadow: 0 0 5px rgba(0,0,0,0.2);\n  background-color: #fff;\n}\n.container > div + div {\n  margin-top: 20px;\n}\n.container > div > h1 {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: left !important;\n  margin: 20px 0;\n}\n.scrollable-test {\n  text-align: center;\n}\n.scrollable-test .scroll-vertical,\n.scrollable-test .scroll-horizontal {\n  position: relative;\n  width: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-panel {\n  overflow: hidden;\n}\n.scrollable-test .scroll-thumb {\n  position: absolute;\n  background-color: #f46700;\n  transition: background-color 0.3s;\n  border-radius: 3px;\n}\n.scrollable-test .scroll-thumb:hover {\n  background-color: #b3b3b3;\n}\n.scrollable-test .scroll-track {\n  position: absolute;\n}\n.scrollable-test .scroll-vertical .scroll-content {\n  vertical-align: middle;\n  text-align: center;\n  line-height: 300px;\n}\n.scrollable-test .scroll-vertical .scroll-track {\n  width: 6px;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n.scrollable-test .scroll-vertical .scroll-thumb {\n  width: 6px;\n}\n.scrollable-test .scroll-horizontal {\n  margin-left: 20px;\n  height: 200px;\n}\n.scrollable-test .scroll-horizontal .scroll-content {\n  line-height: 200px;\n  vertical-align: middle;\n}\n.scrollable-test .scroll-horizontal .scroll-track {\n  height: 6px;\n  right: 0;\n  left: 0;\n  bottom: 0px;\n}\n.scrollable-test .scroll-horizontal .scroll-thumb {\n  height: 6px;\n}\n.trigger-test .trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n}\n.trigger-test .trigger + .trigger {\n  margin-left: 10px;\n}\n.trigger-test .popup {\n  position: absolute;\n  bottom: 30px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  z-index: 1;\n  background-color: #fffbed;\n  white-space: pre;\n  left: -10px;\n  display: none;\n}\n.trigger-test .popup.active {\n  display: block;\n}\n.draggable-test .draggable-playground {\n  width: 80%;\n  height: 300px;\n  border: 1px solid #999;\n  border-radius: 2px;\n  margin: 0 auto;\n  position: relative;\n}\n.draggable-test .draggable-playground > div {\n  border: 1px solid #999;\n  border-radius: 2px;\n  border-style: dotted;\n  position: absolute;\n  vertical-align: middle;\n  text-align: center;\n  width: 120px;\n  height: 120px;\n  line-height: 120px;\n}\n.tooltip-test .tooltip-trigger {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  border-color: #f46700;\n  position: relative;\n}\n.tooltip-test .tooltip-trigger + .tooltip-trigger {\n  margin-left: 30px;\n}\n.tooltip-popup {\n  position: absolute;\n  color: #fff;\n  padding: 5px;\n  background-color: rgba(0,0,0,0.7);\n  border-radius: 3px;\n  display: none;\n  margin-top: -5px;\n}\n.tooltip-popup.active {\n  display: block;\n}\n.tooltip-popup.bottom {\n  margin-top: 5px;\n}\n.slider-test .slider-step {\n  background-color: rgba(0,0,0,0.2);\n  border-radius: 3px;\n}\n.slider-test .slider-handle {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background-color: #fff;\n  border-radius: 50%;\n}\n.slider-test .slider-handle .tooltip-trigger {\n  width: 100%;\n  height: 100%;\n}\n.slider-test .slider-track {\n  position: absolute;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .slider {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.slider-test .slider .slider-step {\n  height: 8px;\n}\n.slider-test .slider .slider-handle {\n  margin-top: -4px;\n}\n.slider-test .slider .slider-track {\n  height: 8px;\n  background-color: #f46700;\n  border-radius: 3px;\n}\n.slider-test .col5 {\n  text-align: center;\n  height: 100px;\n  line-height: 100px;\n}\n.slider-test .slider.vertical {\n  vertical-align: middle;\n  width: 8px;\n  height: 100px;\n}\n.slider-test .slider.vertical .slider-step {\n  height: 100%;\n}\n.slider-test .slider.vertical .slider-handle {\n  margin-left: -4px;\n}\n.slider-test .slider.vertical .slider-track {\n  bottom: 0;\n  width: 8px;\n}\n.select-test .select-container + .select-container {\n  margin-top: 15px;\n}\n.select-test label {\n  margin-right: 10px;\n}\n.select-test .select {\n  border: 1px solid #999;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 5px;\n  cursor: pointer;\n  position: relative;\n  transition: box-shadow 0.2s;\n  width: 120px;\n  text-align: center;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  -ms-user-select: none;\n}\n.select-test .select:active {\n  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);\n}\n.select-test .select.person {\n  width: 200px;\n}\n.select-popup {\n  border: 1px solid #999;\n  border-radius: 2px;\n  position: absolute;\n  text-align: left;\n  line-height: 2;\n  background-color: #fff;\n  display: none;\n}\n.select-popup.active {\n  display: block;\n}\n.select-popup .select-item {\n  padding-left: 10px;\n  transition: background-color 0.2s;\n  vertical-align: top;\n}\n.select-popup .select-item:hover {\n  background-color: #fff7f2;\n}\n.select-popup .select-item.active {\n  background-color: #ffb27a;\n  color: #fff;\n}\n.select-popup.person img {\n  float: left;\n  width: 30px;\n  height: 30px;\n  line-height: 0;\n  margin-right: 5px;\n  margin-top: -2px;\n}\n.select-popup.person .select-item {\n  padding-top: 5px;\n  padding-bottom: 5px;\n}\ninput[type=\"text\"] {\n  margin: 0;\n  background-color: transparent;\n  outline: none;\n  border: 1px solid #999;\n  border-radius: 2px;\n  padding: 5px;\n  font-size: 13px;\n  font-family: \"Myriad Set Pro\", \"Lucida Grande\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", \"Verdana\", \"sans-serif\";\n}\ninput[type=\"text\"]:focus {\n  border-color: #f46700;\n}\n.auto-complete-test .auto-complete-container + .auto-complete-container {\n  margin-top: 15px;\n}\n.auto-complete-test label {\n  margin-right: 10px;\n}\n", ""]);
 	
 	// exports
 
@@ -21317,6 +21322,7 @@
 	        return {
 	            popupMountInside: true,
 	            activeClass: 'active',
+	            actions: '',
 	            onShow: function onShow() {},
 	            onHide: function onHide() {}
 	        };
@@ -21433,6 +21439,12 @@
 	            state.aboutToLeave = true;
 	        }
 	    },
+	    onFocus: function onFocus() {
+	        this.show();
+	    },
+	    onBlur: function onBlur() {
+	        this.hide();
+	    },
 	    show: function show() {
 	        this.setState({
 	            visible: true
@@ -21464,6 +21476,11 @@
 	        if (actions.indexOf('hover') !== -1) {
 	            triggerProps.onMouseEnter = this.onMouseEnter;
 	            triggerProps.onMouseLeave = this.onMouseLeave;
+	        }
+	
+	        if (actions.indexOf('focus') !== -1) {
+	            triggerProps.onFocus = this.onFocus;
+	            triggerProps.onBlur = this.onBlur;
 	        }
 	
 	        return _react2.default.cloneElement(children, triggerProps);
@@ -22233,7 +22250,7 @@
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _selectPopupMixin = __webpack_require__(/*! ../src/selectPopupMixin */ 178);
+	var _selectPopupMixin = __webpack_require__(/*! ../src/selectPopupMixin */ 179);
 	
 	var _selectPopupMixin2 = _interopRequireDefault(_selectPopupMixin);
 	
@@ -22378,16 +22395,177 @@
 	
 	var _Trigger2 = _interopRequireDefault(_Trigger);
 	
-	var _selectPopupMixin = __webpack_require__(/*! ./selectPopupMixin */ 178);
+	var _SelectPopup = __webpack_require__(/*! ./SelectPopup */ 178);
 	
-	var _selectPopupMixin2 = _interopRequireDefault(_selectPopupMixin);
+	var _SelectPopup2 = _interopRequireDefault(_SelectPopup);
 	
 	var _util = __webpack_require__(/*! ./util */ 168);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Popup = _react2.default.createClass({
-	    displayName: 'Popup',
+	var Select = _react2.default.createClass({
+	    displayName: 'Select',
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            data: [],
+	            value: null,
+	            popupClassName: 'select-popup',
+	            itemClassName: 'select-item',
+	            activeClass: 'active',
+	            onChange: function onChange() {},
+	            popup: null
+	        };
+	    },
+	    getInitialState: function getInitialState() {
+	        return {
+	            select: null,
+	            offset: null,
+	            dimension: null
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var element = (0, _reactDom.findDOMNode)(this);
+	        var offset = (0, _util.getOffset)(element);
+	        var dimension = {
+	            height: element.offsetHeight,
+	            width: element.offsetWidth
+	        };
+	
+	        this.setState({
+	            offset: offset,
+	            dimension: dimension
+	        });
+	    },
+	    onClick: function onClick(e, value) {
+	        var _props = this.props;
+	        var data = _props.data;
+	        var onChange = _props.onChange;
+	
+	        var select = data.find(function (item) {
+	            return item.value === value;
+	        });
+	
+	        this.setState({
+	            select: select,
+	            visible: false
+	        });
+	
+	        this.onHide();
+	        onChange(select);
+	    },
+	    getPopup: function getPopup() {
+	        var _props2 = this.props;
+	        var popupClassName = _props2.popupClassName;
+	        var itemClassName = _props2.itemClassName;
+	        var data = _props2.data;
+	        var value = _props2.value;
+	        var activeClass = _props2.activeClass;
+	        var popup = _props2.popup;
+	        var _state = this.state;
+	        var offset = _state.offset;
+	        var dimension = _state.dimension;
+	        var select = _state.select;
+	
+	        var popupProps = {
+	            className: popupClassName,
+	            activeClass: activeClass,
+	            itemClassName: itemClassName,
+	            data: data,
+	            value: select ? select.value : value,
+	            triggerOffset: offset,
+	            triggerDimension: dimension,
+	            onClick: this.onClick
+	        };
+	
+	        if (popup) {
+	            return _react2.default.createElement(popup, popupProps);
+	        } else {
+	            return _react2.default.createElement(_SelectPopup2.default, popupProps);
+	        }
+	    },
+	    onShow: function onShow() {
+	        document.addEventListener('click', this.hide);
+	    },
+	    hide: function hide() {
+	        this.setState({
+	            visible: false
+	        });
+	        this.onHide();
+	    },
+	    onHide: function onHide() {
+	        document.removeEventListener('click', this.hide);
+	    },
+	    render: function render() {
+	        var _props3 = this.props;
+	        var children = _props3.children;
+	        var className = _props3.className;
+	        var defaultTitle = _props3.defaultTitle;
+	        var _state2 = this.state;
+	        var select = _state2.select;
+	        var visible = _state2.visible;
+	
+	        return _react2.default.createElement(
+	            _Trigger2.default,
+	            {
+	                popup: this.getPopup(),
+	                popupMountInside: false,
+	                actions: 'click',
+	                visible: visible,
+	                onShow: this.onShow,
+	                onHide: this.onHide
+	            },
+	            _react2.default.createElement(
+	                'div',
+	                { className: className },
+	                select ? select.title : defaultTitle
+	            )
+	        );
+	    }
+	});
+	
+	Select.propTypes = {
+	    className: _react.PropTypes.string,
+	    defaultTitle: _react.PropTypes.string,
+	    data: _react.PropTypes.array,
+	    value: _react.PropTypes.string,
+	    popup: _react.PropTypes.func,
+	    popupClassName: _react.PropTypes.string,
+	    itemClassName: _react.PropTypes.string,
+	    activeClass: _react.PropTypes.string,
+	    onChange: _react.PropTypes.func
+	};
+	
+	exports.default = Select;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Select.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 178 */
+/*!****************************!*\
+  !*** ./src/SelectPopup.js ***!
+  \****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _selectPopupMixin = __webpack_require__(/*! ./selectPopupMixin */ 179);
+	
+	var _selectPopupMixin2 = _interopRequireDefault(_selectPopupMixin);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SelectPopup = _react2.default.createClass({
+	    displayName: 'SelectPopup',
 	
 	    mixins: [_selectPopupMixin2.default],
 	
@@ -22446,146 +22624,12 @@
 	    }
 	});
 	
-	var Select = _react2.default.createClass({
-	    displayName: 'Select',
-	    getDefaultProps: function getDefaultProps() {
-	        return {
-	            data: [],
-	            value: null,
-	            popupClassName: 'select-popup',
-	            itemClassName: 'select-item',
-	            activeClass: 'active',
-	            onChange: function onChange() {},
-	            popup: null
-	        };
-	    },
-	    getInitialState: function getInitialState() {
-	        return {
-	            popupWidth: 0,
-	            popupTop: 0,
-	            popupLeft: 0,
-	            popupBottom: 0,
-	            select: null
-	        };
-	    },
-	    componentDidMount: function componentDidMount() {
-	        var element = (0, _reactDom.findDOMNode)(this);
-	        var offset = (0, _util.getOffset)(element);
-	        var dimension = {
-	            height: element.offsetHeight,
-	            width: element.offsetWidth
-	        };
+	exports.default = SelectPopup;
 	
-	        this.setState({
-	            offset: offset,
-	            dimension: dimension
-	        });
-	    },
-	    onClick: function onClick(e, value) {
-	        var _props2 = this.props;
-	        var data = _props2.data;
-	        var onChange = _props2.onChange;
-	
-	        var select = data.find(function (item) {
-	            return item.value === value;
-	        });
-	
-	        this.setState({
-	            select: select,
-	            visible: false
-	        });
-	
-	        this.onHide();
-	        onChange(select);
-	    },
-	    getPopup: function getPopup() {
-	        var _props3 = this.props;
-	        var popupClassName = _props3.popupClassName;
-	        var itemClassName = _props3.itemClassName;
-	        var data = _props3.data;
-	        var value = _props3.value;
-	        var activeClass = _props3.activeClass;
-	        var popup = _props3.popup;
-	        var _state2 = this.state;
-	        var offset = _state2.offset;
-	        var dimension = _state2.dimension;
-	        var select = _state2.select;
-	
-	        var popupProps = {
-	            className: popupClassName,
-	            activeClass: activeClass,
-	            itemClassName: itemClassName,
-	            data: data,
-	            value: select ? select.value : value,
-	            triggerOffset: offset,
-	            triggerDimension: dimension,
-	            onClick: this.onClick
-	        };
-	
-	        if (popup) {
-	            return _react2.default.createElement(popup, popupProps);
-	        } else {
-	            return _react2.default.createElement(Popup, popupProps);
-	        }
-	    },
-	    onShow: function onShow() {
-	        document.addEventListener('click', this.hide);
-	    },
-	    hide: function hide() {
-	        this.setState({
-	            visible: false
-	        });
-	        this.onHide();
-	    },
-	    onHide: function onHide() {
-	        document.removeEventListener('click', this.hide);
-	    },
-	    render: function render() {
-	        var _props4 = this.props;
-	        var children = _props4.children;
-	        var className = _props4.className;
-	        var defaultTitle = _props4.defaultTitle;
-	        var _state3 = this.state;
-	        var select = _state3.select;
-	        var visible = _state3.visible;
-	
-	        return _react2.default.createElement(
-	            _Trigger2.default,
-	            {
-	                popup: this.getPopup(),
-	                popupMountInside: false,
-	                actions: 'click',
-	                visible: visible,
-	                onShow: this.onShow,
-	                onHide: this.onHide
-	            },
-	            _react2.default.createElement(
-	                'div',
-	                { className: className },
-	                select ? select.title : defaultTitle
-	            )
-	        );
-	    }
-	});
-	
-	Select.propTypes = {
-	    className: _react.PropTypes.string,
-	    defaultTitle: _react.PropTypes.string,
-	    data: _react.PropTypes.array,
-	    value: _react.PropTypes.string,
-	    popup: _react.PropTypes.func,
-	    popupClassName: _react.PropTypes.string,
-	    itemClassName: _react.PropTypes.string,
-	    activeClass: _react.PropTypes.string,
-	    onChange: _react.PropTypes.func
-	};
-	
-	exports.default = Select;
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Select.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SelectPopup.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 178 */
+/* 179 */
 /*!*********************************!*\
   !*** ./src/selectPopupMixin.js ***!
   \*********************************/
@@ -22631,7 +22675,7 @@
 	        };
 	    },
 	    componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
-	        if (!prevProps.visible && this.props.visible) {
+	        if (!prevProps.visible && this.props.visible || prevProps.data !== this.props.data) {
 	            var style = this.getStyle();
 	            this.setState(_extends({}, style));
 	        }
@@ -22641,6 +22685,226 @@
 	exports.default = selectPopupMixin;
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "selectPopupMixin.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 180 */
+/*!**********************************!*\
+  !*** ./test/AutoCompleteTest.js ***!
+  \**********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _AutoComplete = __webpack_require__(/*! ../src/AutoComplete */ 181);
+	
+	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var data = [{ value: '1', title: '一' }, { value: '2', title: '二' }, { value: '3', title: '三' }, { value: '4', title: '四' }, { value: '5', title: '五' }, { value: '6', title: '六' }, { value: '7', title: '七' }];
+	
+	var AutoCompleteTest = _react2.default.createClass({
+	    displayName: 'AutoCompleteTest',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            { className: 'auto-complete-test' },
+	            _react2.default.createElement(
+	                'h1',
+	                null,
+	                'AutoComplete'
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'auto-complete-container' },
+	                _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Default'
+	                ),
+	                _react2.default.createElement(_AutoComplete2.default, {
+	                    getData: function getData() {
+	                        var value = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+	
+	                        return data.filter(function (item) {
+	                            return value.indexOf(item.value) !== -1;
+	                        });
+	                    }
+	                })
+	            )
+	        );
+	    }
+	});
+	
+	exports.default = AutoCompleteTest;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "AutoCompleteTest.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 181 */
+/*!*****************************!*\
+  !*** ./src/AutoComplete.js ***!
+  \*****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/projects/delight-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 159);
+	
+	var _util = __webpack_require__(/*! ./util */ 168);
+	
+	var _Trigger = __webpack_require__(/*! ./Trigger */ 170);
+	
+	var _Trigger2 = _interopRequireDefault(_Trigger);
+	
+	var _SelectPopup = __webpack_require__(/*! ./SelectPopup */ 178);
+	
+	var _SelectPopup2 = _interopRequireDefault(_SelectPopup);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var AutoComplete = _react2.default.createClass({
+	    displayName: 'AutoComplete',
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            value: null,
+	            popupClassName: 'select-popup',
+	            itemClassName: 'select-item',
+	            activeClass: 'active',
+	            onChange: function onChange() {},
+	            getData: function getData() {},
+	            popup: null
+	        };
+	    },
+	    getInitialState: function getInitialState() {
+	        return {
+	            data: [],
+	            select: null,
+	            offset: null,
+	            dimension: null,
+	            visible: false
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var element = (0, _reactDom.findDOMNode)(this);
+	        var offset = (0, _util.getOffset)(element);
+	        var dimension = {
+	            height: element.offsetHeight,
+	            width: element.offsetWidth
+	        };
+	
+	        this.setState({
+	            offset: offset,
+	            dimension: dimension
+	        });
+	    },
+	    getPopup: function getPopup() {
+	        var _props = this.props;
+	        var popupClassName = _props.popupClassName;
+	        var itemClassName = _props.itemClassName;
+	        var value = _props.value;
+	        var activeClass = _props.activeClass;
+	        var popup = _props.popup;
+	        var _state = this.state;
+	        var offset = _state.offset;
+	        var dimension = _state.dimension;
+	        var select = _state.select;
+	        var data = _state.data;
+	
+	        var popupProps = {
+	            className: popupClassName,
+	            activeClass: activeClass,
+	            itemClassName: itemClassName,
+	            data: data,
+	            value: select ? select.value : value,
+	            triggerOffset: offset,
+	            triggerDimension: dimension,
+	            onClick: this.onClick
+	        };
+	
+	        if (popup) {
+	            return _react2.default.createElement(popup, popupProps);
+	        } else {
+	            return _react2.default.createElement(_SelectPopup2.default, popupProps);
+	        }
+	    },
+	    onFocus: function onFocus() {
+	        this.updateData();
+	    },
+	    onBlur: function onBlur() {
+	        this.hide();
+	    },
+	    hide: function hide() {
+	        this.setState({
+	            visible: false
+	        });
+	    },
+	    onInput: function onInput() {
+	        this.updateData();
+	    },
+	    updateData: function updateData() {
+	        var getData = this.props.getData;
+	        var input = this.refs.input;
+	
+	        var data = getData(input.value);
+	        var visible = false;
+	
+	        if (data && data.length !== 0) {
+	            visible = true;
+	        } else {
+	            data = [];
+	        }
+	
+	        this.setState({
+	            visible: visible,
+	            data: data
+	        });
+	    },
+	    render: function render() {
+	        var visible = this.state.visible;
+	
+	        return _react2.default.createElement(
+	            _Trigger2.default,
+	            {
+	                popup: this.getPopup(),
+	                popupMountInside: false,
+	                visible: visible
+	            },
+	            _react2.default.createElement('input', {
+	                type: 'text',
+	                className: 'auto-complete',
+	                onFocus: this.onFocus,
+	                onBlur: this.onBlur,
+	                onInput: this.onInput,
+	                ref: 'input'
+	            })
+	        );
+	    }
+	});
+	
+	exports.default = AutoComplete;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/projects/delight-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "AutoComplete.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }
 /******/ ]);
