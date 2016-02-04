@@ -24,7 +24,8 @@ const AutoComplete = React.createClass({
             select: null,
             offset: null,
             dimension: null,
-            visible: false
+            visible: false,
+            inputValue: ''
         };
     },
 
@@ -74,12 +75,29 @@ const AutoComplete = React.createClass({
         }
     },
 
+    onClick(e, value) {
+        const {data} = this.props;
+        const {input} = this.refs;
+
+        const select = data.find(item => item.value === value);
+        
+        this.setState({
+            inputValue: select.title
+        });
+    },
+
     onFocus() {
         this.updateData();
     },
 
-    onBlur() {
-       this.hide();
+    onBlur(e) {
+        // need to wait to see if the click event triggered
+        setTimeout(
+            () => {
+                this.hide();
+            }, 
+            100
+        );
     },
 
     hide() {
@@ -96,12 +114,13 @@ const AutoComplete = React.createClass({
         const {getData} = this.props;
         const {input} = this.refs;
 
+        this.state.inputValue = input.value;
         getData(input.value);
     },
 
     render() {
         const {data} = this.props
-        let {visible} = this.state;
+        let {visible, inputValue} = this.state;
 
         return (
             <Trigger
@@ -116,6 +135,7 @@ const AutoComplete = React.createClass({
                     onBlur={this.onBlur}
                     onInput={this.onInput}
                     ref="input"
+                    value={inputValue}
                 />
             </Trigger>
         );
