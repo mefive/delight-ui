@@ -10,6 +10,7 @@ const Trigger = React.createClass({
         return {
             popupMountInside: true,
             activeClass: 'active',
+            actions: '',
             onShow: () => {},
             onHide: () => {}
         };
@@ -142,6 +143,14 @@ const Trigger = React.createClass({
         }
     },
 
+    onFocus() {
+        this.show();
+    },
+
+    onBlur() {
+        this.hide();
+    },
+
     show() {
         this.setState({
             visible: true
@@ -172,6 +181,11 @@ const Trigger = React.createClass({
         if (actions.indexOf('hover') !== -1) {
             triggerProps.onMouseEnter = this.onMouseEnter;
             triggerProps.onMouseLeave = this.onMouseLeave;
+        }
+
+        if (actions.indexOf('focus') !== -1) {
+            triggerProps.onFocus = this.onFocus;
+            triggerProps.onBlur = this.onBlur;
         }
 
         return React.cloneElement(children, triggerProps);

@@ -1,28 +1,30 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {findDOMNode} from 'react-dom';
+import {getOffset} from './util';
 
 import Trigger from './Trigger';
 import SelectPopup from './SelectPopup';
-import {getOffset} from './util';
 
-const Select = React.createClass({
+const AutoComplete = React.createClass({
     getDefaultProps() {
         return {
-            data: [],
             value: null,
             popupClassName: 'select-popup',
             itemClassName: 'select-item',
             activeClass: 'active',
             onChange: () => {},
+            getData: () => {},
             popup: null
         };
     },
 
     getInitialState() {
         return {
+            data: [],
             select: null,
             offset: null,
-            dimension: null
+            dimension: null,
+            visible: false
         };
     },
 
@@ -40,22 +42,9 @@ const Select = React.createClass({
         });
     },
 
-    onClick(e, value) {
-        const {data, onChange} = this.props;
-        const select = data.find(item => item.value === value);
-
-        this.setState({ 
-            select,
-            visible: false
-        });
-
-        this.onHide();
-        onChange(select);
-    },
-
     getPopup() {
-        const {popupClassName, itemClassName, data, value, activeClass, popup} = this.props;
-        const {offset, dimension, select} = this.state;
+        const {popupClassName, itemClassName, value, activeClass, popup} = this.props;
+        const {offset, dimension, select, data} = this.state;
 
         const popupProps = {
             className: popupClassName,
@@ -79,52 +68,64 @@ const Select = React.createClass({
         }
     },
 
-    onShow() {
-        document.addEventListener('click', this.hide);
+    onFocus() {
+        this.updateData();
+    },
+
+    onBlur() {
+       this.hide();
     },
 
     hide() {
         this.setState({
             visible: false
-        });
-        this.onHide();
+        }); 
     },
 
-    onHide() {
-        document.removeEventListener('click', this.hide);
+    onInput() {
+        this.updateData();
+    },
+
+    updateData() {
+        const {getData} = this.props;
+        const {input} = this.refs;
+
+        let data = getData(input.value);
+        let visible = false;
+
+        if (data && data.length !== 0) {
+            visible = true;
+        }
+        else {
+            data = [];
+        }
+
+        this.setState({
+            visible,
+            data
+        });
     },
 
     render() {
-        const {children, className, defaultTitle} = this.props;
-        const {select, visible} = this.state;
+        const {visible} = this.state;
 
         return (
             <Trigger
                 popup={this.getPopup()}
                 popupMountInside={false}
-                actions="click"
                 visible={visible}
-                onShow={this.onShow}
-                onHide={this.onHide}
             >
-                <div className={className}>
-                    {select ? select.title : defaultTitle}
-                </div>
+                <input 
+                    type="text" 
+                    className="auto-complete" 
+                    onFocus={this.onFocus}
+                    onBlur={this.onBlur}
+                    onInput={this.onInput}
+                    ref="input"
+                />
             </Trigger>
         );
     }
 });
 
-Select.propTypes = {
-    className: PropTypes.string,
-    defaultTitle: PropTypes.string,
-    data: PropTypes.array,
-    value: PropTypes.string,
-    popup: PropTypes.func,
-    popupClassName: PropTypes.string,
-    itemClassName: PropTypes.string,
-    activeClass: PropTypes.string,
-    onChange: PropTypes.func
-};
-
-export default Select;
+export default AutoComplete;

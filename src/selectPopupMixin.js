@@ -32,7 +32,9 @@ const selectPopupMixin = {
     },
 
     componentDidUpdate(prevProps, prevState) {
-        if (!prevProps.visible && this.props.visible) {
+        if ((!prevProps.visible && this.props.visible)
+            || (prevProps.data !== this.props.data)
+        ) {
             const style = this.getStyle();
             this.setState({...style});
         }
