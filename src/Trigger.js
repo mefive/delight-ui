@@ -131,7 +131,7 @@ const Trigger = React.createClass({
     },
 
     getPopupContainer() {
-        const {popupMountInside, popupStyle} = this.props;
+        const {popupMountInside} = this.props;
         let {popupContainer} = this;
 
         if (popupContainer) {
