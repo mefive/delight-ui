@@ -201,6 +201,7 @@ const AutoComplete = React.createClass({
                     ref="input"
                     value={inputValue}
                     onKeyDown={this.onKeyDown}
+                    placeholder="Enter number"
                 />
             </Trigger>
         );
