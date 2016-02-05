@@ -1,0 +1,51 @@
+@keyframes slide-up-in {
+    0% {
+        opacity: 0;
+        transform-origin: 0% 0%;
+        transfrom: scaleY(.8);
+    }
+    100% {
+        opacity: 1;
+        transfrom-origin: 0% 0%;
+        transform: scalY(1);
+    }
+}
+
+@keyframes slide-up-out {
+    0% {
+        opacity: 1;
+        transform-origin: 0% 0%;
+        transform: scalY(1);
+    }
+    100% {
+        opacity: 0;
+        transform-origin: 0% 0%;
+        transform: scalY(.8);
+    }
+}
+
+@keyframes slide-down-in {
+  0% {
+    opacity: 0;
+    transform-origin: 100% 100%;
+    transform: scaleY(.8);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 100% 100%;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes slide-down-out {
+  0% {
+    opacity: 1;
+    transform-origin: 100% 100%;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 100% 100%;
+    transform: scaleY(.8);
+  }
+}

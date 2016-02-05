@@ -1,6 +1,7 @@
 @import "reset.styl";
 @import "mixin.styl";
 @import "icon.styl";
+@import "animation.styl";
 
 primary-border() {
     border: 1px solid #D5D5D5;
@@ -98,6 +99,7 @@ hide-display() {
         background-color: $primary-color;
         transition: background-color .3s;
         border-radius: 3px;
+        box-shadow: 0 0 1px rgba(0, 0, 0, .2);
         &:hover {
             background-color: #b3b3b3;
         }
@@ -185,6 +187,13 @@ btn() {
         &.active {
             display: block;
         }
+
+        &.enter {
+            animation: slide-up-in .2s;
+        }
+        &.leave {
+            animation: slide-up-out .2s;
+        }
     }
 }
 
@@ -244,9 +253,18 @@ btn() {
     display: none;
     margin-top: -5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    transition: opacity .2s;
 
     &.active{
         display: block;
+    }
+
+    &.enter {
+        animation: slide-up-in .2s;
+    }
+
+    &.leave {
+        animation: slide-up-out .2s;
     }
 
     &.bottom {
@@ -396,6 +414,13 @@ btn() {
             background-color: lighten($primary-color, 50%);
             color: #fff;
         }
+    }
+
+    &.enter {
+        animation: slide-up-in .4s;
+    }
+    &.leave {
+        animation: slide-up-out .4s;
     }
 }
 
