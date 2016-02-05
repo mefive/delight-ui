@@ -10,6 +10,10 @@ const Trigger = React.createClass({
         return {
             popupMountInside: true,
             activeClass: 'active',
+            enterClass: 'enter',
+            leaveClass: 'leave',
+            enterDuration: 200,
+            leaveDuration: 200,
             actions: '',
             onShow: () => {},
             onHide: () => {}
@@ -25,7 +29,22 @@ const Trigger = React.createClass({
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.visible != null) {
-            this.state.visible = nextProps.visible;  
+            this.setState({
+                visible: nextProps.visible
+            });
+        }
+    },
+
+    componentWillUpdate(nextProps, nextState) {
+        if (this.state.visible === nextState.visible) {
+            return;
+        }
+
+        if (!this.state.visible && nextState.visible) {
+            this.isEntering = true;
+        }
+        else {
+            this.isLeaving = true;
         }
     },
 
@@ -49,8 +68,9 @@ const Trigger = React.createClass({
     },
 
     componentDidUpdate(prevProps, prevState) {
-        let {popup, activeClass, getPopupContainer} = this.props;
-
+        const {activeClass, enterClass, leaveClass, enterDuration, leaveDuration} = this.props;
+        let {popup, getPopupContainer} = this.props;
+        const {isEntering, isLeaving} = this;
         const {visible} = this.state;
 
         if (!getPopupContainer) {
@@ -59,14 +79,27 @@ const Trigger = React.createClass({
 
         let popupProps = {};
 
+        // render popup
         if (this.popupRendered) {
-            if (visible) {
-                popupProps
-                = {
-                    className: (popup.props.className + ' ' + activeClass),
-                    visible
-                };
+            let className = popup.props.className;
+
+            if (visible || isLeaving) {
+                className = `${className} ${activeClass}`;
             }
+
+            if (isEntering) {
+                className = `${className} ${enterClass}`;
+            }
+
+            if (isLeaving) {
+                className = `${className} ${leaveClass}`;
+            }
+
+            popupProps
+            = {
+                className,
+                visible
+            };
 
             popup = React.cloneElement(popup, popupProps);
 
@@ -75,6 +108,25 @@ const Trigger = React.createClass({
                 popup,
                 getPopupContainer()
             );
+
+            if (isEntering) {
+                setTimeout(
+                    () => {
+                        this.isEntering = false;
+                        this.forceUpdate();
+                    },
+                    enterDuration
+                );
+            }
+            else if (isLeaving) {
+                setTimeout(
+                    () => {
+                        this.isLeaving = false;
+                        this.forceUpdate();
+                    },
+                    leaveDuration
+                );
+            }
         } 
     },
 

@@ -190,6 +190,8 @@ const AutoComplete = React.createClass({
                 visible={visible}
                 onShow={this.onShow}
                 onHide={this.onHide}
+                enterDuration={400}
+                leaveDuration={400}
             >
                 <input 
                     type="text" 
