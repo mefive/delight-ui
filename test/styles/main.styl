@@ -526,6 +526,14 @@ input[type="text"] {
     &.active {
         display: block;
     }
+    
+    &.enter {
+        animation: move-up-in .2s;
+    }
+    
+    &.leave {
+        animation: move-up-out .2s;
+    }
 
     .close {
         btn();
