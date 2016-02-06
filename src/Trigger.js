@@ -204,6 +204,10 @@ const Trigger = React.createClass({
     },
 
     show() {
+        if (this.isEntering || this.isLeaving) {
+            return;
+        }
+
         this.setState({
             visible: true
         });
@@ -211,6 +215,10 @@ const Trigger = React.createClass({
     },
 
     hide() {
+        if (this.isEntering || this.isLeaving) {
+            return;
+        }
+        
         this.setState({
             visible: false,
             aboutToLeave: false

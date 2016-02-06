@@ -112,8 +112,6 @@ const Select = React.createClass({
                 onShow={this.onShow}
                 onHide={this.onHide}
                 activeClass={activeClass}
-                enterDuration={400}
-                leaveDuration={400}
             >
                 <div className={className}>
                     {select ? select.title : defaultTitle}
