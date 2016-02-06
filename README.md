@@ -31,7 +31,7 @@ Components dev plan
 
 7. AutoComplete (done)
 
-8. Modal
+8. Modal (done)
 
 9. Table
    *  Column can be dragged to adjust width, be clicked to sort.
