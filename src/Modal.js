@@ -9,7 +9,7 @@ const PinCenter = React.createClass({
     getInitialState() {
         return {
             marginLeft: 0,
-            marginTop: 0  
+            marginTop: 0 
         };
     },
 
@@ -56,7 +56,11 @@ const Modal = React.createClass({
             visible: false,
             maskClassName: 'modal-mask',
             getModalContainer: null,
-            activeClass: 'active'
+            activeClass: 'active',
+            enterClass: 'enter',
+            leaveClass: 'leave',
+            enterDuration: 200,
+            leaveDuration: 200,
         };
     },
 
@@ -82,7 +86,19 @@ const Modal = React.createClass({
 
     componentDidUpdate(prevProps, prevState) {
         const {visible} = this.state;
-        const {children, activeClass, maskClassName} = this.props;
+
+        const {
+            children,
+            activeClass, 
+            maskClassName, 
+            enterClass, 
+            leaveClass, 
+            enterDuration, 
+            leaveDuration
+        } = this.props;
+
+        const {isEntering, isLeaving} = this;
+
         let {getModalContainer} = this.props;
 
         getModalContainer = getModalContainer || this.getModalContainer;        
@@ -90,8 +106,16 @@ const Modal = React.createClass({
         if (this.modalRendered) {
             let className = children.props.className;
 
-            if (visible) {
+            if (visible || isLeaving) {
                 className = `${className} ${activeClass}`;
+            }
+
+            if (isEntering) {
+                className = `${className} ${enterClass}`;
+            }
+
+            if (isLeaving) {
+                className = `${className} ${leaveClass}`;
             }
 
             const modal = React.cloneElement(children, { className });
@@ -103,11 +127,43 @@ const Modal = React.createClass({
                         <PinCenter>
                             {modal}
                         </PinCenter>
-                        {visible ? <div className={maskClassName}></div> : null}
+                        {visible || isLeaving ? <div className={maskClassName}></div> : null}
                     </div>
                 ),
                 getModalContainer()
             );
+
+            if (isEntering) {
+                setTimeout(
+                    () => {
+                        this.isEntering = false;
+                        this.forceUpdate();
+                    },
+                    enterDuration
+                );
+            }
+            else if (isLeaving) {
+                setTimeout(
+                    () => {
+                        this.isLeaving = false;
+                        this.forceUpdate();
+                    },
+                    leaveDuration
+                );
+            }
+        }
+    },
+
+    componentWillUpdate(nextProps, nextState) {
+        if (this.state.visible === nextState.visible) {
+            return;
+        }
+
+        if (!this.state.visible && nextState.visible) {
+            this.isEntering = true;
+        }
+        else {
+            this.isLeaving = true;
         }
     },
 
