@@ -8,6 +8,34 @@ See the [usage](http://mefive.github.io/delight-ui/).
 
 IE9+
 
+You can run the test by following below steps
+
+``` 
+git clone git@github.com:mefive/delight-ui.git
+```
+
+``` 
+cd delight-ui
+```
+
+``` 
+npm install
+```
+
+``` 
+npm start
+```
+
+The test can only run in Chrome, or other browser which support Websocket.
+
+Or you can build a static version with
+
+``` 
+npm run build
+```
+
+The static file will be generated in `./build` folder. Just run `index.html` in modern browsers.
+
 
 
 ## Components dev plan
