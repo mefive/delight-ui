@@ -39,7 +39,7 @@ const ModalTest = React.createClass({
                         <div className="modal-header">
                             Tips
                             <i 
-                                className="icon icon-cross"
+                                className="icon icon-times"
                                 onClick={this.close}
                             >
                             </i>
