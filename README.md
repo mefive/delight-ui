@@ -8,37 +8,70 @@ See the [usage](http://mefive.github.io/delight-ui/).
 
 IE9+
 
+You can run the test by following below steps
 
+``` 
+git clone git@github.com:mefive/delight-ui.git
+```
 
-Components dev plan
+``` 
+cd delight-ui
+```
 
-1. Scrollable (done)
-   * Get rid of the default scroll bar, it can be customized.
+``` 
+npm install
+```
 
-2. Trigger (done)
-   * Control the visibility of popup element, by using configurable actions.
+``` 
+npm start
+```
 
-3. Draggable (75%) need to reconsider the offset of the range
-   * Make elememt draggable in a range.
+The test can only run in Chrome, or other browser which support Websocket.
 
-4. Tooltip (90%) need to add holding on logic
-   * Can be placed on top, bottom, top left ...
+Or you can build a static version with
 
-5. Slider (done)
+``` 
+npm run build
+```
 
-6. Select (done)
-   * Slide up or down automatically, depend on the poistion of the element.
-
-7. AutoComplete (done)
-
-8. Modal
-
-9. Table
-   *  Column can be dragged to adjust width, be clicked to sort.
-
-
-
+The static file will be generated in `./build` folder. Just run `index.html` in modern browsers.
 
 
 
+## Components dev plan
 
+#### Scrollable (done)
+
+* Get rid of the default scroll bar, it can be customized.
+
+#### Trigger (done)
+
+* Control the visibility of popup element, by using configurable actions.
+
+#### Draggable (75%) need to reconsider the offset of the range
+
+* Make elememt draggable in a range.
+
+#### Tooltip (90%) need to add holding on logic
+
+* Can be placed on top, bottom, top left ...
+
+#### Slider (done)
+
+#### Select (done)
+
+* Slide up or down automatically, depend on the poistion of the element.
+
+#### AutoComplete (done)
+
+#### Modal (done)
+
+#### Table
+
+* Column can be dragged to adjust width, be clicked to sort.
+
+#### InfiniteScroll
+
+* Automatically render DOM in the list, by the height of the viewport.
+* Fill with padding on the rest space.
+* When touch bottom, new fetching action will be triggered.
