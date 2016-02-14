@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import {getOffset} from './util';
 
@@ -19,7 +19,9 @@ const AutoComplete = React.createClass({
             onChange: () => {},
             getData: () => {},
             data: [],
-            popup: null
+            popup: null,
+            enterDuration: 200,
+            leaveDuration: 200
         };
     },
 
@@ -79,7 +81,7 @@ const AutoComplete = React.createClass({
         };
 
         if (popup) {
-            return React.createElement(popup, popupProps);
+            return React.cloneElement(popup, popupProps);
         }
         else {
             return (
@@ -180,7 +182,7 @@ const AutoComplete = React.createClass({
     },
 
     render() {
-        const {data} = this.props
+        const {enterDuration, leaveDuration} = this.props
         let {visible, inputValue} = this.state;
 
         return (
@@ -190,8 +192,8 @@ const AutoComplete = React.createClass({
                 visible={visible}
                 onShow={this.onShow}
                 onHide={this.onHide}
-                enterDuration={400}
-                leaveDuration={400}
+                enterDuration={enterDuration}
+                leaveDuration={leaveDuration}
             >
                 <input 
                     type="text" 
@@ -207,5 +209,18 @@ const AutoComplete = React.createClass({
         );
     }
 });
+
+AutoComplete.propTypes = {
+    value: PropTypes.object,
+    popupClassName: PropTypes.string,
+    itemClassName: PropTypes.string,
+    activeClass: PropTypes.string,
+    onChange: PropTypes.func,
+    getData: PropTypes.func,
+    data: PropTypes.array,
+    popup: PropTypes.element,
+    enterDuration: PropTypes.number,
+    leaveDuration: PropTypes.number
+};
 
 export default AutoComplete;

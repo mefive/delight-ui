@@ -115,7 +115,7 @@ const Custom = React.createClass({
                 popupClassName="select-popup person"
                 getData={this.fetchData}
                 data={data}
-                popup={PersonAutoCompletePopup}
+                popup={React.createElement(PersonAutoCompletePopup)}
             >
             </AutoComplete>
         );
