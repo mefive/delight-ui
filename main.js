@@ -20993,7 +20993,9 @@
 	        return {
 	            minShiftX: 0,
 	            minShiftY: 0,
-	            draggingClass: 'dragging'
+	            draggingClass: 'dragging',
+	            onDrag: function onDrag() {},
+	            onStopDrag: function onStopDrag() {}
 	        };
 	    },
 	    getInitialState: function getInitialState() {
@@ -21027,6 +21029,8 @@
 	        var range = _props.range;
 	        var minShiftX = _props.minShiftX;
 	        var minShiftY = _props.minShiftY;
+	        var onDrag = _props.onDrag;
+	        var onStopDrag = _props.onStopDrag;
 	        var left = range.left;
 	        var top = range.top;
 	        var width = range.width;
@@ -21055,7 +21059,6 @@
 	        var onMove = function onMove(e) {
 	            var clientY = e.clientY;
 	            var clientX = e.clientX;
-	            var onDrag = _this.props.onDrag;
 	
 	            var offset = {
 	                top: clientY - top - mouseOffset.top,
@@ -21078,7 +21081,7 @@
 	                isDragging: true
 	            });
 	
-	            onDrag && onDrag(offset);
+	            onDrag(offset);
 	        };
 	
 	        var endMove = function endMove(e) {
@@ -21089,6 +21092,8 @@
 	            _this.setState({
 	                isDragging: false
 	            });
+	
+	            onStopDrag();
 	        };
 	
 	        document.addEventListener('mousemove', onMove);
@@ -21134,7 +21139,9 @@
 	Draggable.propTypes = {
 	    range: _react.PropTypes.object,
 	    minShiftX: _react.PropTypes.number,
-	    minShiftY: _react.PropTypes.number
+	    minShiftY: _react.PropTypes.number,
+	    onDrag: _react.PropTypes.func,
+	    onStopDrag: _react.PropTypes.func
 	};
 	
 	exports.default = Draggable;
@@ -21384,7 +21391,8 @@
 	            leaveDuration: 200,
 	            actions: '',
 	            onShow: function onShow() {},
-	            onHide: function onHide() {}
+	            onHide: function onHide() {},
+	            holdOn: false
 	        };
 	    },
 	    getInitialState: function getInitialState() {
@@ -21398,6 +21406,12 @@
 	            this.setState({
 	                visible: nextProps.visible
 	            });
+	        }
+	
+	        if (this.props.holdOn && !nextProps.holdOn) {
+	            if (this.state.aboutToLeave) {
+	                this.hide(true);
+	            }
 	        }
 	    },
 	    componentWillUpdate: function componentWillUpdate(nextProps, nextState) {
@@ -21529,7 +21543,9 @@
 	    onMouseLeave: function onMouseLeave() {
 	        var _this2 = this;
 	
-	        var delay = this.props.delay;
+	        var _props4 = this.props;
+	        var delay = _props4.delay;
+	        var holdOn = _props4.holdOn;
 	        var state = this.state;
 	
 	        if (!delay) {
@@ -21560,8 +21576,12 @@
 	        });
 	        this.props.onShow();
 	    },
-	    hide: function hide() {
-	        if (this.isEntering || this.isLeaving) {
+	    hide: function hide(ignoreHoldOn) {
+	        var _props5 = this.props;
+	        var onHide = _props5.onHide;
+	        var holdOn = _props5.holdOn;
+	
+	        if (this.isLeaving || holdOn && !ignoreHoldOn) {
 	            return;
 	        }
 	
@@ -21569,14 +21589,14 @@
 	            visible: false,
 	            aboutToLeave: false
 	        });
-	        this.props.onHide();
+	        onHide();
 	    },
 	    render: function render() {
-	        var _props4 = this.props;
-	        var children = _props4.children;
-	        var actions = _props4.actions;
-	        var popupMountInside = _props4.popupMountInside;
-	        var activeClass = _props4.activeClass;
+	        var _props6 = this.props;
+	        var children = _props6.children;
+	        var actions = _props6.actions;
+	        var popupMountInside = _props6.popupMountInside;
+	        var activeClass = _props6.activeClass;
 	        var visible = this.state.visible;
 	
 	        this.popupRendered = this.popupRendered || visible;
@@ -21613,7 +21633,8 @@
 	    getPopupContainer: _react.PropTypes.func,
 	    visible: _react.PropTypes.bool,
 	    onShow: _react.PropTypes.func,
-	    onHide: _react.PropTypes.func
+	    onHide: _react.PropTypes.func,
+	    holdOn: _react.PropTypes.bool
 	};
 	
 	exports.default = Trigger;
@@ -21967,7 +21988,8 @@
 	            activeClass: 'active',
 	            popupClassName: 'tooltip-popup',
 	            placement: 'top',
-	            delay: 0
+	            delay: 0,
+	            holdOn: false
 	        };
 	    },
 	    getInitialState: function getInitialState() {
@@ -22014,6 +22036,7 @@
 	        var title = _props2.title;
 	        var placement = _props2.placement;
 	        var delay = _props2.delay;
+	        var holdOn = _props2.holdOn;
 	        var _state = this.state;
 	        var offset = _state.offset;
 	        var dimension = _state.dimension;
@@ -22037,7 +22060,8 @@
 	                popup: popup,
 	                popupMountInside: false,
 	                delay: delay,
-	                actions: 'hover'
+	                actions: 'hover',
+	                holdOn: holdOn
 	            },
 	            children
 	        );
@@ -22050,7 +22074,8 @@
 	    placement: _react.PropTypes.string, // top bottom topLeft topRight bottomLeft bottomRight
 	    title: _react.PropTypes.string,
 	    popupClassName: _react.PropTypes.string,
-	    delay: _react.PropTypes.number
+	    delay: _react.PropTypes.number,
+	    holdOn: _react.PropTypes.bool
 	};
 	
 	exports.default = Tooltip;
@@ -22170,7 +22195,8 @@
 	                min: 0,
 	                max: 0
 	            },
-	            unit: 0
+	            unit: 0,
+	            holdOn: false
 	        };
 	    },
 	    getDefaultProps: function getDefaultProps() {
@@ -22271,11 +22297,19 @@
 	        var orientation = _props4.orientation;
 	        var max = _props4.max;
 	
-	        this.setState({ offset: offset });
+	        this.setState({
+	            offset: offset,
+	            holdOn: true
+	        });
 	
 	        var value = this.getValue(offset);
 	
 	        onChange(value);
+	    },
+	    onStopDrag: function onStopDrag() {
+	        this.setState({
+	            holdOn: false
+	        });
 	    },
 	    render: function render() {
 	        var _props5 = this.props;
@@ -22288,6 +22322,7 @@
 	        var offset = _state3.offset;
 	        var range = _state3.range;
 	        var shift = _state3.shift;
+	        var holdOn = _state3.holdOn;
 	
 	        var trackStyle = isVeritical(orientation) ? { height: (0, _util.plus)((0, _util.minus)(range.height, offset.top), shift.min) } : { width: (0, _util.minus)(offset.left, shift.min) };
 	
@@ -22306,6 +22341,7 @@
 	                    style: handleStyle,
 	                    range: range,
 	                    onDrag: this.onDrag,
+	                    onStopDrag: this.onStopDrag,
 	                    minShiftX: shift.min,
 	                    minShiftY: shift.min
 	                },
@@ -22316,7 +22352,8 @@
 	                        _Tooltip2.default,
 	                        {
 	                            title: this.getValue(offset) + '',
-	                            delay: 500
+	                            delay: 500,
+	                            holdOn: holdOn
 	                        },
 	                        _react2.default.createElement('div', { className: 'tooltip-trigger' })
 	                    )
