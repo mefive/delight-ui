@@ -17,8 +17,8 @@ const AutoComplete = React.createClass({
             itemClassName: 'select-item',
             activeClass: 'active',
             onChange: () => {},
-            getData: () => {},
-            data: [],
+            getDataSource: () => {},
+            dataSource: [],
             popup: null,
             enterDuration: 200,
             leaveDuration: 200
@@ -36,10 +36,10 @@ const AutoComplete = React.createClass({
     },
 
     componentWillReceiveProps(nextProps) {
-        const {data} = nextProps;
+        const {dataSource} = nextProps;
         const {state} = this;
 
-        const visible = data && data.length > 0;
+        const visible = dataSource && dataSource.length > 0;
 
         if (visible !== state.visible) {
             state.visible = visible;
@@ -66,14 +66,14 @@ const AutoComplete = React.createClass({
     },
 
     getPopup() {
-        const {popupClassName, itemClassName, value, activeClass, popup, data} = this.props;
+        const {popupClassName, itemClassName, value, activeClass, popup, dataSource} = this.props;
         const {offset, dimension, select} = this.state;
 
         const popupProps = {
             className: popupClassName,
             activeClass: activeClass,
             itemClassName: itemClassName,
-            data: data,
+            dataSource: dataSource,
             value: select ? select.value : value,
             triggerOffset: offset,
             triggerDimension: dimension,
@@ -92,10 +92,10 @@ const AutoComplete = React.createClass({
     },
 
     onClick(e, value) {
-        const {data} = this.props;
+        const {dataSource} = this.props;
         const {input} = this.refs;
 
-        const select = data.find(item => item.value === value);
+        const select = dataSource.find(item => item.value === value);
 
         this.changeValue(select);
     },
@@ -116,11 +116,11 @@ const AutoComplete = React.createClass({
     },
 
     updateData() {
-        const {getData} = this.props;
+        const {getDataSource} = this.props;
         const {input} = this.refs;
 
         this.state.inputValue = input.value;
-        getData(input.value);
+        getDataSource(input.value);
     },
 
     onShow() {
@@ -148,10 +148,10 @@ const AutoComplete = React.createClass({
 
     onKeyDown(e) {
         const {which} = e;
-        const {data} = this.props;
+        const {dataSource} = this.props;
         let {select} = this.state;
 
-        let index = data.indexOf(select);
+        let index = dataSource.indexOf(select);
 
         if ([ARROW_UP, ARROW_DOWN, ENTER].indexOf(which) !== -1) {
             e.preventDefault();
@@ -159,17 +159,17 @@ const AutoComplete = React.createClass({
 
         switch (which) {
             case ARROW_DOWN:
-                if (index === data.length - 1) {
+                if (index === dataSource.length - 1) {
                     index = -1;
                 }
-                select = data[index + 1];
+                select = dataSource[index + 1];
                 break;
 
             case ARROW_UP:
                 if (index === 0) {
-                    index = data.length;
+                    index = dataSource.length;
                 }
-                select = data[index - 1];
+                select = dataSource[index - 1];
                 break;
 
             case ENTER:
@@ -216,8 +216,8 @@ AutoComplete.propTypes = {
     itemClassName: PropTypes.string,
     activeClass: PropTypes.string,
     onChange: PropTypes.func,
-    getData: PropTypes.func,
-    data: PropTypes.array,
+    getDataSource: PropTypes.func,
+    dataSource: PropTypes.array,
     popup: PropTypes.element,
     enterDuration: PropTypes.number,
     leaveDuration: PropTypes.number

@@ -8,7 +8,7 @@ import {getOffset} from './util';
 const Select = React.createClass({
     getDefaultProps() {
         return {
-            data: [],
+            dataSource: [],
             value: null,
             popupClassName: 'select-popup',
             itemClassName: 'select-item',
@@ -41,8 +41,8 @@ const Select = React.createClass({
     },
 
     onClick(e, value) {
-        const {data, onChange} = this.props;
-        const select = data.find(item => item.value === value);
+        const {dataSource, onChange} = this.props;
+        const select = dataSource.find(item => item.value === value);
 
         this.setState({ 
             select,
@@ -54,14 +54,14 @@ const Select = React.createClass({
     },
 
     getPopup() {
-        const {popupClassName, itemClassName, data, value, activeClass, popup} = this.props;
+        const {popupClassName, itemClassName, dataSource, value, activeClass, popup} = this.props;
         const {offset, dimension, select} = this.state;
 
         const popupProps = {
             className: popupClassName,
             activeClass: activeClass,
             itemClassName: itemClassName,
-            data: data,
+            dataSource: dataSource,
             value: select ? select.value : value,
             triggerOffset: offset,
             triggerDimension: dimension,
@@ -131,7 +131,7 @@ const Select = React.createClass({
 Select.propTypes = {
     className: PropTypes.string,
     defaultTitle: PropTypes.string,
-    data: PropTypes.array,
+    dataSource: PropTypes.array,
     value: PropTypes.string,
     popup: PropTypes.element,
     popupClassName: PropTypes.string,
