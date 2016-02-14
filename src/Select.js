@@ -121,7 +121,7 @@ const Select = React.createClass({
             >
                 <div className={className}>
                     {select ? select.title : defaultTitle}
-                    <i className="icon icon-caret-down"></i>
+                    <i className="icon icon-angle-up"></i>
                 </div>
             </Trigger>
         );

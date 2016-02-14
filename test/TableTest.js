@@ -19,7 +19,11 @@ const TableTest = React.createClass({
         return (
             <div className="table-test">
                 <h1>Table</h1>
-                <Table>
+                <Table
+                    className="table"
+                    dataSource={dataSource}
+                    colums={colums}
+                >
                 </Table>
             </div>
         );

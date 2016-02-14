@@ -93,3 +93,32 @@ export function divide(a, b) {
 
     return a / b;
 };
+
+export function sortBy(dataSource, sortByField, order) {
+    return dataSource.sort((a, b) => {
+        const aValue = a[sortByField];
+        const bValue = b[sortByField];
+
+        if (aValue === bValue) {
+            return 0;
+        }
+
+        if (aValue > bValue) {
+            if (order === 'asc') {
+                return 1;
+            }
+            else {
+                return -1;
+            }
+        }
+
+        else {
+            if (order === 'asc') {
+                return -1;
+            }
+            else {
+                return 1;
+            }
+        }
+    });
+};
