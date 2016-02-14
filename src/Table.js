@@ -74,6 +74,9 @@ const Table = React.createClass({
                                 className={key === sortBy ? `${sortByClass} ${order}` : ''}
                             >
                                 {title}
+                                <div 
+                                    className="resizer"
+                                ></div>
                             </th>
                         );
                     })}

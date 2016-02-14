@@ -1,3 +1,17 @@
+icon() {
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .table-test {
     .table {
         width: 100%;
@@ -10,6 +24,7 @@
     }
 
     th {
+        position: relative;
         cursor: pointer;
         &:hover {
             background-color: darken(#fff, 3%);
@@ -17,13 +32,34 @@
         transition: background-color .2s;
 
         &.sort {
-            background-color: $primary-color;
-
-            &.asc {
-                background-color: #222222
+            background-color: darken(#fff, 3%);
+            
+            &:before {
+                icon();
+                content: "\e900";
+                position: absolute;
+                right: 10px;
+                transition: transform .2s;
+                color: #666;
             }
 
-            color: #fff;
+            &.asc {
+                &:before {
+                    transform: rotate(0.5turn);
+                }
+            }
+        }
+
+        user-select(none);
+        
+        .resizer {
+            width: 5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: transparent;
+            cursor: col-resize;
         }
     }
 
