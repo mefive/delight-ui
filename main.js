@@ -21608,7 +21608,7 @@
 	Trigger.propTypes = {
 	    actions: _react.PropTypes.string,
 	    activeClass: _react.PropTypes.string,
-	    popup: _react.PropTypes.node,
+	    popup: _react.PropTypes.element,
 	    popupMountInside: _react.PropTypes.bool,
 	    getPopupContainer: _react.PropTypes.func,
 	    visible: _react.PropTypes.bool,
@@ -22477,7 +22477,7 @@
 	                    className: 'select person',
 	                    popupClassName: 'select-popup person',
 	                    defaultTitle: 'Choose person',
-	                    popup: PersonSelectPopup
+	                    popup: _react2.default.createElement(PersonSelectPopup)
 	                })
 	            )
 	        );
@@ -22596,7 +22596,7 @@
 	        };
 	
 	        if (popup) {
-	            return _react2.default.createElement(popup, popupProps);
+	            return _react2.default.cloneElement(popup, popupProps);
 	        } else {
 	            return _react2.default.createElement(_SelectPopup2.default, popupProps);
 	        }
@@ -22604,7 +22604,13 @@
 	    onShow: function onShow() {
 	        document.addEventListener('click', this.hide);
 	    },
-	    hide: function hide() {
+	    hide: function hide(e) {
+	        var trigger = (0, _reactDom.findDOMNode)(this);
+	
+	        if (trigger.contains(e.target)) {
+	            return;
+	        }
+	
 	        this.setState({
 	            visible: false
 	        });
@@ -22652,7 +22658,7 @@
 	    defaultTitle: _react.PropTypes.string,
 	    data: _react.PropTypes.array,
 	    value: _react.PropTypes.string,
-	    popup: _react.PropTypes.func,
+	    popup: _react.PropTypes.element,
 	    popupClassName: _react.PropTypes.string,
 	    itemClassName: _react.PropTypes.string,
 	    activeClass: _react.PropTypes.string,
@@ -22949,7 +22955,7 @@
 	            popupClassName: 'select-popup person',
 	            getData: this.fetchData,
 	            data: data,
-	            popup: PersonAutoCompletePopup
+	            popup: _react2.default.createElement(PersonAutoCompletePopup)
 	        });
 	    }
 	});
@@ -23041,7 +23047,9 @@
 	            onChange: function onChange() {},
 	            getData: function getData() {},
 	            data: [],
-	            popup: null
+	            popup: null,
+	            enterDuration: 200,
+	            leaveDuration: 200
 	        };
 	    },
 	    getInitialState: function getInitialState() {
@@ -23106,7 +23114,7 @@
 	        };
 	
 	        if (popup) {
-	            return _react2.default.createElement(popup, popupProps);
+	            return _react2.default.cloneElement(popup, popupProps);
 	        } else {
 	            return _react2.default.createElement(_SelectPopup2.default, popupProps);
 	        }
@@ -23194,7 +23202,9 @@
 	        this.setState({ select: select });
 	    },
 	    render: function render() {
-	        var data = this.props.data;
+	        var _props2 = this.props;
+	        var enterDuration = _props2.enterDuration;
+	        var leaveDuration = _props2.leaveDuration;
 	        var _state2 = this.state;
 	        var visible = _state2.visible;
 	        var inputValue = _state2.inputValue;
@@ -23207,8 +23217,8 @@
 	                visible: visible,
 	                onShow: this.onShow,
 	                onHide: this.onHide,
-	                enterDuration: 400,
-	                leaveDuration: 400
+	                enterDuration: enterDuration,
+	                leaveDuration: leaveDuration
 	            },
 	            _react2.default.createElement('input', {
 	                type: 'text',
@@ -23223,6 +23233,19 @@
 	        );
 	    }
 	});
+	
+	AutoComplete.propTypes = {
+	    value: _react.PropTypes.object,
+	    popupClassName: _react.PropTypes.string,
+	    itemClassName: _react.PropTypes.string,
+	    activeClass: _react.PropTypes.string,
+	    onChange: _react.PropTypes.func,
+	    getData: _react.PropTypes.func,
+	    data: _react.PropTypes.array,
+	    popup: _react.PropTypes.element,
+	    enterDuration: _react.PropTypes.number,
+	    leaveDuration: _react.PropTypes.number
+	};
 	
 	exports.default = AutoComplete;
 	
