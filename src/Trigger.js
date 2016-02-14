@@ -224,8 +224,7 @@ const Trigger = React.createClass({
     hide(ignoreHoldOn) {
         const {onHide, holdOn} = this.props;
 
-        if (this.isEntering 
-            || this.isLeaving 
+        if (this.isLeaving 
             || (holdOn && !ignoreHoldOn)
         ) {
             return;
