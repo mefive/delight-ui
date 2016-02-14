@@ -52,7 +52,7 @@ The static file will be generated in `./build` folder. Just run `index.html` in 
 
 * Make elememt draggable in a range.
 
-#### Tooltip (90%) need to add holding on logic
+#### Tooltip (done)
 
 * Can be placed on top, bottom, top left ...
 
