@@ -90,7 +90,7 @@ const SelectTest = React.createClass({
                         className="select person"
                         popupClassName="select-popup person"
                         defaultTitle="Choose person"
-                        popup={PersonSelectPopup}
+                        popup={React.createElement(PersonSelectPopup)}
                     >
                     </Select>
                 </div>

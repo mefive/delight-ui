@@ -69,7 +69,7 @@ const Select = React.createClass({
         };
 
         if (popup) {
-            return React.createElement(popup, popupProps);
+            return React.cloneElement(popup, popupProps);
         }
         else {
             return (
@@ -83,7 +83,13 @@ const Select = React.createClass({
         document.addEventListener('click', this.hide);
     },
 
-    hide() {
+    hide(e) {
+        const trigger = findDOMNode(this);
+
+        if (trigger.contains(e.target)) {
+            return;
+        }
+        
         this.setState({
             visible: false
         });
@@ -127,7 +133,7 @@ Select.propTypes = {
     defaultTitle: PropTypes.string,
     data: PropTypes.array,
     value: PropTypes.string,
-    popup: PropTypes.func,
+    popup: PropTypes.element,
     popupClassName: PropTypes.string,
     itemClassName: PropTypes.string,
     activeClass: PropTypes.string,

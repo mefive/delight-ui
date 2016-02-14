@@ -218,7 +218,7 @@ const Trigger = React.createClass({
         if (this.isEntering || this.isLeaving) {
             return;
         }
-        
+
         this.setState({
             visible: false,
             aboutToLeave: false
@@ -260,7 +260,7 @@ const Trigger = React.createClass({
 Trigger.propTypes = {
     actions: PropTypes.string,
     activeClass: PropTypes.string,
-    popup: PropTypes.node,
+    popup: PropTypes.element,
     popupMountInside: PropTypes.bool,
     getPopupContainer: PropTypes.func,
     visible: PropTypes.bool,

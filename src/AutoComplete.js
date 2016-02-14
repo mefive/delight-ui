@@ -81,7 +81,7 @@ const AutoComplete = React.createClass({
         };
 
         if (popup) {
-            return React.createElement(popup, popupProps);
+            return React.cloneElement(popup, popupProps);
         }
         else {
             return (
@@ -218,7 +218,7 @@ AutoComplete.propTypes = {
     onChange: PropTypes.func,
     getData: PropTypes.func,
     data: PropTypes.array,
-    popup: PropTypes.node,
+    popup: PropTypes.element,
     enterDuration: PropTypes.number,
     leaveDuration: PropTypes.number
 };
