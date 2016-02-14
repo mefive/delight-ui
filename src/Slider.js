@@ -26,7 +26,8 @@ const Slider = React.createClass({
                 min: 0,
                 max: 0 
             },
-            unit: 0
+            unit: 0,
+            holdOn: false
         };
     },
 
@@ -123,16 +124,25 @@ const Slider = React.createClass({
     onDrag(offset) {
         const {onChange, orientation, max} = this.props;
 
-        this.setState({offset});
+        this.setState({
+            offset,
+            holdOn: true
+        });
 
         const value = this.getValue(offset);
 
         onChange(value);
     },
 
+    onStopDrag() {
+        this.setState({
+            holdOn: false
+        });
+    },
+
     render() {
         const {className, trackClassName, handleClassName, stepClassName, orientation} = this.props;
-        const {offset, range, shift} = this.state;
+        const {offset, range, shift, holdOn} = this.state;
         const trackStyle
         = isVeritical(orientation)
         ? { height: plus(minus(range.height, offset.top), shift.min) }
@@ -153,6 +163,7 @@ const Slider = React.createClass({
                         style={handleStyle}
                         range={range}
                         onDrag={this.onDrag}
+                        onStopDrag={this.onStopDrag}
                         minShiftX={shift.min}
                         minShiftY={shift.min}
                     >
@@ -160,6 +171,7 @@ const Slider = React.createClass({
                             <Tooltip 
                                 title={this.getValue(offset) + ''}
                                 delay={500}
+                                holdOn={holdOn}
                             >
                                 <div className="tooltip-trigger"></div>
                             </Tooltip>

@@ -7,7 +7,9 @@ const Draggable = React.createClass({
         return {
             minShiftX: 0,
             minShiftY: 0,
-            draggingClass: 'dragging'
+            draggingClass: 'dragging',
+            onDrag: () => {},
+            onStopDrag: () => {}
         };
     },
 
@@ -36,7 +38,7 @@ const Draggable = React.createClass({
     },
 
     startDragging(e) {
-        const {range, minShiftX, minShiftY} = this.props;
+        const {range, minShiftX, minShiftY, onDrag, onStopDrag} = this.props;
         const {left, top, width, height} = range;
         const element = findDOMNode(this);
         let {clientY, clientX} = e;
@@ -55,8 +57,7 @@ const Draggable = React.createClass({
 
         const onMove = (e) => {
             const {clientY, clientX} = e;
-            const {onDrag} = this.props;
-
+            
             let offset 
             = {
                 top: clientY - top - mouseOffset.top,
@@ -79,7 +80,7 @@ const Draggable = React.createClass({
                 isDragging: true
             });
 
-            onDrag && onDrag(offset);
+            onDrag(offset);
         };
 
         const endMove = (e) => {
@@ -90,7 +91,9 @@ const Draggable = React.createClass({
             this.setState({
                 isDragging: false
             });
-        }
+
+            onStopDrag();
+        };
 
         document
             .addEventListener('mousemove', onMove);
@@ -131,7 +134,9 @@ const Draggable = React.createClass({
 Draggable.propTypes = {
     range: PropTypes.object,
     minShiftX: PropTypes.number,
-    minShiftY: PropTypes.number
+    minShiftY: PropTypes.number,
+    onDrag: PropTypes.func,
+    onStopDrag: PropTypes.func
 };
 
 export default Draggable;

@@ -104,7 +104,8 @@ const Tooltip =  React.createClass({
             activeClass: 'active',
             popupClassName: 'tooltip-popup',
             placement: 'top',
-            delay: 0
+            delay: 0,
+            holdOn: false
         };
     },
 
@@ -150,7 +151,7 @@ const Tooltip =  React.createClass({
     },
 
     render() {
-        const {className, activeClass, children, popupClassName, title, placement, delay} = this.props;
+        const {className, activeClass, children, popupClassName, title, placement, delay, holdOn} = this.props;
         const {offset, dimension} = this.state;
 
         const popup = (
@@ -172,6 +173,7 @@ const Tooltip =  React.createClass({
                 popupMountInside={false}
                 delay={delay}
                 actions="hover"
+                holdOn={holdOn}
             >
                 {children}
             </Trigger>
@@ -185,7 +187,8 @@ Tooltip.propTypes = {
     placement: PropTypes.string, // top bottom topLeft topRight bottomLeft bottomRight
     title: PropTypes.string,
     popupClassName: PropTypes.string,
-    delay: PropTypes.number
+    delay: PropTypes.number,
+    holdOn: PropTypes.bool
 };
 
 export default Tooltip;
