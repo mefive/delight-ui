@@ -16,7 +16,8 @@ const Trigger = React.createClass({
             leaveDuration: 200,
             actions: '',
             onShow: () => {},
-            onHide: () => {}
+            onHide: () => {},
+            holdOn: false
         };
     },
 
@@ -32,6 +33,12 @@ const Trigger = React.createClass({
             this.setState({
                 visible: nextProps.visible
             });
+        }
+
+        if (this.props.holdOn && !nextProps.holdOn) {
+            if (this.state.aboutToLeave) {
+                this.hide(true);
+            }
         }
     },
 
@@ -175,7 +182,7 @@ const Trigger = React.createClass({
     },
 
     onMouseLeave() {
-        const {delay} = this.props;
+        const {delay, holdOn} = this.props;
         const {state} = this;
 
         if (!delay) {
@@ -214,8 +221,12 @@ const Trigger = React.createClass({
         this.props.onShow();
     },
 
-    hide() {
-        if (this.isEntering || this.isLeaving) {
+    hide(ignoreHoldOn) {
+        const {onHide, holdOn} = this.props;
+
+        if (this.isLeaving 
+            || (holdOn && !ignoreHoldOn)
+        ) {
             return;
         }
 
@@ -223,7 +234,7 @@ const Trigger = React.createClass({
             visible: false,
             aboutToLeave: false
         });
-        this.props.onHide();
+        onHide();
     },
 
     render() {
@@ -265,7 +276,8 @@ Trigger.propTypes = {
     getPopupContainer: PropTypes.func,
     visible: PropTypes.bool,
     onShow: PropTypes.func,
-    onHide: PropTypes.func
+    onHide: PropTypes.func,
+    holdOn: PropTypes.bool
 };
 
 export default Trigger;
