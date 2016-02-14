@@ -162,6 +162,10 @@ const Trigger = React.createClass({
     onClick() {
         const {visible} = this.state;
 
+        if (this.isEntering || this.isLeaving) {
+            return;
+        }
+
         if (visible) {
             this.hide();
         }
@@ -224,9 +228,7 @@ const Trigger = React.createClass({
     hide(ignoreHoldOn) {
         const {onHide, holdOn} = this.props;
 
-        if (this.isLeaving 
-            || (holdOn && !ignoreHoldOn)
-        ) {
+        if (holdOn && !ignoreHoldOn) {
             return;
         }
 
