@@ -5,7 +5,7 @@ const SelectPopup = React.createClass({
     mixins: [selectPopupMixin],
 
     render() {
-        const {data, value, className, itemClassName, activeClass, onClick} = this.props;
+        const {dataSource, value, className, itemClassName, activeClass, onClick} = this.props;
         const {width, top, left} = this.state;
 
         const style = {
@@ -24,7 +24,7 @@ const SelectPopup = React.createClass({
             >
             {(() => {
                 const list 
-                = data.map(item => {
+                = dataSource.map(item => {
                     let className = itemClassName;
 
                     if (item.value === value) {

@@ -10,6 +10,7 @@ import SliderTest from './SliderTest';
 import SelectTest from './SelectTest';
 import AutoCompleteTest from './AutoCompleteTest';
 import ModalTest from './ModalTest';
+import TableTest from './TableTest';
 
 const Demo = React.createClass({
     render() {
@@ -23,6 +24,7 @@ const Demo = React.createClass({
                 <SelectTest />
                 <AutoCompleteTest />
                 <ModalTest />
+                <TableTest />
             </div>
         );
     }

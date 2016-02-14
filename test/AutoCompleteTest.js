@@ -3,7 +3,7 @@ import AutoComplete from '../src/AutoComplete';
 
 import selectPopupMixin from '../src/selectPopupMixin';
 
-const dataSource = [
+const dataSourceDefault = [
     { value: '1', title: '一' },
     { value: '2', title: '二' },
     { value: '3', title: '三' },
@@ -23,7 +23,7 @@ const PersonAutoCompletePopup = React.createClass({
     mixins: [selectPopupMixin],
 
     render() {
-        const {data, value, className, itemClassName, activeClass, onClick} = this.props;
+        const {dataSource, value, className, itemClassName, activeClass, onClick} = this.props;
         const {width, top, left} = this.state;
 
         const style = {
@@ -42,7 +42,7 @@ const PersonAutoCompletePopup = React.createClass({
             >
             {(() => {
                 const list 
-                = data.map(item => {
+                = dataSource.map(item => {
                     let className = itemClassName;
 
                     if (item.value === value) {
@@ -71,23 +71,23 @@ const PersonAutoCompletePopup = React.createClass({
 const Default = React.createClass({
     getInitialState() {
         return {
-            data: []  
+            dataSource: []  
         };
     },
 
     fetchData(value) {
-        const data = dataSource.filter(item => value.indexOf(item.value) !== -1);
+        const dataSource = dataSourceDefault.filter(item => value.indexOf(item.value) !== -1);
 
-        this.setState({ data });
+        this.setState({ dataSource });
     },
 
     render() {
-        const {data} = this.state;
+        const {dataSource} = this.state;
 
         return(
             <AutoComplete
-                getData={this.fetchData}
-                data={data}
+                getDataSource={this.fetchData}
+                dataSource={dataSource}
             >
             </AutoComplete>
         );
@@ -97,24 +97,24 @@ const Default = React.createClass({
 const Custom = React.createClass({
     getInitialState() {
         return {
-            data: []  
+            dataSource: []  
         };
     },
 
     fetchData(value) {
-        const data = PersonSelectData.filter(item => value.indexOf(item.value) !== -1);
+        const dataSource = PersonSelectData.filter(item => value.indexOf(item.value) !== -1);
 
-        this.setState({ data });
+        this.setState({ dataSource });
     },
 
     render() {
-        const {data} = this.state;
+        const {dataSource} = this.state;
 
         return(
             <AutoComplete
                 popupClassName="select-popup person"
-                getData={this.fetchData}
-                data={data}
+                getDataSource={this.fetchData}
+                dataSource={dataSource}
                 popup={React.createElement(PersonAutoCompletePopup)}
             >
             </AutoComplete>

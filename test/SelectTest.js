@@ -3,7 +3,7 @@ import React from 'react';
 import Select from '../src/Select';
 import selectPopupMixin from '../src/selectPopupMixin';
 
-const data = [
+const dataSourceDefault = [
     { value: '1', title: '一' },
     { value: '2', title: '二' },
     { value: '3', title: '三' },
@@ -23,7 +23,7 @@ const PersonSelectPopup = React.createClass({
     mixins: [selectPopupMixin],
 
     render() {
-        const {data, value, className, itemClassName, activeClass, onClick} = this.props;
+        const {dataSource, value, className, itemClassName, activeClass, onClick} = this.props;
         const {width, top, left} = this.state;
 
         const style = {
@@ -42,7 +42,7 @@ const PersonSelectPopup = React.createClass({
             >
             {(() => {
                 const list 
-                = data.map(item => {
+                = dataSource.map(item => {
                     let className = itemClassName;
 
                     if (item.value === value) {
@@ -76,7 +76,7 @@ const SelectTest = React.createClass({
                 <div className="select-container">
                     <label>Default</label>
                     <Select
-                        data={data}
+                        dataSource={dataSourceDefault}
                         className="select"
                         defaultTitle="Choose number"
                     >
@@ -86,7 +86,7 @@ const SelectTest = React.createClass({
                 <div className="select-container">
                     <label>Custom</label>
                     <Select
-                        data={PersonSelectData}
+                        dataSource={PersonSelectData}
                         className="select person"
                         popupClassName="select-popup person"
                         defaultTitle="Choose person"
