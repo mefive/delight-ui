@@ -15,8 +15,8 @@ const Draggable = React.createClass({
 
     getInitialState() {
         return {
-            elementTop: 0,
-            elementLeft: 0,
+            elementTop: null,
+            elementLeft: null,
             isDragging: false
         };
     },
@@ -60,7 +60,7 @@ const Draggable = React.createClass({
             
             let offset 
             = {
-                top: clientY - top - mouseOffset.top,
+                top: clientY - top - mouseOffset.top - minShiftY / 2,
                 left: clientX - left - mouseOffset.left
             };
 
@@ -79,7 +79,7 @@ const Draggable = React.createClass({
                 elementLeft: offset.left,
                 isDragging: true
             });
-
+            
             onDrag(offset);
         };
 
@@ -109,11 +109,11 @@ const Draggable = React.createClass({
         const newStyle = {...style};
         let childrenClassName = children.props.className;
 
-        if (!isNaN(elementLeft)) {
+        if (!isNaN(elementLeft) && elementLeft != null) {
             newStyle.left = elementLeft;
         }
 
-        if (!isNaN(elementTop)) {
+        if (!isNaN(elementTop) && elementTop != null) {
             newStyle.top = elementTop;
         }
 
