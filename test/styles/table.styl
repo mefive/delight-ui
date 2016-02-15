@@ -13,10 +13,60 @@ icon() {
 }
 
 .table-test {
+    .table-container {
+        position: relative;
+    }
+
+    .table-scroll-panel {
+        overflow-x: hidden;
+        &:hover {
+            .scroll-thumb {
+                display: block;
+            }
+        }
+    }
+
+    .scroll-panel {
+        overflow: hidden;
+    }
+
+    .scroll-thumb {
+        position: absolute;
+        background-color: $primary-color;
+        transition: background-color .3s;
+        border-radius: 3px;
+        box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+        &:hover {
+            background-color: #b3b3b3;
+        }
+        display: none;
+    }
+
+    .scroll-track {
+        position: absolute;
+    }
+
+    .scroll-track {
+        height: 6px;
+        right: 0;
+        left: 0;
+        bottom: 0px;
+    }
+
+    .scroll-thumb {
+        height: 6px;
+    }
+    
     .table {
-        width: 100%;
+        width: 1000px;
         border-collapse: separate !important;
         primary-border();
+    }
+
+    .resizable {
+        .table {
+            width: 100%;
+        }
     }
     
     thead {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Table from '../src/Table';
+import Scrollable from '../src/Scrollable';
 
 const colums = [
     { key: 'id', title: 'Id' },
@@ -19,12 +20,30 @@ const TableTest = React.createClass({
         return (
             <div className="table-test">
                 <h1>Table</h1>
-                <Table
-                    className="table"
-                    dataSource={dataSource}
-                    colums={colums}
-                >
-                </Table>
+                <div className="table-container">
+                    <Scrollable
+                        className="table-scroll-panel"
+                        orientation="horizontal"
+                    >
+                        <Table
+                            className="table"
+                            dataSource={dataSource}
+                            colums={colums}
+                        >
+                        </Table>
+                    </Scrollable>
+                </div>
+
+                <h1>Table Resizable</h1>
+                <div className="table-container resizable">
+                    <Table
+                        className="table"
+                        dataSource={dataSource}
+                        colums={colums}
+                        resizable={true}
+                    >
+                    </Table>
+                </div>
             </div>
         );
     }

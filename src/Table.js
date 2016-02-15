@@ -7,7 +7,8 @@ const Table = React.createClass({
             className: 'table',
             dataSource: [],
             colums: [],
-            sortByClass: 'sort'
+            sortByClass: 'sort',
+            resizable: false
         };
     },
 
@@ -55,7 +56,7 @@ const Table = React.createClass({
     },
 
     render() {
-        const {className, colums, sortByClass} = this.props;
+        const {className, colums, sortByClass, resizable} = this.props;
         const {dataSource, sortBy, order} = this.state;
 
         return (
@@ -74,9 +75,12 @@ const Table = React.createClass({
                                 className={key === sortBy ? `${sortByClass} ${order}` : ''}
                             >
                                 {title}
-                                <div 
-                                    className="resizer"
-                                ></div>
+                                {resizable
+                                ? (
+                                    <div 
+                                        className="resizer"
+                                    ></div>
+                                ): null}
                             </th>
                         );
                     })}
@@ -101,7 +105,8 @@ const Table = React.createClass({
 Table.propTypes = {
     className: PropTypes.string,
     dataSource: PropTypes.array,
-    colums: PropTypes.array
+    colums: PropTypes.array,
+    resizable: PropTypes.bool
 };
 
 export default Table;
