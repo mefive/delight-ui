@@ -26,7 +26,7 @@ npm install
 npm start
 ```
 
-The test can only run in Chrome, or other browser which support Websocket.
+The test can only run in Chrome, with `http://localhost:9000/` , or other browser which support Websocket.
 
 Or you can build a static version with
 
