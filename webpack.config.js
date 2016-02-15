@@ -8,13 +8,13 @@ module.exports = {
 
     entry: [
         './test/main.js',
-        'webpack-dev-server/client?http://localhost:8080',
+        'webpack-dev-server/client?http://localhost:9000',
         'webpack/hot/only-dev-server',
     ],
 
     output: {
         path: 'build',
-        publicPath: 'http://localhost:8080/',
+        publicPath: 'http://localhost:9000/',
         filename: '[name].js'
     },
 

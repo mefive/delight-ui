@@ -40,6 +40,7 @@ const Slider = React.createClass({
             handleClassName: 'slider-handle',
             stepClassName: 'slider-step',
             onChange: () => {},
+            onDrop: () => {},
             orientation: 'horizontal' // horizontal vertical
         };
     },
@@ -77,11 +78,8 @@ const Slider = React.createClass({
             state.range = { left, width };
         }
 
-        if (isVeritical(orientation)) {
-            state.unit = divide(step.clientHeight, max);
-        }
-        else {
-            state.unit = divide(step.clientWidth, max);
+        if (max > 0) {
+            state.unit = this.getUnit(max)
         }
 
         state.shift = shift;
@@ -89,6 +87,32 @@ const Slider = React.createClass({
         this.setState({
             offset: this.getOffset(value)
         });
+    },
+
+    componentDidUpdate(prevProps, prevState) {
+        const {max, value} = this.props;
+
+        if (prevProps.max !== max) {
+            if (max > 0) {
+                this.state.unit = this.getUnit(max);
+
+                this.setState({
+                    offset: this.getOffset(value)
+                });
+            }
+        }
+    },
+
+    getUnit(max) {
+        const {orientation} = this.props;
+        const {step} = this.refs;
+
+        if (isVeritical(orientation)) {
+            return divide(step.clientHeight, max);
+        }
+        else {
+            return divide(step.clientWidth, max);
+        }
     },
 
     getOffset(value) {
@@ -135,9 +159,14 @@ const Slider = React.createClass({
     },
 
     onStopDrag() {
+        const {onDrop} = this.props;
+        const {offset} = this.state;
+
         this.setState({
             holdOn: false
         });
+
+        onDrop(this.getValue(offset));
     },
 
     render() {
@@ -159,24 +188,24 @@ const Slider = React.createClass({
                     className={trackClassName}
                     style={trackStyle}
                 ></div>
-                    <Draggable 
-                        style={handleStyle}
-                        range={range}
-                        onDrag={this.onDrag}
-                        onStopDrag={this.onStopDrag}
-                        minShiftX={shift.min}
-                        minShiftY={shift.min}
-                    >
-                        <div className={handleClassName} ref="handle">
-                            <Tooltip 
-                                title={this.getValue(offset) + ''}
-                                delay={500}
-                                holdOn={holdOn}
-                            >
-                                <div className="tooltip-trigger"></div>
-                            </Tooltip>
-                        </div>
-                    </Draggable>
+                <Draggable 
+                    style={handleStyle}
+                    range={range}
+                    onDrag={this.onDrag}
+                    onStopDrag={this.onStopDrag}
+                    minShiftX={shift.min}
+                    minShiftY={shift.min}
+                >
+                    <div className={handleClassName} ref="handle">
+                        <Tooltip 
+                            title={this.getValue(offset) + ''}
+                            delay={500}
+                            holdOn={holdOn}
+                        >
+                            <div className="tooltip-trigger"></div>
+                        </Tooltip>
+                    </div>
+                </Draggable>
                 <div 
                     className={stepClassName}
                     ref="step"
@@ -194,6 +223,7 @@ Slider.propTypes = {
     handleClassName: PropTypes.string,
     stepClassName: PropTypes.string,
     onChange: PropTypes.func,
+    onDrop: PropTypes.func,
     orientation: PropTypes.string // horizontal vertical
 }
 

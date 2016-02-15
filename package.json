@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run hotServer",
-    "hotServer": "webpack-dev-server --progress --colors --hot --content-base ./build --config ./webpack.config.js",
+    "hotServer": "webpack-dev-server --port 9000 --progress --colors --hot --content-base ./build --config ./webpack.config.js",
     "mock": "node server.js",
     "build": "webpack -d --progress --colors --config ./webpack.dev.config.js"
   },
