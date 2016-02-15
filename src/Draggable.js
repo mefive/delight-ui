@@ -88,6 +88,8 @@ const Draggable = React.createClass({
             document.removeEventListener('mouseup', endMove);
             document.onselectstart = null;
 
+            e.stopPropagation();
+
             this.setState({
                 isDragging: false
             });

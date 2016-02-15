@@ -9,7 +9,6 @@ const ScrollableTest = React.createClass({
                 <div className="scroll-vertical">
                     <Scrollable
                         className="scroll-panel"
-                        panelSize={200}
                     >
                         <div 
                             className="scroll-content"
@@ -25,7 +24,6 @@ const ScrollableTest = React.createClass({
                 <div className="scroll-horizontal">
                     <Scrollable
                         className="scroll-panel"
-                        panelSize={300}
                         orientation="horizontal"
                     >
                         <div
