@@ -154,7 +154,7 @@ const Scrollable = React.createClass({
 
     render() {
         const {className, children, orientation} = this.props;
-        let {panelSize} = this.props;
+        let {panelSize} = this.state;
         const {showBar, thumbSize, thumbOffset, panelOffset} = this.state;
 
         const panelStyle
@@ -211,7 +211,6 @@ const Scrollable = React.createClass({
 
 Scrollable.propTypes = {
     scrollSize: PropTypes.number,
-    panelSize: PropTypes.number,
     className: PropTypes.string,
     orientation: PropTypes.string // horizontal vertical
 };
