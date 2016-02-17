@@ -41,6 +41,7 @@ const Slider = React.createClass({
             stepClassName: 'slider-step',
             onChange: () => {},
             onDrop: () => {},
+            onClick: () => {},
             orientation: 'horizontal' // horizontal vertical
         };
     },
@@ -168,7 +169,7 @@ const Slider = React.createClass({
     },
 
     onClick(e) {
-        const {orientation, onChange} = this.props;
+        const {orientation, onClick} = this.props;
         const {range, shift} = this.state;
 
         let {offset} = this.state;
@@ -185,7 +186,7 @@ const Slider = React.createClass({
 
         this.setState({offset});
 
-        onChange(this.getValue(offset));
+        onClick(this.getValue(offset));
     },
 
     render() {
@@ -245,6 +246,7 @@ Slider.propTypes = {
     stepClassName: PropTypes.string,
     onChange: PropTypes.func,
     onDrop: PropTypes.func,
+    onClick: PropTypes.func,
     orientation: PropTypes.string // horizontal vertical
 }
 
