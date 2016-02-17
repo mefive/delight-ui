@@ -153,9 +153,7 @@ const Slider = React.createClass({
             holdOn: true
         });
 
-        const value = this.getValue(offset);
-
-        onChange(value);
+        onChange(this.getValue(offset));
     },
 
     onStopDrag() {
@@ -167,6 +165,27 @@ const Slider = React.createClass({
         });
 
         onDrop(this.getValue(offset));
+    },
+
+    onClick(e) {
+        const {orientation, onChange} = this.props;
+        const {range, shift} = this.state;
+
+        let {offset} = this.state;
+        let {left, top} = offset;
+
+        if (isVeritical(orientation)) {
+            top = e.clientY - range.top;
+        }
+        else {
+            left = e.clientX - range.left + shift.min;
+        }
+
+        offset = {left, top};
+
+        this.setState({offset});
+
+        onChange(this.getValue(offset));
     },
 
     render() {
@@ -187,6 +206,7 @@ const Slider = React.createClass({
                 <div
                     className={trackClassName}
                     style={trackStyle}
+                    onClick={this.onClick}
                 ></div>
                 <Draggable 
                     style={handleStyle}
@@ -209,6 +229,7 @@ const Slider = React.createClass({
                 <div 
                     className={stepClassName}
                     ref="step"
+                    onClick={this.onClick}
                 ></div>
             </div>
         );
