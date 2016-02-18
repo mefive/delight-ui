@@ -8,6 +8,7 @@ const Draggable = React.createClass({
             minShiftX: 0,
             minShiftY: 0,
             draggingClass: 'dragging',
+            onStartDrag: () => {},
             onDrag: () => {},
             onStopDrag: () => {}
         };
@@ -38,7 +39,7 @@ const Draggable = React.createClass({
     },
 
     startDragging(e) {
-        const {range, minShiftX, minShiftY, onDrag, onStopDrag} = this.props;
+        const {range, minShiftX, minShiftY, onDrag, onStartDrag, onStopDrag} = this.props;
         const {left, top, width, height} = range;
         const element = findDOMNode(this);
         let {clientY, clientX} = e;
@@ -88,8 +89,6 @@ const Draggable = React.createClass({
             document.removeEventListener('mouseup', endMove);
             document.onselectstart = null;
 
-            e.stopPropagation();
-
             this.setState({
                 isDragging: false
             });
@@ -102,6 +101,8 @@ const Draggable = React.createClass({
 
         document
             .addEventListener('mouseup', endMove);
+
+        onStartDrag();
     },
 
     render() {
@@ -137,6 +138,7 @@ Draggable.propTypes = {
     range: PropTypes.object,
     minShiftX: PropTypes.number,
     minShiftY: PropTypes.number,
+    onStartDrag: PropTypes.func,
     onDrag: PropTypes.func,
     onStopDrag: PropTypes.func
 };

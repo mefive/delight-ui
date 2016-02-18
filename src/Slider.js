@@ -39,6 +39,7 @@ const Slider = React.createClass({
             trackClassName: 'slider-track',
             handleClassName: 'slider-handle',
             stepClassName: 'slider-step',
+            onStartDrag: () => {},
             onChange: () => {},
             onDrop: () => {},
             onClick: () => {},
@@ -48,7 +49,10 @@ const Slider = React.createClass({
 
     componentWillReceiveProps(nextProps) {
         const {value} = nextProps;
-        this.state.offset = this.getOffset(value);
+
+        if (value != null) {
+            this.state.offset = this.getOffset(value);
+        }
     },
 
     componentDidMount() {
@@ -158,14 +162,14 @@ const Slider = React.createClass({
     },
 
     onStopDrag() {
-        const {onDrop} = this.props;
+        const {onStopDrag} = this.props;
         const {offset} = this.state;
 
         this.setState({
             holdOn: false
         });
 
-        onDrop(this.getValue(offset));
+        onStopDrag(this.getValue(offset));
     },
 
     onClick(e) {
@@ -190,7 +194,7 @@ const Slider = React.createClass({
     },
 
     render() {
-        const {className, trackClassName, handleClassName, stepClassName, orientation} = this.props;
+        const {className, trackClassName, handleClassName, stepClassName, orientation, onStartDrag} = this.props;
         const {offset, range, shift, holdOn} = this.state;
         const trackStyle
         = isVeritical(orientation)
@@ -213,6 +217,7 @@ const Slider = React.createClass({
                     style={handleStyle}
                     range={range}
                     onDrag={this.onDrag}
+                    onStartDrag={onStartDrag}
                     onStopDrag={this.onStopDrag}
                     minShiftX={shift.min}
                     minShiftY={shift.min}
@@ -244,8 +249,9 @@ Slider.propTypes = {
     trackClassName: PropTypes.string,
     handleClassName: PropTypes.string,
     stepClassName: PropTypes.string,
+    onStartDrag: PropTypes.func,
+    onStopDrag: PropTypes.func,
     onChange: PropTypes.func,
-    onDrop: PropTypes.func,
     onClick: PropTypes.func,
     orientation: PropTypes.string // horizontal vertical
 }
