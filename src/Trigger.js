@@ -12,8 +12,8 @@ const Trigger = React.createClass({
             activeClass: 'active',
             enterClass: 'enter',
             leaveClass: 'leave',
-            enterDuration: 200,
-            leaveDuration: 200,
+            enterDuration: 0,
+            leaveDuration: 0,
             actions: '',
             onShow: () => {},
             onHide: () => {},
@@ -201,9 +201,9 @@ const Trigger = React.createClass({
                 },
                 delay
             );
-
-            state.aboutToLeave = true;
         }
+
+        state.aboutToLeave = true;
     },
 
     onFocus() {

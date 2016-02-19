@@ -39,6 +39,9 @@ const Slider = React.createClass({
             trackClassName: 'slider-track',
             handleClassName: 'slider-handle',
             stepClassName: 'slider-step',
+            tooltipPopupClassName: 'slider-tooltip-popup',
+            formatTooltip: (value) => value,
+            onStartDrag: () => {},
             onChange: () => {},
             onDrop: () => {},
             onClick: () => {},
@@ -48,7 +51,10 @@ const Slider = React.createClass({
 
     componentWillReceiveProps(nextProps) {
         const {value} = nextProps;
-        this.state.offset = this.getOffset(value);
+
+        if (value != null) {
+            this.state.offset = this.getOffset(value);
+        }
     },
 
     componentDidMount() {
@@ -139,9 +145,13 @@ const Slider = React.createClass({
         const {orientation, max} = this.props;
         const {unit, shift} = this.state;
 
-        const value = isVeritical(orientation)
-        ? Math.round(minus(max, divide(minus(offset.top, shift.min), unit)))
-        : Math.round(divide(minus(offset.left, shift.min), unit));
+        let value = 0;
+
+        if (unit > 0) {
+            value = isVeritical(orientation)
+            ? Math.round(minus(max, divide(minus(offset.top, shift.min), unit)))
+            : Math.round(divide(minus(offset.left, shift.min), unit));
+        }
 
         return value;
     },
@@ -158,14 +168,14 @@ const Slider = React.createClass({
     },
 
     onStopDrag() {
-        const {onDrop} = this.props;
+        const {onStopDrag} = this.props;
         const {offset} = this.state;
 
         this.setState({
             holdOn: false
         });
 
-        onDrop(this.getValue(offset));
+        onStopDrag(this.getValue(offset));
     },
 
     onClick(e) {
@@ -190,7 +200,11 @@ const Slider = React.createClass({
     },
 
     render() {
-        const {className, trackClassName, handleClassName, stepClassName, orientation} = this.props;
+        const {
+            className, trackClassName, handleClassName, 
+            stepClassName, orientation, formatTooltip, onStartDrag, tooltipPopupClassName
+        } = this.props;
+
         const {offset, range, shift, holdOn} = this.state;
         const trackStyle
         = isVeritical(orientation)
@@ -213,15 +227,17 @@ const Slider = React.createClass({
                     style={handleStyle}
                     range={range}
                     onDrag={this.onDrag}
+                    onStartDrag={onStartDrag}
                     onStopDrag={this.onStopDrag}
                     minShiftX={shift.min}
                     minShiftY={shift.min}
                 >
                     <div className={handleClassName} ref="handle">
                         <Tooltip 
-                            title={this.getValue(offset) + ''}
-                            delay={500}
+                            title={formatTooltip(this.getValue(offset)) + ''}
+                            delay={0}
                             holdOn={holdOn}
+                            popupClassName={tooltipPopupClassName}
                         >
                             <div className="tooltip-trigger"></div>
                         </Tooltip>
@@ -243,9 +259,12 @@ Slider.propTypes = {
     className: PropTypes.string,
     trackClassName: PropTypes.string,
     handleClassName: PropTypes.string,
+    tooltipPopupClassName: PropTypes.string,
     stepClassName: PropTypes.string,
+    formatTooltip: PropTypes.func,
+    onStartDrag: PropTypes.func,
+    onStopDrag: PropTypes.func,
     onChange: PropTypes.func,
-    onDrop: PropTypes.func,
     onClick: PropTypes.func,
     orientation: PropTypes.string // horizontal vertical
 }
