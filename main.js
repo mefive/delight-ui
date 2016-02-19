@@ -20996,6 +20996,7 @@
 	            minShiftX: 0,
 	            minShiftY: 0,
 	            draggingClass: 'dragging',
+	            onStartDrag: function onStartDrag() {},
 	            onDrag: function onDrag() {},
 	            onStopDrag: function onStopDrag() {}
 	        };
@@ -21032,6 +21033,7 @@
 	        var minShiftX = _props.minShiftX;
 	        var minShiftY = _props.minShiftY;
 	        var onDrag = _props.onDrag;
+	        var onStartDrag = _props.onStartDrag;
 	        var onStopDrag = _props.onStopDrag;
 	        var left = range.left;
 	        var top = range.top;
@@ -21091,8 +21093,6 @@
 	            document.removeEventListener('mouseup', endMove);
 	            document.onselectstart = null;
 	
-	            e.stopPropagation();
-	
 	            _this.setState({
 	                isDragging: false
 	            });
@@ -21103,6 +21103,8 @@
 	        document.addEventListener('mousemove', onMove);
 	
 	        document.addEventListener('mouseup', endMove);
+	
+	        onStartDrag();
 	    },
 	    render: function render() {
 	        var _props2 = this.props;
@@ -21144,6 +21146,7 @@
 	    range: _react.PropTypes.object,
 	    minShiftX: _react.PropTypes.number,
 	    minShiftY: _react.PropTypes.number,
+	    onStartDrag: _react.PropTypes.func,
 	    onDrag: _react.PropTypes.func,
 	    onStopDrag: _react.PropTypes.func
 	};
@@ -21417,8 +21420,8 @@
 	            activeClass: 'active',
 	            enterClass: 'enter',
 	            leaveClass: 'leave',
-	            enterDuration: 200,
-	            leaveDuration: 200,
+	            enterDuration: 0,
+	            leaveDuration: 0,
 	            actions: '',
 	            onShow: function onShow() {},
 	            onHide: function onHide() {},
@@ -21590,9 +21593,9 @@
 	                    _this2.hide();
 	                }
 	            }, delay);
-	
-	            state.aboutToLeave = true;
 	        }
+	
+	        state.aboutToLeave = true;
 	    },
 	    onFocus: function onFocus() {
 	        this.show();
@@ -22249,6 +22252,11 @@
 	            trackClassName: 'slider-track',
 	            handleClassName: 'slider-handle',
 	            stepClassName: 'slider-step',
+	            tooltipPopupClassName: 'slider-tooltip-popup',
+	            formatTooltip: function formatTooltip(value) {
+	                return value;
+	            },
+	            onStartDrag: function onStartDrag() {},
 	            onChange: function onChange() {},
 	            onDrop: function onDrop() {},
 	            onClick: function onClick() {},
@@ -22258,7 +22266,9 @@
 	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	        var value = nextProps.value;
 	
-	        this.state.offset = this.getOffset(value);
+	        if (value != null) {
+	            this.state.offset = this.getOffset(value);
+	        }
 	    },
 	    componentDidMount: function componentDidMount() {
 	        var _props = this.props;
@@ -22354,7 +22364,11 @@
 	        var unit = _state2.unit;
 	        var shift = _state2.shift;
 	
-	        var value = isVeritical(orientation) ? Math.round((0, _util.minus)(max, (0, _util.divide)((0, _util.minus)(offset.top, shift.min), unit))) : Math.round((0, _util.divide)((0, _util.minus)(offset.left, shift.min), unit));
+	        var value = 0;
+	
+	        if (unit > 0) {
+	            value = isVeritical(orientation) ? Math.round((0, _util.minus)(max, (0, _util.divide)((0, _util.minus)(offset.top, shift.min), unit))) : Math.round((0, _util.divide)((0, _util.minus)(offset.left, shift.min), unit));
+	        }
 	
 	        return value;
 	    },
@@ -22372,14 +22386,14 @@
 	        onChange(this.getValue(offset));
 	    },
 	    onStopDrag: function onStopDrag() {
-	        var onDrop = this.props.onDrop;
+	        var onStopDrag = this.props.onStopDrag;
 	        var offset = this.state.offset;
 	
 	        this.setState({
 	            holdOn: false
 	        });
 	
-	        onDrop(this.getValue(offset));
+	        onStopDrag(this.getValue(offset));
 	    },
 	    onClick: function onClick(e) {
 	        var _props6 = this.props;
@@ -22412,6 +22426,9 @@
 	        var handleClassName = _props7.handleClassName;
 	        var stepClassName = _props7.stepClassName;
 	        var orientation = _props7.orientation;
+	        var formatTooltip = _props7.formatTooltip;
+	        var onStartDrag = _props7.onStartDrag;
+	        var tooltipPopupClassName = _props7.tooltipPopupClassName;
 	        var _state4 = this.state;
 	        var offset = _state4.offset;
 	        var range = _state4.range;
@@ -22436,6 +22453,7 @@
 	                    style: handleStyle,
 	                    range: range,
 	                    onDrag: this.onDrag,
+	                    onStartDrag: onStartDrag,
 	                    onStopDrag: this.onStopDrag,
 	                    minShiftX: shift.min,
 	                    minShiftY: shift.min
@@ -22446,9 +22464,10 @@
 	                    _react2.default.createElement(
 	                        _Tooltip2.default,
 	                        {
-	                            title: this.getValue(offset) + '',
-	                            delay: 500,
-	                            holdOn: holdOn
+	                            title: formatTooltip(this.getValue(offset)) + '',
+	                            delay: 0,
+	                            holdOn: holdOn,
+	                            popupClassName: tooltipPopupClassName
 	                        },
 	                        _react2.default.createElement('div', { className: 'tooltip-trigger' })
 	                    )
@@ -22469,9 +22488,12 @@
 	    className: _react.PropTypes.string,
 	    trackClassName: _react.PropTypes.string,
 	    handleClassName: _react.PropTypes.string,
+	    tooltipPopupClassName: _react.PropTypes.string,
 	    stepClassName: _react.PropTypes.string,
+	    formatTooltip: _react.PropTypes.func,
+	    onStartDrag: _react.PropTypes.func,
+	    onStopDrag: _react.PropTypes.func,
 	    onChange: _react.PropTypes.func,
-	    onDrop: _react.PropTypes.func,
 	    onClick: _react.PropTypes.func,
 	    orientation: _react.PropTypes.string // horizontal vertical
 	};
