@@ -75,3 +75,5 @@ The static file will be generated in `./build` folder. Just run `index.html` in 
 * Automatically render DOM in the list, by the height of the viewport.
 * Fill with padding on the rest space.
 * When touch bottom, new fetching action will be triggered.
+
+#### Context Menu
