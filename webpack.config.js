@@ -1,20 +1,19 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 
     devtool: 'source-map',
 
     entry: [
-        './test/main.js',
-        'webpack-dev-server/client?http://localhost:9000',
-        'webpack/hot/only-dev-server',
+        './test/main.js'
     ],
 
     output: {
         path: 'build',
-        publicPath: 'http://localhost:9000/',
+        publicPath: './',
         filename: '[name].js'
     },
 
@@ -42,17 +41,10 @@ module.exports = {
                 loader: 'file-loader',
                 query: {
                     name: '[path][name].[ext]',
-                    context: 'src/styles/'
+                    context: 'test/styles/'
                 }
             }
         ]
-    },
-
-    devServer: {
-        host: '0.0.0.0',
-        proxy: {
-            '/mock/*': 'http://127.0.0.1:3000'
-        }
     },
 
     plugins: [
@@ -61,6 +53,11 @@ module.exports = {
             hash: false,
             inject: true,
             template: __dirname + '/view/index.html'
+        }),
+        new CleanWebpackPlugin(['build'], {
+            root: __dirname,
+            verbose: true,
+            dry: false
         })
     ]
 
