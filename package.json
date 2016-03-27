@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run hotServer",
-    "hotServer": "webpack-dev-server --port 9000 --progress --colors --hot --content-base ./build --config ./webpack.config.js",
+    "hotServer": "webpack-dev-server --port 9000 --progress --colors --hot --content-base ./build --config ./webpack.dev.config.js",
     "mock": "node server.js",
-    "build": "webpack -d --progress --colors --config ./webpack.dev.config.js"
+    "build": "webpack -d --progress --colors --config ./webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-node5": "^10.1.2",
     "babel-preset-react": "^6.3.13",
+    "clean-webpack-plugin": "^0.1.8",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.6.1",

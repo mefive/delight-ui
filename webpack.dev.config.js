@@ -7,12 +7,14 @@ module.exports = {
     devtool: 'source-map',
 
     entry: [
-        './test/main.js'
+        './test/main.js',
+        'webpack-dev-server/client?http://localhost:9000',
+        'webpack/hot/only-dev-server',
     ],
 
     output: {
         path: 'build',
-        publicPath: './',
+        publicPath: 'http://localhost:9000/',
         filename: '[name].js'
     },
 
@@ -40,10 +42,17 @@ module.exports = {
                 loader: 'file-loader',
                 query: {
                     name: '[path][name].[ext]',
-                    context: 'test/styles/'
+                    context: 'src/styles/'
                 }
             }
         ]
+    },
+
+    devServer: {
+        host: '0.0.0.0',
+        proxy: {
+            '/mock/*': 'http://127.0.0.1:3000'
+        }
     },
 
     plugins: [
