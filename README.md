@@ -77,3 +77,5 @@ The static file will be generated in `./build` folder. Just run `index.html` in 
 * When touch bottom, new fetching action will be triggered.
 
 #### Context Menu
+#### Image
+* Load source after mount, fetch the best dimension depend on the width of the image container.
