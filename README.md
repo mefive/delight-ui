@@ -4,6 +4,8 @@ A branch of lightweight ui component for React.
 
 Aim to save time when facing the similar scenario.
 
+This is an underdeveloped project, for personal use at this time. Will be released on NPM when it's ready to.
+
 See the [usage](http://mefive.github.io/delight-ui/).
 
 IE9+
